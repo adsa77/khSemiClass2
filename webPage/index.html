@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/mainFrame.css">
+    <link rel="stylesheet" href="./css/sidebar.css">
+    <link rel="stylesheet" href="./css/calender.css">
+    <script defer src="./js/mainFrame.js"></script>
+    <script defer src="./js/sidebar.js"></script>
+    <script defer src="./js/calender.js"></script>
+    <title>Document</title>
+</head>
+
+<body id="container">
+    <button id="sidebarBtn">메뉴</button>
+    <header id="header">
+        <div id="left"><h3>headerL</h3></div>
+        <div id="today"></div>
+        <div id="right"><h3>headerR</h3></div>
+    </header>
+    <aside id="sidebar">
+        <ul>
+            <li><a href="./index.html">홈페이지</a></li>
+            <li><a href="./html/mainFrame.html">달력</a></li>
+            <li><a href="./html/todoList.html" onclick="loadPage('./html/todoList.html'); return false;">todoList</a></li>
+            <li><a href="./html/diaryList.html" onclick="loadPage('./html/diaryList.html'); return false;">diaryList</a></li>
+            <li><a href="./html/chat.html" onclick="loadPage('./html/chat.html'); return false;">채팅</a></li>
+        </ul>
+    </aside>
+    <section id="content1">
+        <div class="calendar" id="calendar"></div>
+    </section>
+    <section id="content2">
+        <h1>할일</h1>
+        <h3>일정1</h3>
+        <h3>일정2</h3>
+        <h3>일정3</h3>
+        <h3>일정4</h3>
+    </section>
+    <footer>
+        <h1>footer</h1>
+    </footer>
+</body>
+
+</html>

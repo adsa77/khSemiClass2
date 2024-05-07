@@ -1,0 +1,34 @@
+.calendar {
+  width: 80vw;
+  height: auto;
+  margin: 0 auto; /* 가로 중앙 정렬을 위한 마진 설정 */
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border: 1px solid black;
+}
+
+.day {
+  height: 75px;
+  padding: 5px;
+  border: 1px solid lightgray;
+  text-align: center;
+  font-size: 10pt;
+  cursor: pointer;
+}
+
+.header-day{
+  height: 20px;
+}
+
+.day:hover {
+  background-color: lightgray;
+}
+
+.today {
+  background-color: lightblue;
+}
+
+.disabled {
+  color: lightgray;
+  cursor: default;
+}

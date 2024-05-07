@@ -1,0 +1,26 @@
+#sidebarBtn{
+    width: 60px;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    background-color: skyblue;
+    position: fixed;
+    left: 10px;
+    cursor: pointer;
+}
+
+#sidebar{
+    width: 200px;
+    height: 90vh;
+    background-color: aqua;
+    border-radius: 10px;
+    position: relative;
+    top: 45px;
+    left: -200px;
+    position: fixed;
+    transition: 0.5s;
+}
+
+#sidebar.active {
+    left: 0px;
+  }

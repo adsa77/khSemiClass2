@@ -1,0 +1,43 @@
+#chat{
+  display: grid;
+  width: auto;
+}
+
+.dialogue{
+  width: 200px;
+  border-radius: 10px;
+}
+
+#chat > #user01,#user02 {
+  margin: 5px;
+  padding: 5px;
+  width: auto;
+  max-width: 80%;
+}
+
+#user01{
+  justify-self: right;
+  text-align: right;
+  background-color: yellow;
+}
+
+#user02{
+  justify-self: left;
+  background-color: skyblue;
+}
+
+.user01{
+  justify-self: right;
+  text-align: right;
+}
+
+.user02{
+  justify-self: left;
+}
+
+
+.time{
+  width: auto;
+  height: auto;
+  font-size: 10px;
+}

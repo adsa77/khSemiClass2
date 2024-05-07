@@ -1,0 +1,34 @@
+#container {
+    width: 90vw;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    margin: 0 auto;
+}
+
+#header{
+    grid-column: span 3;
+}
+
+#header > div {
+    margin: 0;
+    display: inline-block;
+    border: 1px solid black;
+}
+
+#content1 {
+    border: 1px solid black;
+    grid-column: span 3;
+    width: 90vw;
+    height: auto;
+    justify-self: center;
+    align-self: center;
+}
+
+#content2 {
+    border: 1px solid black;
+    grid-column: span 3;
+    width: 90vw;
+    justify-self: center;
+    align-self: center;
+}
