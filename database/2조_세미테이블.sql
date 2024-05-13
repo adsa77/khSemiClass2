@@ -45,16 +45,17 @@ CREATE SEQUENCE SEQ_MEMO_NO NOCACHE NOCYCLE;
 DROP TABLE MEMO CASCADE CONSTRAINTS;
 
 -----테이블 생성-----
-CREATE TABLE TODO (
-    NO              NUMBER          CONSTRAINT PK_TODO_NO  PRIMARY KEY
-    ,WRITER_NO      NUMBER          CONSTRAINT NN_TODO_WN  NOT NULL
-    ,TITLE          VARCHAR2(100)   CONSTRAINT NN_TODO_TI  NOT NULL
-    ,CONTENT        VARCHAR2(4000)  CONSTRAINT NN_TODO_CO  NOT NULL
-    ,ENROLL_DATE    TIMESTAMP       DEFAULT SYSDATE
-    ,MODIFY_DATE    TIMESTAMP   
-    ,COMPLETE_YN    CHAR(1)         DEFAULT 'N' 
-    ,DEL_YN         CHAR(1)         DEFAULT 'N'  
+CREATE TABLE MEMO (
+   NO           NUMBER          CONSTRAINT PK_MEMO_NO   PRIMARY KEY
+   ,WRITER_NO   NUMBER          CONSTRAINT NN_MEMO_WN   NOT NULL
+   ,TITLE       VARCHAR2(100)   CONSTRAINT NN_MEMO_TI   NOT NULL   
+   ,CONTENT     VARCHAR2(100)   CONSTRAINT NN_MEMO_CO   NOT NULL   
+   ,IMG         VARCHAR2(1000)  NULL
+   ,ENROLL_DATE TIMESTAMP       DEFAULT SYSDATE
+   ,MODIFY_DATE TIMESTAMP       
+   ,DEL_YN      CHAR(1)         DEFAULT 'N'
 );
+
 
 -----외래키 제약조건-----
 ALTER TABLE MEMO 
@@ -294,6 +295,118 @@ FOREIGN KEY (WRITER_NO) REFERENCES MEMBER(NO)
 ALTER TABLE QNA
 ADD CONSTRAINT FK_QNA_ADMIN_NO
 FOREIGN KEY (ADMIN_NO) REFERENCES ADMIN(NO)
+;
+
+--------------------------------------------------
+
+
+--------------------------------------------------
+-----------------------캘린더----------------------
+--------------------------------------------------
+
+-----시퀀스 삭제-----
+DROP SEQUENCE SEQ_CALENDER_NO;
+
+-----시퀀스 생성-----
+CREATE SEQUENCE SEQ_CALENDER_NO NOCACHE NOCYCLE;
+
+-----테이블 삭제-----
+DROP TABLE CALENDER CASCADE CONSTRAINTS;
+
+-----테이블 생성-----
+CREATE TABLE CALENDER (
+   NO           NUMBER          CONSTRAINT PK_CALENDER_NO PRIMARY KEY
+   ,CODE        VARCHAR2(100)   NULL
+   ,ENROLL_DATE TIMESTAMP       DEFAULT     SYSDATE
+   ,DEL_YN      CHAR(1)         NOT NULL
+);
+
+--------------------------------------------------
+
+
+--------------------------------------------------
+----------------------기념일-----------------------
+--------------------------------------------------
+
+-----시퀀스 삭제-----
+DROP SEQUENCE SEQ_ANNIVERSARY_NO;
+
+-----시퀀스 생성-----
+CREATE SEQUENCE SEQ_ANNIVERSARY_NO NOCACHE NOCYCLE;
+
+-----테이블 삭제-----
+DROP TABLE ANNIVERSARY CASCADE CONSTRAINTS;
+
+-----테이블 생성-----
+CREATE TABLE ANNIVERSARY (
+   NO           NUMBER          NOT NULL    CONSTRAINT PK_ANNIVERSARY_NO PRIMARY KEY
+   ,WRITER_NO   NUMBER          NOT NULL
+   ,TITLE       VARCHAR2(100)   NOT NULL
+   ,CONTENT     VARCHAR2(4000)  NOT NULL
+   ,ENROLL_DATE TIMESTAMP       DEFAULT     SYSDATE
+   ,MODIFY_DATE TIMESTAMP      
+   ,DEL_YN      CHAR(1)         DEFAULT'N'
+);
+
+-----외래키 제약조건-----
+ALTER TABLE ANNIVERSARY 
+ADD CONSTRAINT FK_ANNIVERSARY_MEMBER
+FOREIGN KEY (WRITER_NO) REFERENCES MEMBER (NO)
+;
+
+--------------------------------------------------
+
+
+--------------------------------------------------
+----------------------공휴일-----------------------
+--------------------------------------------------
+
+-----시퀀스 삭제-----
+DROP SEQUENCE SEQ_HOLIDAY_NO;
+
+-----시퀀스 생성-----
+CREATE SEQUENCE SEQ_HOLIDAY_NO NOCACHE NOCYCLE;
+
+-----테이블 삭제-----
+DROP TABLE HOLIDAY CASCADE CONSTRAINTS;
+
+-----테이블 생성-----
+CREATE TABLE HOLIDAY (
+   NO               NUMBER          NOT NULL    CONSTRAINT PK_HOLIDAY_NO PRIMARY KEY
+   ,TITLE           VARCHAR2(100)   NOT NULL
+   ,HOLIDAY_DATE    CHAR(8)         NOT NULL
+);
+
+--------------------------------------------------
+
+
+--------------------------------------------------
+----------------------스케쥴-----------------------
+--------------------------------------------------
+
+-----시퀀스 삭제-----
+DROP SEQUENCE SEQ_SCHEDULE_NO;
+
+-----시퀀스 생성-----
+CREATE SEQUENCE SEQ_SCHEDULE_NO NOCACHE NOCYCLE;
+
+-----테이블 삭제-----
+DROP TABLE SCHEDULE CASCADE CONSTRAINTS;
+
+-----테이블 생성-----
+CREATE TABLE SCHEDULE (
+   NO           NUMBER          NOT NULL    CONSTRAINT PK_SCHEDULE_NO PRIMARY KEY
+   ,WRITER_NO   NUMBER          NOT NULL
+   ,TITLE       VARCHAR2(100)   NOT NULL
+   ,CONTENT     VARCHAR2(4000)  NOT NULL
+   ,SC_DATE     CHAR(12)        NOT NULL
+   ,DEL_YN      CHAR(1)         DEFAULT 'N'   
+);
+
+-----외래키 제약조건-----
+ALTER TABLE SCHEDULE 
+ADD CONSTRAINT FK_SCHEDULE_MEMBER
+FOREIGN KEY (WRITER_NO) REFERENCES MEMBER (NO)
 ;
 
 --------------------------------------------------
