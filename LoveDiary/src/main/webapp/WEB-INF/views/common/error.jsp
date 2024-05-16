@@ -7,9 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<H1>에러화면</H1>
 
 
-<h1>여기는 러브다이어리 login 페이지</h1>
-
+	<H2>${errMsg}</H2>
 </body>
 </html>

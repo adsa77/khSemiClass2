@@ -3,16 +3,20 @@ package com.kh.love.member.vo;
 public class MemberVo {
 	
 	
+
+
 	public MemberVo() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public MemberVo(String no, String id, String pwd, String nick, String name, String birthDate, String address,
-			String phone, String email, String emrollDate, String modifyDate, String quitDate, String quitYn) {
+	public MemberVo(String no, String id, String pwd, String pwd2, String nick, String name, String birthDate,
+			String address, String phone, String email, String emrollDate, String modifyDate, String quitDate,
+			String quitYn, String profile) {
 		super();
 		this.no = no;
 		this.id = id;
 		this.pwd = pwd;
+		this.pwd2 = pwd2;
 		this.nick = nick;
 		this.name = name;
 		this.birthDate = birthDate;
@@ -23,10 +27,12 @@ public class MemberVo {
 		this.modifyDate = modifyDate;
 		this.quitDate = quitDate;
 		this.quitYn = quitYn;
+		this.profile = profile;
 	}
 	private String no;
 	private String id;
 	private String pwd;
+	private String pwd2;
 	private String nick;
 	private String name;
 	private String birthDate;
@@ -37,8 +43,7 @@ public class MemberVo {
 	private String modifyDate;
 	private String quitDate;
 	private String quitYn;
-	
-	
+	private String profile;
 	public String getNo() {
 		return no;
 	}
@@ -56,6 +61,12 @@ public class MemberVo {
 	}
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
+	}
+	public String getPwd2() {
+		return pwd2;
+	}
+	public void setPwd2(String pwd2) {
+		this.pwd2 = pwd2;
 	}
 	public String getNick() {
 		return nick;
@@ -117,13 +128,22 @@ public class MemberVo {
 	public void setQuitYn(String quitYn) {
 		this.quitYn = quitYn;
 	}
+	public String getProfile() {
+		return profile;
+	}
+	public void setProfile(String profile) {
+		this.profile = profile;
+	}
 	@Override
 	public String toString() {
-		return "MemberVo [no=" + no + ", id=" + id + ", pwd=" + pwd + ", nick=" + nick + ", name=" + name
-				+ ", birthDate=" + birthDate + ", address=" + address + ", phone=" + phone + ", email=" + email
+		return "MemberVo [no=" + no + ", id=" + id + ", pwd=" + pwd + ", pwd2=" + pwd2 + ", nick=" + nick + ", name="
+				+ name + ", birthDate=" + birthDate + ", address=" + address + ", phone=" + phone + ", email=" + email
 				+ ", emrollDate=" + emrollDate + ", modifyDate=" + modifyDate + ", quitDate=" + quitDate + ", quitYn="
-				+ quitYn + "]";
+				+ quitYn + ", profile=" + profile + "]";
 	}
+	
+	
+
 	
 	
 }
