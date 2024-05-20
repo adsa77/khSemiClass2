@@ -3,6 +3,7 @@ package com.kh.love.member.controller;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -11,7 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.kh.love.member.service.MemberService;
 import com.kh.love.member.vo.MemberVo;
 
-@WebServlet("/join")
+@MultipartConfig
+@WebServlet("/member/join")
 public class MemberJoin extends HttpServlet {
 
 	@Override
@@ -29,6 +31,7 @@ public class MemberJoin extends HttpServlet {
 		String no = req.getParameter("no");
 		String id = req.getParameter("id");
 		String pwd = req.getParameter("pwd");
+		String pwd2 = req.getParameter("pwd2");
 		String nick = req.getParameter("nick");
 		String name = req.getParameter("name");
 		String birthDate = req.getParameter("birthDate");
@@ -41,6 +44,7 @@ public class MemberJoin extends HttpServlet {
 		vo.setNo(no);
 		vo.setId(id);
 		vo.setPwd(pwd);
+		vo.setPwd2(pwd2);
 		vo.setNick(nick);
 		vo.setName(name);
 		vo.setBirthDate(birthDate);
@@ -49,10 +53,12 @@ public class MemberJoin extends HttpServlet {
 		vo.setEmail(email);
 		vo.setProfile(profile);
 		
+
 		MemberService ms = new MemberService();
+		System.out.println("여기는 컨트롤러"+vo);
 		int result = ms.join(vo);
-		//호출하기
 		
+		//호출하기
 		//결과처리
 		if(result == 1) {
 			req.setAttribute("resultMsg", "회원가입성공");

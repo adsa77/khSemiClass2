@@ -1,49 +1,43 @@
 // 1. 아이디 입력창 정보 가져오기
-let elInputUserid = document.querySelector('#userid'); // input#userid
-// 2. 성공 메시지 정보 가져오기
-
+let elInputUserid = document.querySelector('#userid');
+// 2. 버튼 메시지 정보 가져오기
+let elidcheck = document.querySelector('#idcheck-but');
 // 3. 실패 메시지 정보 가져오기 (글자수 제한 4~12글자)
-let elFailureMessage = document.querySelector('.failure-message'); // div.failure-message.hide
+let elFailureMessage = document.querySelector('.failure-message');
 // 4. 실패 메시지2 정보 가져오기 (영어 또는 숫자)
-let elFailureMessageTwo = document.querySelector('.failure-message2'); // div.failure-message2.hide
+let elFailureMessageTwo = document.querySelector('.failure-message2');
 
 function idLength(value) {
-  return value.length >= 4 && value.length <= 12
+  return value.length >= 4 && value.length <= 12;
 }
 
 function onlyNumberAndEnglish(str) {
-  return /^[A-Za-z0-9][A-Za-z0-9]*$/.test(str);
+  return /^[A-Za-z0-9]+$/.test(str);  // 간소화된 정규 표현식
 }
 
 elInputUserid.onkeyup = function () {
+  // 입력 값을 변수에 저장
+  let inputVal = elInputUserid.value;
+
   // 값을 입력한 경우
-  if (elInputUserid.value.length !== 0) {
-    // 영어 또는 숫자 외의 값을 입력했을 경우
-    if(onlyNumberAndEnglish(elInputUserid.value) === false) {
-      
-      elFailureMessage.classList.add('hide');
-      elFailureMessageTwo.classList.remove('hide'); // 영어 또는 숫자만 가능합니다
-    }
-    // 글자 수가 4~12글자가 아닐 경우
-    else if(idLength(elInputUserid.value) === false) {
-      
-      elFailureMessage.classList.remove('hide'); // 아이디는 4~12글자이어야 합니다
-      elFailureMessageTwo.classList.add('hide'); // 실패 메시지2가 가려져야 함
-    }
-    // 조건을 모두 만족할 경우
-    else if(idLength(elInputUserid.value) || onlyNumberAndEnglish(elInputUserid.value)) {
+  if (inputVal.length !== 0) {
+    let isLengthValid = idLength(inputVal);
+    let isContentValid = onlyNumberAndEnglish(inputVal);
+
+    // 글자 수와 내용 유효성 검사 결과에 따라 메시지와 버튼 표시 제어
+    
+    elFailureMessage.classList.toggle('hide', isLengthValid);
+    elFailureMessageTwo.classList.toggle('hide', isContentValid);
+    console.log('테스트');
+    elidcheck.classList.toggle('hide', !(isLengthValid && isContentValid));	
+    console.log('테스트1');
    
-      elFailureMessage.classList.add('hide'); // 실패 메시지가 가려져야 함
-      elFailureMessageTwo.classList.add('hide'); // 실패 메시지2가 가려져야 함
-    }
-    
   }
-  // 값을 입력하지 않은 경우 (지웠을 때)
-  // 모든 메시지를 가린다.
+  // 값을 입력하지 않은 경우 (지웠을 때) 모든 메시지와 버튼을 가림
   else {
-    
     elFailureMessage.classList.add('hide');
     elFailureMessageTwo.classList.add('hide');
+    elidcheck.classList.add('hide');
   }
 }
 

@@ -2,13 +2,13 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
-	<title>Document</title>
-  <link rel="stylesheet" href="/LoveDiary/resources/css/join.css">
-  
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>러브 다이어리 회원가입</title>
+<link rel="stylesheet" href="/LoveDiary/resources/css/login.css">
+
 </head>
 <body id="container">
   <div id="wrap">
@@ -23,7 +23,7 @@
     </header>
     <section id="section">
       
-      <form action="">
+      <form action="/LoveDiary/member/login" method="post">
         <input type="text" id="joinTitle" placeholder="아이디">
      	<br>
      	<br>
