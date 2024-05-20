@@ -1,0 +1,58 @@
+#container {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  place-self: center;
+}
+
+#wrap{
+  display: grid;
+  width: 450px;
+  height: 800px;
+  justify-items: center;
+  align-items: center;
+  place-self: center;
+  background: #FEF0F0;
+  border-radius: 10px;
+}
+
+#section {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  width: 400px;
+  height: 600px;
+  background: #FFDDDD;
+  border-radius: 10px;
+}
+
+
+
+#joinTitle {
+  margin: 0 auto;
+  margin-top: 10px;
+  width: 250px;
+  height: 25px;
+  background: #FC7373;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 1000;
+}
+
+#indexinsert {
+  display : grid;
+  justify-self: center;
+  align-self: center;
+  margin: 0 auto;
+  margin-top: 10px;
+  width: 250px;
+  height: 50px;
+  background: #FC7373;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 1000;
+}
+
+
+
+

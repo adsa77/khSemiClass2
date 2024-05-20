@@ -20,22 +20,26 @@
   display: grid;
   justify-items: center;
   align-items: center;
+   place-items: center;
   width: 400px;
   height: 600px;
   background: #FFDDDD;
   border-radius: 10px;
 }
 
+.hide {
+display: none;
+}
 
 
-#joinTitle {
+.joinTitle{
   margin: 0 auto;
   margin-top: 10px;
   width: 250px;
   height: 25px;
   background: #FC7373;
   border-radius: 10px;
-  font-size: 30px;
+  font-size: 15px;
   font-weight: 1000;
 }
 
@@ -49,7 +53,7 @@
   height: 50px;
   background: #FC7373;
   border-radius: 10px;
-  font-size: 30px;
+  font-size: 15px;
   font-weight: 1000;
 }
 #joinDup{
@@ -61,6 +65,67 @@
   border: none;
   border-radius: 10px;
 }
+#userid{
+margin: 0 auto;
+  margin-top: 10px;
+  width: 250px;
+  height: 25px;
+  background: #FC7373;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 1000;
+}
 
+#formjoin{
+  display: inline-block;
+  text-align: center;
 
+}
 
+.failure-message{
+	font-size: 12px;
+	color: red;
+	font-weight: 700;
+}
+
+.failure-message2{
+	font-size: 12px;
+	color: red;
+	font-weight: 700;
+}
+
+.strongPassword-message{
+	font-size: 12px;
+	color: red;
+	font-weight: 700;
+}
+.mismatch-message{
+	font-size: 12px;
+	color: red;
+	font-weight: 700;
+	
+}
+
+.nameerror-message{
+	font-size: 12px;
+	color: red;
+	font-weight: 700;
+}
+
+.bitherror-massage{
+	font-size: 12px;
+	color: red;
+	font-weight: 700;
+}
+
+.phoneerr-massage{
+	font-size: 12px;
+	color: red;
+	font-weight: 700;
+}
+
+.emailerr-massage{
+	font-size: 12px;
+	color: red;
+	font-weight: 700;
+}
