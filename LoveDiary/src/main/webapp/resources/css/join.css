@@ -70,14 +70,23 @@ display: none;
 #userid{
 margin: 0 auto;
   margin-top: 10px;
-  width: 250px;
+  width: 175px;
   height: 25px;
   background: #FC7373;
   border-radius: 10px;
   font-size: 15px;
   font-weight: 1000;
 }
-
+#check{
+margin: 0 auto;
+  margin-top: 10px;
+  width: 70.0px;
+  height: 30px;
+  background: #FC7373;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 1000;
+}
 #formjoin{
   display: inline-block;
   text-align: center;

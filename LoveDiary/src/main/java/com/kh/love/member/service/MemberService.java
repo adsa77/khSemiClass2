@@ -60,6 +60,17 @@ private MemberDao dao;
 	
 		return loginMemberVo;
 	}
+	public boolean checkIdDup(String id) throws Exception {
+		//비지니스 로직
+		
+		//dao호출
+		Connection conn = getConnection();
+		int result = dao.checkIdDup(conn,id);
+		
+		close(conn);
+		
+		return result == 0;
+	}
 	
 	
 

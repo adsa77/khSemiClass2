@@ -50,7 +50,7 @@ public class MemberLogin extends HttpServlet{
 				
 			}
 //			req.getRequestDispatcher("/WEB-INF/views/common/result.jsp").forward(req, resp);
-			resp.sendRedirect("/LoveDiary/home");
+			resp.sendRedirect("/LoveDiary/code/check");
 		}catch (Exception e) {
 			e.printStackTrace();
 			req.setAttribute("errMsg", "[ERROR-M0002] 로그인중 에러 발생");

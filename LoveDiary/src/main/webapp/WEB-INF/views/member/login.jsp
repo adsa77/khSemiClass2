@@ -35,7 +35,7 @@
         <br>
         <br>
         <br>
-        <input type="submit" id="indexinsert" value="회원가입">
+        <input type="submit" id="indexinsert" value="로그인 하기">
       </form>
     </section>
     <footer>

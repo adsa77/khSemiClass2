@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<%@ include file="/WEB-INF/views/layout/util.jsp" %>
 <title>러브 다이어리 회원가입</title>
 <link rel="stylesheet" href="/LoveDiary/resources/css/join.css">
   <script defer src="/LoveDiary/resources/js/join.js"></script>
@@ -25,6 +25,7 @@
       
       <form action="/LoveDiary/member/join" method="post" enctype="multipart/form-data" id="formjoin">
         <input type="text" id="userid" name="id" placeholder="아이디">
+        <button type="button" id="check" onclick="checkDup();">중복검사</button>
         
   	 	<div class="failure-message hide">아이디는 4~12글자이어야 합니다</div>
    		<div class="failure-message2 hide">영어 또는 숫자만 가능합니다</div>

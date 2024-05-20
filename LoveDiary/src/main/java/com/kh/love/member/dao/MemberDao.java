@@ -70,4 +70,23 @@ public class MemberDao {
 		
 	}
 
+	public int checkIdDup(Connection conn, String id) throws Exception {
+		String spl = "SELECT COUNT(*) AS CNT FROM MEMBER WHERE ID = ?";
+		
+		PreparedStatement pstmt = conn.prepareStatement(spl);
+		pstmt.setString(1, id);
+		ResultSet rs = pstmt.executeQuery();
+		
+		int cnt = 1;
+		if(rs.next()) {
+			cnt = rs.getInt("CNT");
+			
+		}
+		
+		close(conn);
+		close(pstmt);
+		
+		return cnt;
+	}
+
 }

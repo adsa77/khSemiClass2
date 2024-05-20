@@ -1,7 +1,7 @@
 // 1. 아이디 입력창 정보 가져오기
 let elInputUserid = document.querySelector('#userid');
 // 2. 버튼 메시지 정보 가져오기
-let elidcheck = document.querySelector('#idcheck-but');
+
 // 3. 실패 메시지 정보 가져오기 (글자수 제한 4~12글자)
 let elFailureMessage = document.querySelector('.failure-message');
 // 4. 실패 메시지2 정보 가져오기 (영어 또는 숫자)
@@ -28,9 +28,6 @@ elInputUserid.onkeyup = function () {
     
     elFailureMessage.classList.toggle('hide', isLengthValid);
     elFailureMessageTwo.classList.toggle('hide', isContentValid);
-    console.log('테스트');
-    elidcheck.classList.toggle('hide', !(isLengthValid && isContentValid));	
-    console.log('테스트1');
    
   }
   // 값을 입력하지 않은 경우 (지웠을 때) 모든 메시지와 버튼을 가림
@@ -205,3 +202,24 @@ elInputemail.onkeyup = function () {
 		elemailerr.classList.add('hide'); //모든 메세지가 가려지게
 	}
 };
+
+function checkDup() {
+    const id = document.querySelector("input[name=id]").value;
+    const obj = {
+    url : "/LoveDiary/member/id-dup",
+    type : "get",
+    data : {"id" : id},
+    success : function(x){
+      console.log(x);
+
+      if(x === "good"){
+        alert("사용 가능한 아이디 입니다.");
+      }else{
+        alert("강해상 : 너 중복된거야")
+      }
+    },
+    error : function() {console.log("통신실패입니다요");},
+  };
+
+  $.ajax(obj);
+}
