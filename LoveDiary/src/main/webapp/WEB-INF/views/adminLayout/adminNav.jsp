@@ -6,7 +6,7 @@
 		<a href="/LoveDiary/admin/adminHome">관리자 홈</a>
 	</div>
 	<div id="adminInfo" class="nav">
-		<a href="/LoveDiary/info/adminInfo">관리자 알림</a>
+		<a href="/LoveDiary/info/adminInfo">메뉴얼</a>
 	</div>
 	<div id="adminNotice" class="nav">
 		<a href="/LoveDiary/notice/noticeList">공지사항</a>
