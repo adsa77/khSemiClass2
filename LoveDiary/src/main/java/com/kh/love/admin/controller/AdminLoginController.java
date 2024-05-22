@@ -13,7 +13,7 @@ import com.kh.love.admin.service.AdminService;
 import com.kh.love.admin.vo.AdminVo;
 
 @WebServlet("/admin/adminLogin")
-public class AdminController extends HttpServlet{
+public class AdminLoginController extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
