@@ -7,7 +7,7 @@
 <%@ include file="/WEB-INF/views/layout/util.jsp" %>
 <title>러브 다이어리 회원가입</title>
 <link rel="stylesheet" href="/LoveDiary/resources/css/join.css">
-  <script defer src="/LoveDiary/resources/js/join.js"></script>
+ <script defer src="/LoveDiary/resources/js/join.js"></script>
   
 </head>
 <body id="container">

@@ -2,8 +2,6 @@ package com.kh.love.member.vo;
 
 public class MemberVo {
 	
-	
-
 
 	public MemberVo() {
 		super();
@@ -11,7 +9,7 @@ public class MemberVo {
 	}
 	public MemberVo(String no, String id, String pwd, String pwd2, String nick, String name, String birthDate,
 			String address, String phone, String email, String emrollDate, String modifyDate, String quitDate,
-			String quitYn, String profile) {
+			String quitYn, String profile, String code) {
 		super();
 		this.no = no;
 		this.id = id;
@@ -28,6 +26,7 @@ public class MemberVo {
 		this.quitDate = quitDate;
 		this.quitYn = quitYn;
 		this.profile = profile;
+		this.code = code;
 	}
 	private String no;
 	private String id;
@@ -44,6 +43,7 @@ public class MemberVo {
 	private String quitDate;
 	private String quitYn;
 	private String profile;
+	private String code;
 	public String getNo() {
 		return no;
 	}
@@ -134,16 +134,21 @@ public class MemberVo {
 	public void setProfile(String profile) {
 		this.profile = profile;
 	}
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
+	}
 	@Override
 	public String toString() {
 		return "MemberVo [no=" + no + ", id=" + id + ", pwd=" + pwd + ", pwd2=" + pwd2 + ", nick=" + nick + ", name="
 				+ name + ", birthDate=" + birthDate + ", address=" + address + ", phone=" + phone + ", email=" + email
 				+ ", emrollDate=" + emrollDate + ", modifyDate=" + modifyDate + ", quitDate=" + quitDate + ", quitYn="
-				+ quitYn + ", profile=" + profile + "]";
+				+ quitYn + ", profile=" + profile + ", code=" + code + "]";
 	}
 	
 	
-
 	
 	
 }

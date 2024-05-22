@@ -26,7 +26,7 @@ public class MemberDao {
 		
 		int result = pstmt.executeUpdate();
 		close(pstmt);
-		
+		System.out.println("여기는 dao"+vo);
 		return result;
 		
 		

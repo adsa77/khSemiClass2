@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.kh.love.code.service.CalendarCodeService;
+import com.kh.love.code.vo.CalendarCodeVo;
+
 @WebServlet("/code/check")
 public class CalendarCodeController extends HttpServlet{
 
@@ -19,7 +22,24 @@ public class CalendarCodeController extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		super.doPost(req, resp);
+		
+		try {
+			String no = req.getParameter("no");
+			String code = req.getParameter("code");
+			
+			CalendarCodeVo cvo = new CalendarCodeVo();
+			cvo.setNo(no);
+			cvo.setCode(code);
+			
+			CalendarCodeService ccs = new CalendarCodeService();
+			int result = ccs.codecreate(cvo);
+			
+			
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 }

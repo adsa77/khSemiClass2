@@ -49,3 +49,24 @@ input {
   font-size: 15px;
   font-weight: 1000;
 }
+#codecheck{
+  margin: 0 auto;
+  margin-top: 10px;
+  width: 70px;
+  height: 37px;
+  background: #FC7373;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 1000;
+}
+
+#codeNum{
+	  margin: 0 auto;
+  margin-top: 10px;
+  width: 175px;
+  height: 31px;
+  background: #FC7373;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 1000;
+}

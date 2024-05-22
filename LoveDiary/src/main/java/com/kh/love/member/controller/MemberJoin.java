@@ -62,12 +62,12 @@ public class MemberJoin extends HttpServlet {
 		//결과처리
 		if(result == 1) {
 			req.setAttribute("resultMsg", "회원가입성공");
-			
+			resp.sendRedirect("/LoveDiary/member/login");
 		}else {
 			req.setAttribute("resultMsg", "회원가입실패");
 			
 		}
-		resp.sendRedirect("/love/member/login");
+		
 		}catch(Exception e) { //[ERROR-M0001]
 		System.out.println("에러메세지 : " + e.getMessage());
 		e.printStackTrace();
