@@ -1,7 +1,7 @@
 #container {
     margin: 0 auto;
     display: grid;
-    width: 100vw;
+    width: 80vw;
     height: 80vh;
     grid-template-columns: 5fr;
     grid-template-rows: 1fr;
@@ -30,11 +30,11 @@ nav {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    font-size: auto;
+    font-size: 13pt;
 }
 
 .nav{
-    margin: 0 auto;
+    margin: 3px;
     width: auto;
 }
 
@@ -42,8 +42,6 @@ nav {
     color: darkgray;
     text-decoration-line: none;
 }
-
-
 
 #mainLoginDiv{
     display: grid;
@@ -79,3 +77,10 @@ nav {
     height: 50px;
     border: 1px solid black;
 }
+
+#noticeBoard{
+    width: 400px;
+    display: grid;
+    justify-items: center
+}
+

@@ -37,31 +37,61 @@
             <div id="adminQNA" class="nav">
                 <a href="./adminQNA.html">QNA</a>
             </div>
-        </nav>
-        <section id="main">
-            <div id="loginDiv">
-                <form action="">
-                    <table>
-                        <span id="loginSpan">로그인</span>
-                        <tr>
-                            <td>
-                                <input type="text" placeholder="아이디를 입력하세요">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="password" placeholder="비밀번호를 입력하세요">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="submit" value="제출하기">
-                            </td>
-                        </tr>
-                    </table>
-                </form>
+            <div id="editCalender" class="nav">
+                <a href="./calender.html">캘린더 수정</a>
             </div>
-        </section>
+        </nav>
+        <section id="mainLoginDiv">
+			<div id="noticeBoard">
+				<h1>공지 목록</h1>
+				<table id="noticeBoardTable" border="1">
+					<thead>
+						<tr>
+							<th>번호</th>
+							<th>제목</th>
+							<th>작성자</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${voList}" var="nvo">
+							<tr>
+								<td>${nvo.no}</td>
+								<td><a
+									href="/LoveDiary/notice?no=${nvo.no}&writerNo=${nvo.writerNo}">${nvo.title}</a>
+								</td>
+								<td><c:if test="${nvo.writerNo == 1}">관리자</c:if></td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+
+				<c:if test="${not empty sessionScope.loginAdminVo}">
+					<div>
+						<button onclick="location.href='./adminNoticeInsert.html'">공지작성</button>
+					</div>
+				</c:if>
+
+				<div id="page-area">
+					<c:if test="${pvo.currentPage > 1}">
+						<a href="/LoveDiary/notice/noticeList?pno=${pvo.currentPage-1}">이전</a>
+					</c:if>
+					<c:forEach begin="${pvo.startPage}" end="${pvo.endPage}" var="x">
+						<c:choose>
+							<c:when test="${pvo.currentPage == x}">
+								<strong>${x}</strong>
+							</c:when>
+							<c:otherwise>
+								<a href="/LoveDiary/notice/noticeList?pno=${x}">${x}</a>
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
+					<c:if test="${pvo.currentPage < pvo.maxPage}">
+						<a href="/LoveDiary/notice/noticeList?pno=${pvo.currentPage+1}">다음</a>
+					</c:if>
+				</div>
+			</div>
+
+		</section>
         <footer id="footer">
             footer
         </footer>

@@ -1,14 +1,13 @@
 package com.kh.love.notice.service;
 
-import java.sql.Connection;
 import java.util.List;
 
-import com.kh.love.admin.dao.AdminDao;
-import com.kh.love.notice.vo.NoticeVo;
-import com.kh.love.notice.dao.NoticeDao;
-import com.kh.love.notice.vo.PageVo;
+import org.apache.ibatis.session.SqlSession;
 
-import static com.kh.love.db.JDBCTemplate.*;
+import com.kh.love.db.SqlSessionTemplate;
+import com.kh.love.notice.dao.NoticeDao;
+import com.kh.love.notice.vo.NoticeVo;
+import com.kh.love.notice.vo.PageVo;
 
 public class NoticeService {
 	
@@ -22,10 +21,10 @@ public class NoticeService {
 		//biz
 		
 		//SQL
-		Connection conn = getConnection();
-		int cnt = dao.getNoticeCnt(conn);
+		SqlSession ss= SqlSessionTemplate.getSqlSession();
+		int cnt = dao.getNoticeCnt(ss);
 		
-		close(conn);
+		ss.close();
 		return cnt;
 	}//method
 
@@ -33,10 +32,10 @@ public class NoticeService {
 		// 비즈니스 로직
 
 		// DAO 호출
-		Connection conn = getConnection();
-		List<NoticeVo> voList = dao.selectNoticeList(conn , pvo);
+		SqlSession ss = SqlSessionTemplate.getSqlSession();
+		List<NoticeVo> voList = dao.selectNoticeList(ss , pvo);
 
-		close(conn);
+		ss.close();
 		
 		return voList;
 

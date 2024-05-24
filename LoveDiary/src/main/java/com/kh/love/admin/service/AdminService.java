@@ -1,10 +1,11 @@
 package com.kh.love.admin.service;
 
+import org.apache.ibatis.session.SqlSession;
+
 import com.kh.love.admin.dao.AdminDao;
 import com.kh.love.admin.vo.AdminVo;
-import static com.kh.love.db.JDBCTemplate.*;
+import com.kh.love.db.SqlSessionTemplate;
 
-import java.sql.Connection;
 
 public class AdminService {
 
@@ -16,16 +17,15 @@ public class AdminService {
 
 	//admin login
 	public AdminVo login(AdminVo vo) throws Exception{
-		// 비즈니스 로직 == 서비스 로직
-
-		// SQL (DAO 호출)
-		Connection conn = getConnection();
-		AdminVo loginAdminVo = dao.login(conn, vo);
-
-		close(conn);
-
-		return loginAdminVo;
-
-	}
+        SqlSession ss = SqlSessionTemplate.getSqlSession();
+        AdminVo loginAdminVo = null;
+        try {
+            loginAdminVo = dao.login(ss, vo);
+            System.out.println(loginAdminVo);
+        } finally {
+            ss.close();
+        }
+        return loginAdminVo;
+    }
 
 }

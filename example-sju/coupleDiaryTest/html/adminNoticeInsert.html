@@ -41,18 +41,16 @@
                 <a href="./calender.html">캘린더 수정</a>
             </div>
         </nav>
-        <section id="main">
-            <table id="QNATable">
-                <tr>
-                    <th>
-                        제목
-                    </th>
-                    <td>
-                        내용
-                    </td>
-                </tr>
-            </table>
-        </section>
+				<section id="mainLoginDiv">
+					<form action="/LoveDiary/notice/noticeInsert" method="post" enctype="multipart/form-data">
+						<label for="title">Title:</label>
+								<input type="text" id="title" name="title" required><br><br>
+								<label for="content">Content:</label>
+								<textarea id="content" name="content" required></textarea><br><br>
+						<input type="submit" value="작성하기">
+					</form>
+		
+				</section>
         <footer id="footer">
             footer
         </footer>
