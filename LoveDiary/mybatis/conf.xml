@@ -7,15 +7,20 @@
     <environment id="development">
       <transactionManager type="JDBC"/>
       <dataSource type="POOLED">
-        <property name="driver" value="oracle.jdbc.driver.OracleDriver" />
-        <property name="url" value="jdbc:oracle:thin:@127.0.0.1:1521:xe" />
-        <property name="username" value="C##KH_CLASS2" />
-        <property name="password" value="1234" />
+            <property name="driver" value="oracle.jdbc.driver.OracleDriver" />
+            <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />
+            <property name="username" value="C##KH_CLASS2"/>
+            <property name="password" value="1234" />
       </dataSource>
     </environment>
   </environments>
   <mappers>
     <mapper resource="admin-mapper.xml"/>
+    <mapper resource="calender-mapper.xml"/>
+    <mapper resource="faq-mapper.xml"/>
+    <mapper resource="qna-mapper.xml"/>
     <mapper resource="notice-mapper.xml"/>
+    <mapper resource="anniversary-mapper.xml"/>
+    <mapper resource="schedule-mapper.xml"/>
   </mappers>
 </configuration>
