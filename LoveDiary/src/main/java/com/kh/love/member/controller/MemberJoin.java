@@ -65,7 +65,7 @@ public class MemberJoin extends HttpServlet {
 			resp.sendRedirect("/LoveDiary/member/login");
 		}else {
 			req.setAttribute("resultMsg", "회원가입실패");
-			
+			req.getRequestDispatcher("/WEB-INF/views/member/join.jsp").forward(req, resp);
 		}
 		
 		}catch(Exception e) { //[ERROR-M0001]

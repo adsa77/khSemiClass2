@@ -24,11 +24,11 @@
     <section id="section">
       
       <form action="/LoveDiary/member/login" method="post">
-        <input type="text" id="joinTitle" placeholder="아이디">
+        <input type="text" id="joinTitle" name="id" placeholder="아이디">
      	<br>
      	<br>
      	<br>
-        <input type="password" id="joinTitle" placeholder="비밀번호">
+        <input type="password" id="joinTitle" name="pwd" placeholder="비밀번호">
         <br>
         <br>
         <br>
