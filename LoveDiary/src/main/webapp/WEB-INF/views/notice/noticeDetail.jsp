@@ -52,10 +52,10 @@
                         <td>${vo.content}</td>
                     </tr>
                 </table>
-                <button id="noticeEditButton" class="noticeButton" onclick="location.href='/LoveDiary/notice/noticeEdit?no=${vo.no}'">공지수정</button>
+                <button id="noticeEditButton" class="tableButton" onclick="location.href='/LoveDiary/notice/noticeEdit?no=${vo.no}'">공지수정</button>
                 
                 <!-- 삭제 버튼을 JavaScript 함수와 연결 -->
-                <button id="noticeDeleteButton" class="noticeButton" onclick="deleteNotice(${vo.no})">공지삭제</button>
+                <button id="noticeDeleteButton" class="tableButton" onclick="deleteNotice(${vo.no})">공지삭제</button>
             </div>
         </section>
     </div>

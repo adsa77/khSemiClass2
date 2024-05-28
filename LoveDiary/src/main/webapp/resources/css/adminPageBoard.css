@@ -58,6 +58,21 @@
     font-weight: bold;
 }
 
+#search-area{
+	text-align: center;
+}
+
+#searchBox{
+    display: inline-block;
+    width: 50%;
+    padding: 10px 20px;
+	margin-top: 20px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	font-size: 16px;
+}
+
 #noticeInsertButton {
     display: inline-block;
     padding: 10px 20px;
@@ -70,7 +85,7 @@
     margin-top: 20px;
 }
 
-.noticeButton {
+.tableButton {
     display: inline-block;
     padding: 10px 20px;
     font-size: 16px;
