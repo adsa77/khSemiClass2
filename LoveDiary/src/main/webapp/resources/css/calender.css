@@ -289,3 +289,12 @@
   bottom: 30px;
 }
 
+.holiday {
+    color: red;
+    font-weight: bold;
+}
+
+.holiday-day {
+    background-color: #fdd;
+}
+
