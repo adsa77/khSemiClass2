@@ -17,5 +17,9 @@
   <mappers>
     <mapper resource="admin-mapper.xml"/>
     <mapper resource="notice-mapper.xml"/>
+    <mapper resource="member-mapper.xml"/>
+    <mapper resource="code-mapper.xml"/>
+    
+    
   </mappers>
 </configuration>

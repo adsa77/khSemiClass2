@@ -6,7 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.kh.love.anniversary.dao.AnniversaryDao;
 import com.kh.love.anniversary.vo.AnniversaryVo;
-import com.kh.love.db.SqlSessionTamplate;
+import com.kh.love.db.SqlSessionTemplate;
 import com.kh.love.search.vo.SearchVo;
 
 public class AnniversaryService {
@@ -20,7 +20,7 @@ private AnniversaryDao dao;
 		//biz
 		
 		//dao
-		SqlSession ss = SqlSessionTamplate.getSqlSession();
+		SqlSession ss = SqlSessionTemplate.getSqlSession();
 		int result = dao.annivarsaryInsert(ss,avo);
 		
 		if(result == 1) {
@@ -35,7 +35,7 @@ private AnniversaryDao dao;
 	
 	public List<AnniversaryVo> getAnniversaryList(SearchVo vo)throws Exception{
 		
-		SqlSession ss = SqlSessionTamplate.getSqlSession();
+		SqlSession ss = SqlSessionTemplate.getSqlSession();
 		List<AnniversaryVo> voList = dao.getAnniversaryList(ss,vo);
 		
 		ss.close();

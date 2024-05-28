@@ -1,0 +1,142 @@
+#container {
+  margin : 0 auto;
+  display: grid;
+  width :100vw;
+  justify-items: center;
+  align-items: center;
+  place-self: center;
+}
+
+#wrap{
+  display: grid;
+  width: 450px;
+  height: 800px;
+  justify-items: center;
+  align-items: center;
+  place-self: center;
+  background: #FEF0F0;
+  border-radius: 10px;
+}
+
+#section {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+   place-items: center;
+  width: 400px;
+  height: 600px;
+  background: #FFDDDD;
+  border-radius: 10px;
+}
+
+.hide {
+display: none;
+}
+
+
+.selectIdTitle{
+  margin: 0 auto;
+  margin-top: 10px;
+  width: 250px;
+  height: 25px;
+  background: #FC7373;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 1000;
+}
+
+#selectIdBut {
+  display : grid;
+  justify-self: center;
+  align-self: center;
+  margin: 0 auto;
+  margin-top: 10px;
+  width: 250px;
+  height: 50px;
+  background: #FC7373;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 1000;
+}
+#joinDup{
+  width: 100px;
+  height: 31px;
+  font-size: 20px;
+  font-weight: 700;
+  background: #FFA7A7;
+  border: none;
+  border-radius: 10px;
+}
+#userid{
+margin: 0 auto;
+  margin-top: 10px;
+  width: 175px;
+  height: 25px;
+  background: #FC7373;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 1000;
+}
+#check{
+margin: 0 auto;
+  margin-top: 10px;
+  width: 70.0px;
+  height: 30px;
+  background: #FC7373;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 1000;
+}
+#formselectId{
+  display: inline-block;
+  text-align: center;
+
+}
+
+.failure-message{
+	font-size: 12px;
+	color: red;
+	font-weight: 700;
+}
+
+.failure-message2{
+	font-size: 12px;
+	color: red;
+	font-weight: 700;
+}
+
+.strongPassword-message{
+	font-size: 12px;
+	color: red;
+	font-weight: 700;
+}
+.mismatch-message{
+	font-size: 12px;
+	color: red;
+	font-weight: 700;
+	
+}
+
+.nameerror-message{
+	font-size: 12px;
+	color: red;
+	font-weight: 700;
+}
+
+.bitherror-massage{
+	font-size: 12px;
+	color: red;
+	font-weight: 700;
+}
+
+.phoneerr-massage{
+	font-size: 12px;
+	color: red;
+	font-weight: 700;
+}
+
+.emailerr-massage{
+	font-size: 12px;
+	color: red;
+	font-weight: 700;
+}

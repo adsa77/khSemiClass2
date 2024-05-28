@@ -45,7 +45,7 @@
       </form>
       
       <form id="codeForm2" action="/LoveDiary/code/check" method="post">
-        <input type="text" id="codejoin" name="code" placeholder="커플 코드입력">
+        <input type="text" id="codejoin" name="code" placeholder="커플 코드입력" required>
         <br>
         <input type="submit" id="codecnt" value="커플 다이어리 접속">
       </form>

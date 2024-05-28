@@ -5,54 +5,25 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import org.apache.ibatis.session.SqlSession;
+
 import com.kh.love.member.vo.MemberVo;
 
 public class CalendarCodeDao {
 
-    public int codecreate(Connection conn, MemberVo vo) throws Exception {
-        String sql = "UPDATE MEMBER SET CODE = ? WHERE NO = ? AND QUIT_YN = 'N'";
-        PreparedStatement pstmt = conn.prepareStatement(sql);
-        pstmt.setString(1, vo.getCode());
-        pstmt.setString(2, vo.getNo());
-
-        int result = pstmt.executeUpdate();
-
-        close(pstmt);
-
-        return result;
+    public int codecreate(SqlSession ss, MemberVo vo) throws Exception {
+    	return ss.update("CodeMapper.codecreate", vo);
     }
 
-    public boolean isCodeExist(Connection conn, String code) throws Exception {
-        String sql = "SELECT COUNT(*) FROM MEMBER WHERE CODE = ?";
-        PreparedStatement pstmt = conn.prepareStatement(sql);
-        pstmt.setString(1, code);
-        ResultSet rs = pstmt.executeQuery();
-
-        boolean exists = false;
-        if (rs.next()) {
-            exists = rs.getInt(1) > 0;
-        }
-
-        close(rs);
-        close(pstmt);
-
-        return exists;
+    public boolean isCodeExist(SqlSession ss, String code) throws Exception {
+    	int result = ss.selectOne("CodeMapper.isCodeExist", code);
+    	if(result == 1) {
+    		return true;
+    	}
+    	return false;
     }
 
-    public int countCodeUsage(Connection conn, String code) throws Exception {
-        String sql = "SELECT COUNT(*) FROM MEMBER WHERE CODE = ?";
-        PreparedStatement pstmt = conn.prepareStatement(sql);
-        pstmt.setString(1, code);
-        ResultSet rs = pstmt.executeQuery();
-
-        int count = 0;
-        if (rs.next()) {
-            count = rs.getInt(1);
-        }
-
-        close(rs);
-        close(pstmt);
-
-        return count;
+    public int countCodeUsage(SqlSession ss, String code) throws Exception {
+    	return ss.selectOne("CodeMapper.countCodeUsage", code);
     }
 }

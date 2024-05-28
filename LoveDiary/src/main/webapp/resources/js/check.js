@@ -12,3 +12,16 @@ function initCode() {
     }
   });
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const codeForm = document.querySelector("#codeForm2");
+  
+  
+  codeForm.addEventListener("submit", e => {
+      const codejoinInput = document.querySelector("#codejoin").value;
+      if (!codejoinInput) {
+        e.preventDefault();
+        alert("코드를 입력하셔야합니다.");
+      }
+  })
+})
