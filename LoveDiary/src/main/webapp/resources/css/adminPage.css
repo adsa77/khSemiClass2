@@ -1,86 +1,131 @@
 #container {
-    margin: 0 auto;
-    display: grid;
-    width: 80vw;
-    height: 80vh;
-    grid-template-columns: 5fr;
-    grid-template-rows: 1fr;
+	margin: 0 auto;
+	display: grid;
+	width: 90vw;
+	height: 80vh;
+	grid-template-columns: 5fr;
+	grid-template-rows: 1fr;
 }
 
 #header {
-    height: 100px;
-    display: grid;
-    grid-template-columns: 1fr 4fr 1fr;
-    background-color: aquamarine;
-    border: 1px solid black;
+	height: 100px;
+	display: grid;
+	grid-template-columns: 1fr 4fr 1fr;
+	background-color: #54c058;
+	border: 1px solid black;
 }
 
 #header div {
-    border: 1px solid black;
+	border: 1px solid black;
 }
 
-#loginSpan{
-    font-size: 15pt;
-    font-weight: 800;
+#header div:last-child {
+	text-align: center;
+	font-size: 16pt;
+}
+
+#logout {
+	height: 60px;
+	width: 60px;
+	max-width: 60px;
+	padding: 10px;
+	background-color: lightgreen;
+	color: pink;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 15px;
+}
+
+#loginSpan {
+	font-size: 15pt;
+	font-weight: 800;
 }
 
 nav {
-    width: 100%;
-    height: 100px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    font-size: 13pt;
+	width: 100%;
+	height: 100px;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	font-size: 13pt;
+	font-size: 15pt;
+	font-weight: 800;
 }
 
-.nav{
-    margin: 3px;
-    width: auto;
+.nav {
+	margin: 3px;
+	width: auto;
 }
 
-.nav a{
-    color: darkgray;
-    text-decoration-line: none;
+.nav a {
+	color: darkgray;
+	text-decoration-line: none;
 }
 
-#mainLoginDiv{
-    display: grid;
-    width: 100%;
-    height: 80%;
-    border: 1px solid black;
-    justify-content: center;
-    align-content: center;
+nav:hover {
+	color: lightgray;
 }
 
-#loginDiv{
-    display: grid;
-    width: 300px;
-    height: 300px;
-    border: 1px solid black;
-    justify-items: center;
-    align-items: center;
+#adminPageMain {
+	display: grid;
+	width: 100%;
+	height: auto;
+	min-height: 500px;
+	border: 1px solid black;
+	justify-content: center;
+	align-content: center;
 }
 
-#main{
-    display: grid;
-    width: 100%;
-    height: 80%;
-    border: 1px solid black;
+#loginDiv {
+	display: grid;
+	width: 300px;
+	height: 300px;
+	border: 1px solid black;
+	justify-items: center;
+	align-items: center;
 }
 
-#QNATable{
-    border: 1px solid black;
+#loginDiv input[type="text"], #loginDiv input[type="password"] {
+	width: 100%;
+	padding: 10px;
+	margin: 5px 0;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	font-size: 16px;
 }
 
-#footer{
+#loginDiv input[type="submit"] {
+	width: 100%;
+	padding: 10px;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 16px;
+}
+
+#loginDiv input:hover{
+	background-color: #45a049;
+}
+
+
+.formSubmit:hover {
+	background-color: #0056b3;
+}
+
+#footer {
     width: 100%;
     height: 50px;
-    border: 1px solid black;
+    background-color: #f1f1f1;
+    border-top: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-#noticeBoard{
-    width: 400px;
-    display: grid;
-    justify-items: center
-}
+
+
 
