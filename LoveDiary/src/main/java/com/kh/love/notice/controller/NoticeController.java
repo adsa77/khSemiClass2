@@ -39,7 +39,7 @@ public class NoticeController extends HttpServlet {
             String x = req.getParameter("pno") == null ? "1" : req.getParameter("pno");
             int currentPage = Integer.parseInt(x);
             int pageLimit = 5;
-            int boardLimit = 10;
+            int boardLimit = 20;
 
             PageVo pvo = new PageVo(listCount, currentPage, pageLimit, boardLimit);
 
@@ -49,8 +49,6 @@ public class NoticeController extends HttpServlet {
             // 결과
             req.setAttribute("voList", voList);
             req.setAttribute("pvo", pvo);
-            
-            System.out.println("controller"+voList);
             
             // 포워드 직전에 응답 커밋 체크
             if (!resp.isCommitted()) {

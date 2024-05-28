@@ -21,7 +21,6 @@ public class AdminService {
         AdminVo loginAdminVo = null;
         try {
             loginAdminVo = dao.login(ss, vo);
-            System.out.println(loginAdminVo);
         } finally {
             ss.close();
         }

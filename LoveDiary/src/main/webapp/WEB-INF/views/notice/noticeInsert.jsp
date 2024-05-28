@@ -4,6 +4,7 @@
 <html lang="en">
 
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
 <title>공지 목록</title>
 
@@ -14,16 +15,27 @@
 	<div id="wrap">
 		<%@ include file="/WEB-INF/views/adminLayout/adminHeader.jsp"%>
 		<%@ include file="/WEB-INF/views/adminLayout/adminNav.jsp"%>
-		<section id="mainLoginDiv">
-			<form action="/LoveDiary/notice/noticeInsert" method="post" enctype="multipart/form-data">
-				<label for="title">Title:</label>
-        		<input type="text" id="title" name="title" required><br><br>
-        		<label for="content">Content:</label>
-        		<textarea id="content" name="content" required></textarea><br><br>
-				<input type="submit" value="작성하기">
-			</form>
-
-		</section>
+		<section id="adminPageMain">
+			<div class="insertBoxDiv">
+					<form action="/LoveDiary/notice/noticeInsert" method="post" class="insertForm">
+							<span class="formTitleSpan">공지사항 입력</span>
+							<table class="insertTable">
+									<tr>
+											<th>제목</th>
+											<td><input type="text" name="title" placeholder="제목을 입력하시오." id="title" class="title"></td>
+									</tr>
+									<tr>
+									<tr>
+											<th>내용</th>
+											<td><textarea name="content" placeholder="내용을 입력하시오." id="content"
+															class="content"></textarea></td>
+									</tr>
+							</table>
+							<br>
+							<input type="submit" value="작성하기" class="formSubmit">
+					</form>
+			</div>
+	</section>
 	</div>
 </body>
 
