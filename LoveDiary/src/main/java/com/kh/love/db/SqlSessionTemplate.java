@@ -15,9 +15,7 @@ public class SqlSessionTemplate {
 		InputStream inputStream = Resources.getResourceAsStream(resource);
 		SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 		SqlSession ss= sqlSessionFactory.openSession(false);
-		
 		return ss;
-		
 	}
 	
     public static void commit(SqlSession sqlSession) {

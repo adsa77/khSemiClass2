@@ -10,6 +10,9 @@ import static com.kh.love.db.JDBCTemplate.rollback;
 import java.sql.Connection;
 import java.util.regex.Pattern;
 
+import org.apache.ibatis.session.SqlSession;
+
+import com.kh.love.db.SqlSessionTemplate;
 import com.kh.love.member.dao.MemberDao;
 import com.kh.love.member.vo.MemberVo;
 
@@ -46,16 +49,16 @@ private MemberDao dao;
         }
         
 		//dao호출
-		Connection conn = getConnection();
-		int result = dao.join(conn,vo);
+        SqlSession ss = SqlSessionTemplate.getSqlSession();
+		int result = dao.join(ss,vo);
 		
 		if(result == 1) {
-			commit(conn);
+			ss.commit();
 		}else {
-			rollback(conn);
+			ss.rollback();
 		}
 		
-		close(conn);
+		ss.close();
 		
 		return result;
 	
@@ -64,10 +67,10 @@ private MemberDao dao;
 		// 비즈니스 로직 == 서비스 로직
 		
 		// SQL (DAO 호출)
-		Connection conn = getConnection();
-		MemberVo loginMemberVo = dao.login(conn,vo);
+        SqlSession ss = SqlSessionTemplate.getSqlSession();
+		MemberVo loginMemberVo = dao.login(ss,vo);
 	
-		close(conn);
+		ss.close();
 	
 		return loginMemberVo;
 	}
@@ -75,10 +78,9 @@ private MemberDao dao;
 		//비지니스 로직
 		
 		//dao호출
-		Connection conn = getConnection();
-		int result = dao.checkIdDup(conn,id);
-		
-		close(conn);
+		SqlSession ss = SqlSessionTemplate.getSqlSession();
+		int result = dao.checkIdDup(ss,id);
+		ss.close();
 		
 		return result == 0;
 	}

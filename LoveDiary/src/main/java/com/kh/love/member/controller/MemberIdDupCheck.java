@@ -26,7 +26,6 @@ public class MemberIdDupCheck extends HttpServlet{
 				//서비스
 				MemberService ms = new MemberService();
 				boolean isAvailable = ms.checkIdDup(id);
-				
 				//결과
 				if(!isAvailable) {
 					throw new Exception("중복검사 실패"); 

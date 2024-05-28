@@ -22,5 +22,6 @@
     <mapper resource="notice-mapper.xml"/>
     <mapper resource="anniversary-mapper.xml"/>
     <mapper resource="schedule-mapper.xml"/>
+
   </mappers>
 </configuration>

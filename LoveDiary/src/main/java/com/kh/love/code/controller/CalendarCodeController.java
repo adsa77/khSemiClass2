@@ -36,6 +36,8 @@ public class CalendarCodeController extends HttpServlet {
 //            loginMemberVo.setNo(no);
 
             String code = req.getParameter("code");
+            
+            
             CalendarCodeService ccs = new CalendarCodeService();
             int result;
 //            if (code == null || code.isEmpty()) {
@@ -47,7 +49,10 @@ public class CalendarCodeController extends HttpServlet {
 
             if (result == 1) {
                 resp.getWriter().write("코드 생성 성공: " + loginMemberVo.getCode());
-            } else {
+            } else if(result == -1){
+            	 session.setAttribute("alertMsg", "해당 코드 값은 이미 최대 사용 인원에 도달했습니다.");
+                 resp.sendRedirect("/LoveDiary/code/check");
+            }else {
                 resp.getWriter().write("코드 생성 실패");
             }
         } catch (Exception e) {
