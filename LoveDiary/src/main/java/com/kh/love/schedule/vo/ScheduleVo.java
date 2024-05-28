@@ -1,6 +1,7 @@
 package com.kh.love.schedule.vo;
 
 public class ScheduleVo {
+	
 	private String no;
 	private String writerNo;
 	private String title;
