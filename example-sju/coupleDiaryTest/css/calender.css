@@ -131,3 +131,42 @@ input[type='month']::-webkit-clear-button {
   color: white;
   border-radius: 10px;
 }
+
+#anniversaryBoardBtn{
+  position: absolute;
+  right: 5px;
+  bottom: 130px;
+}
+
+#scheduleBoardBtn{
+  position: absolute;
+  right: 5px;
+  bottom: 105px;
+}
+
+#todoBoardBtn{
+  position: absolute;
+  right: 5px;
+  bottom: 80px;
+}
+
+#diaryBoardBtn{
+  position: absolute;
+  right: 5px;
+  bottom: 55px;
+}
+
+#accountBoardBtn{
+  position: absolute;
+  right: 5px;
+  bottom: 30px;
+}
+
+.holiday {
+    color: red;
+    font-weight: bold;
+}
+
+.holiday-day {
+    background-color: #fdd;
+}
