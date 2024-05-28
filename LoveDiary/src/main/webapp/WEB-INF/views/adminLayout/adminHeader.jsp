@@ -4,11 +4,11 @@
 <header id="header">
 	<div>빈칸</div>
 	<div>로고</div>
-	<div>
+	<div id="loginState">
 		<c:if test="${sessionScope.loginAdminVo.nick != null}">
 			${sessionScope.loginAdminVo.nick}
 			<br>
-			<button onclick="location.href = '/LoveDiary/admin/adminLogout'">로그아웃</button>
+			<button id="logout" onclick="location.href = '/LoveDiary/admin/adminLogout'">로그<br>아웃</button>
 		</c:if>
 		<c:if test="${sessionScope.loginAdminVo.nick == null}">
 

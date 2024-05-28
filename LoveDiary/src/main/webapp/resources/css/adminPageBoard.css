@@ -1,0 +1,122 @@
+.listBoardTable{
+	width: 90vw;
+	max-width: 600px;
+}
+.listBoardTable th {
+	width: auto;
+	background-color: rgb(240, 240, 240);
+	color: #333;
+	font-weight: bold;
+	border: 1px solid #ccc;
+	padding: 8px;
+}
+
+.listBoardTableTitle {
+	display: block;
+	text-align: center;
+	font-size: 20pt;
+	font-weight: bold;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#noticeBoardTable {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+}
+
+#noticeBoardTable th,
+#noticeBoardTable td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+#noticeBoardTable th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+#page-area {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#page-area a {
+    margin: 0 5px;
+    text-decoration: none;
+    color: #007bff;
+}
+
+#page-area a:hover {
+    text-decoration: underline;
+}
+
+#page-area strong {
+    margin: 0 5px;
+    font-weight: bold;
+}
+
+#noticeInsertButton {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.noticeButton {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#noticeInsertButton:hover {
+    background-color: #45a049;
+}
+
+.tableDetailDiv {
+    width: 80vw;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.tableDetailDiv .formTitleSpan {
+    display: block;
+    text-align: center;
+    font-size: 20pt;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.detailTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.detailTable th,
+.detailTable td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.detailTable th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}

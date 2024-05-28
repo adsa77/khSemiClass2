@@ -4,6 +4,7 @@
 <html lang="en">
 
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
@@ -15,7 +16,7 @@
 	<div id="warp">
 		<%@ include file="/WEB-INF/views/adminLayout/adminHeader.jsp"%>
 		<%@ include file="/WEB-INF/views/adminLayout/adminNav.jsp"%>
-		<section id="mainLoginDiv">
+		<section id="adminPageMain">
 			<h1>MANUAL</h1>
 		</section>
 		<%@ include file="/WEB-INF/views/adminLayout/adminFooter.jsp"%>
