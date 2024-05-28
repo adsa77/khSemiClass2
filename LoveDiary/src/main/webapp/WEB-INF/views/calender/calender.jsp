@@ -35,7 +35,7 @@
 				<button id="nextMonthBtn">▶</button>
 			</div>
 			<div id="headerR">
-				<h3>사진</h3>
+				<button id="sidebarBtn">메뉴</button>
 			</div>
 		</header>
 		<div id="popUp">
@@ -189,7 +189,6 @@
 			<h1>footer</h1>
 		</footer>
 	</div>
-	<button id="sidebarBtn">메뉴</button>
 	<aside id="sidebar">
 		<ul>
 			<li><a href="../index.html">홈페이지</a></li>
