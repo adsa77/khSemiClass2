@@ -1,6 +1,7 @@
 package com.kh.love.schedule.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,6 +19,7 @@ public class ScheduleInsertController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.getRequestDispatcher("/WEB-INF/views/calender/calender.jsp").forward(req, resp);
+		
 	}
 
 	@Override
@@ -27,26 +29,36 @@ public class ScheduleInsertController extends HttpServlet {
 			HttpSession session = req.getSession();
 			MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
 			String writerNo = loginMemberVo.getNo();
+			String code = loginMemberVo.getCode();
 			
-			String title = req.getParameter("title");
-			String content = req.getParameter("content");
-			String scDate = req.getParameter("scDate");
+			String title = req.getParameter("scheTitle");
+			String content = req.getParameter("scheContent");
+			String checkDate = req.getParameter("scheDate");
 			
-//			if(loginMemberVo != null) {
-//				System.out.println("로그인 성공 -" +loginMemberVo );
-//			}else{
-//				System.out.println("로그인 실패 -"+ loginMemberVo);
-//			}
+			if(loginMemberVo != null) {
+				System.out.println("로그인 성공 -" +loginMemberVo );
+			}else{
+				System.out.println("로그인 실패 -"+ loginMemberVo);
+			}
 
 			ScheduleVo svo = new ScheduleVo();
 			svo.setTitle(title);
 			svo.setContent(content);
-			svo.setScDate(scDate);
+			svo.setCheckDate(checkDate);
 			svo.setWriterNo(writerNo);
+			svo.setCode(code);
 
 			ScheduleService scs = new ScheduleService();
 			int result = scs.insertSchedule(svo);
-
+			
+			System.out.println("result : " +result);
+			
+			PrintWriter out = resp.getWriter();
+			out.write("result: " +result);
+			
+			if(result < 1) {
+				throw new Exception("게시글 작성 실패");
+			}
 			req.getRequestDispatcher("/WEB-INF/views/calender/calender.jsp").forward(req, resp);
 
 		} catch (Exception e) {

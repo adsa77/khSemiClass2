@@ -8,7 +8,6 @@
   <insert id="AnniversaryInsert">
     INSERT INTO ANNIVERSARY
     (
-
 	    NO
 	    ,WRITER_NO
 	    ,TITLE
@@ -38,7 +37,7 @@
     ,A.DEL_YN
     ,M.CODE
     FROM ANNIVERSARY A
-    JOIN MEMBER M ON  M.NO = A.WRITER_NO
+    JOIN MEMBER M ON M.NO = A.WRITER_NO
     WHERE DEL_YN = 'N' 
 
   	<if test="type == 'title'">
@@ -48,7 +47,7 @@
 	<if test="type == 'content'">
 		AND CONTENT LIKE '%${value}%'
 	</if>
-		ORDER BY A.WRITER_NO DESC
+		ORDER BY A.NO
 	
   </select>
 

@@ -26,20 +26,20 @@ public class AnniversaryInsertController extends HttpServlet {
 		try {
 			
 
-//			HttpSession session = req.getSession();
-//			MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
-			String writerNo = "1"; //loginMemberVo.getNo();
-			String code = "1111"; //loginMemberVo.getCode();
+			HttpSession session = req.getSession();
+			MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
+			String writerNo = loginMemberVo.getNo();
+			String code = loginMemberVo.getCode();
 			
 			String title = req.getParameter("anniTitle");
 			String content = req.getParameter("anniContent");
 			String checkDate = req.getParameter("anniDate");
 			
-//			if(loginMemberVo != null) {
-//				System.out.println("로그인 성공 -" +loginMemberVo);
-//			}else {
-//				System.out.println("로그인 실패 -"+ loginMemberVo);
-//			}
+			if(loginMemberVo != null) {
+				System.out.println("로그인 성공 -" +loginMemberVo);
+			}else {
+				System.out.println("로그인 실패 -"+ loginMemberVo);
+			}
 			
 			AnniversaryVo avo = new AnniversaryVo();
 			avo.setTitle(title);
@@ -58,11 +58,10 @@ public class AnniversaryInsertController extends HttpServlet {
 			PrintWriter out = resp.getWriter();
 			out.write("result: " +result);
 			
-//			if(result < 1) {
-//				throw new Exception("게시글 작성 실패");
-//			}
-//			req.setAttribute("Msg", "게시글 작성 성공!");
-//			resp.sendRedirect("/LoveDiary/calender/calender.jsp");
+			if(result < 1) {
+				throw new Exception("게시글 작성 실패");
+			}
+			req.getRequestDispatcher("/WEB-INF/views/calender/calender.jsp").forward(req, resp);
 			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
