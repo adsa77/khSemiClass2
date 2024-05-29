@@ -9,6 +9,7 @@ public class ScheduleVo {
 	private String scDate;
 	private String delYn;
 	private String code;
+	
 	public String getNo() {
 		return no;
 	}

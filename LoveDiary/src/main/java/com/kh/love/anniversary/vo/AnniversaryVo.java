@@ -2,12 +2,13 @@ package com.kh.love.anniversary.vo;
 
 public class AnniversaryVo {
 	private String no;
-	private String  writerNo;
-	private String  title;
-	private String  content;
-	private String  enrollDate;
-	private String  modifyDate;
-	private String  delYn;
+	private String writerNo;
+	private String title;
+	private String content;
+	private String enrollDate;
+	private String modifyDate;
+	private String delYn;
+	private String code;
 	public String getNo() {
 		return no;
 	}
@@ -50,13 +51,20 @@ public class AnniversaryVo {
 	public void setDelYn(String delYn) {
 		this.delYn = delYn;
 	}
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
+	}
 	@Override
 	public String toString() {
 		return "AnniversaryVo [no=" + no + ", writerNo=" + writerNo + ", title=" + title + ", content=" + content
-				+ ", enrollDate=" + enrollDate + ", modifyDate=" + modifyDate + ", delYn=" + delYn + "]";
+				+ ", enrollDate=" + enrollDate + ", modifyDate=" + modifyDate + ", delYn=" + delYn + ", code=" + code
+				+ "]";
 	}
 	public AnniversaryVo(String no, String writerNo, String title, String content, String enrollDate, String modifyDate,
-			String delYn) {
+			String delYn, String code) {
 		super();
 		this.no = no;
 		this.writerNo = writerNo;
@@ -65,11 +73,14 @@ public class AnniversaryVo {
 		this.enrollDate = enrollDate;
 		this.modifyDate = modifyDate;
 		this.delYn = delYn;
+		this.code = code;
 	}
 	public AnniversaryVo() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	
 	
 	
 	
