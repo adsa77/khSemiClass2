@@ -9,6 +9,7 @@ public class AnniversaryVo {
 	private String modifyDate;
 	private String delYn;
 	private String code;
+	private String checkDate;
 	public String getNo() {
 		return no;
 	}
@@ -57,14 +58,29 @@ public class AnniversaryVo {
 	public void setCode(String code) {
 		this.code = code;
 	}
+
+	public String getCheckDate() {
+		return checkDate;
+	}
+	public void setCheckDate(String checkDate) {
+		this.checkDate = checkDate;
+	}
+
 	@Override
 	public String toString() {
 		return "AnniversaryVo [no=" + no + ", writerNo=" + writerNo + ", title=" + title + ", content=" + content
 				+ ", enrollDate=" + enrollDate + ", modifyDate=" + modifyDate + ", delYn=" + delYn + ", code=" + code
+
+				+ ", checkDate=" + checkDate + "]";
+	}
+	public AnniversaryVo(String no, String writerNo, String title, String content, String enrollDate, String modifyDate,
+			String delYn, String code, String checkDate) {
+
 				+ "]";
 	}
 	public AnniversaryVo(String no, String writerNo, String title, String content, String enrollDate, String modifyDate,
 			String delYn, String code) {
+
 		super();
 		this.no = no;
 		this.writerNo = writerNo;
@@ -74,6 +90,9 @@ public class AnniversaryVo {
 		this.modifyDate = modifyDate;
 		this.delYn = delYn;
 		this.code = code;
+
+		this.checkDate = checkDate;
+
 	}
 	public AnniversaryVo() {
 		super();

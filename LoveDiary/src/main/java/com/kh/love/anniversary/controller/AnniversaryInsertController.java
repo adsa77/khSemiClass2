@@ -25,19 +25,15 @@ public class AnniversaryInsertController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
 			
-			HttpSession session = req.getSession();
 
-			MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
-			String writerNo = loginMemberVo.getNo();
-//			String code = loginMemberVo.getCode();
-
-			
-			MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
-			String writerNo = "1";//loginMemberVo.getNo();
+//			HttpSession session = req.getSession();
+//			MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
+			String writerNo = "1"; //loginMemberVo.getNo();
 			String code = "1111"; //loginMemberVo.getCode();
-			String title = req.getParameter("title");
-			String content = req.getParameter("content");
-			String date = req.getParameter("date");
+			
+			String title = req.getParameter("anniTitle");
+			String content = req.getParameter("anniContent");
+			String checkDate = req.getParameter("anniDate");
 			
 //			if(loginMemberVo != null) {
 //				System.out.println("로그인 성공 -" +loginMemberVo);
@@ -48,7 +44,9 @@ public class AnniversaryInsertController extends HttpServlet {
 			AnniversaryVo avo = new AnniversaryVo();
 			avo.setTitle(title);
 			avo.setContent(content);
-			avo.setEnrollDate(date);
+
+			avo.setCheckDate(checkDate);
+
 			avo.setWriterNo(writerNo);
 			avo.setCode(code);
 

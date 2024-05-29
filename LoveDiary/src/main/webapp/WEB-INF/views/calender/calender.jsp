@@ -75,19 +75,19 @@
 			<button id="insertToggleBtn" class="closeDivBtn">닫기</button>
 		</div>
 		<div id="anniversaryBoard" class="anniversaryBoard">
-			<form id="insertCalendar">
+			<form id="insertCalendar" action="/LoveDiary/anni/insert" method="post">
 				<div id="categoryName">
 					<span>기념일</span>
 				</div>
 				<div id="inputBox">
 					<div>
-						<input type="text" id="title" placeholder="제목 :">
+						<input type="text" id="title" name="anniTitle" placeholder="제목 :">
 					</div>
 					<div>
-						<textarea id="content" placeholder="내용 :"></textarea>
+						<textarea id="content" name="anniContent" placeholder="내용 :"></textarea>
 					</div>
 					<div>
-						<input type="date" id="date" placeholder="날짜">
+						<input type="date" id="date" name="anniDate" placeholder="날짜">
 					</div>
 					<input type="submit" id="submitBtn">
 				</div>
