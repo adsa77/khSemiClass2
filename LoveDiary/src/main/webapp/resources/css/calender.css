@@ -117,6 +117,11 @@ input[type='month']::-webkit-clear-button {
   cursor: default;
 }
 
+#wrap{
+  width: 100%;
+  max-width: 600px;
+}
+
 #wrap > div {
   width: 80vw;
   height: 80vh;
@@ -131,7 +136,6 @@ input[type='month']::-webkit-clear-button {
   color: white;
   border-radius: 10px;
 }
-
 
 #anniversaryBoardBtn{
   position: absolute;
