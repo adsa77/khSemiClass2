@@ -24,7 +24,7 @@
     </header>
     <section id="section">
       
-      <form action="/LoveDiary/member/join" method="post" enctype="multipart/form-data" id="formjoin">
+      <form action="/LoveDiary/member/join" method="post"  id="formjoin">
         <input type="text" id="userid" name="id" placeholder="아이디">
         <button type="button" id="check" onclick="checkDup();">중복검사</button>
         

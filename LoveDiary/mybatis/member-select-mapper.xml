@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MemberSelectMapper">
+	<select id="SelectId" resultType="com.kh.love.member.vo.MemberVo">
+		SELECT 
+    	ID
+        FROM MEMBER
+        WHERE NAME = #{name}
+        AND BIRTH_DATE = #{birthDate}
+        AND PHONE = #{phone}
+        AND EMAIL = #{email}
+	</select>
+	
+	
+	<select id="SelectPwd" resultType="com.kh.love.member.vo.MemberVo">
+		SELECT 
+    	PWD
+        FROM MEMBER
+        WHERE ID = #{id}
+        AND NAME = #{name}
+        AND BIRTH_DATE = #{birthDate}
+        AND PHONE = #{phone}
+        AND EMAIL = #{email}
+	</select>
+</mapper>

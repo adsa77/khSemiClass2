@@ -23,6 +23,8 @@
     <mapper resource="anniversary-mapper.xml"/>
     <mapper resource="schedule-mapper.xml"/>
     <mapper resource="member-mapper.xml"/>
-
+    <mapper resource="member-select-mapper.xml"/>
+    <mapper resource="todo-mapper.xml"/>
+    <mapper resource="code-mapper.xml"/>
   </mappers>
 </configuration>
