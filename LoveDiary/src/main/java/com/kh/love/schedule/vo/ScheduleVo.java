@@ -10,6 +10,7 @@ public class ScheduleVo {
 	private String delYn;
 	private String code;
 	private String checkDate;
+
 	public String getNo() {
 		return no;
 	}

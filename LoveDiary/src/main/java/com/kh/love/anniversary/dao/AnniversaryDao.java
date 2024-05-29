@@ -8,15 +8,18 @@ import com.kh.love.anniversary.vo.AnniversaryVo;
 import com.kh.love.search.vo.SearchVo;
 
 public class AnniversaryDao {
-	
-public int annivarsaryInsert(SqlSession ss, AnniversaryVo avo) {
-		
-		return ss.insert("CoupleMapper.AnniversaryInsert",avo);
-		
-	}
-	
-	public List<AnniversaryVo> getAnniversaryList(SqlSession ss,SearchVo vo){
-		return ss.selectList("CoupleMapper.getAnniversaryList",vo);
+
+	public int annivarsaryInsert(SqlSession ss, AnniversaryVo avo) {
+
+		return ss.insert("CoupleMapper.AnniversaryInsert", avo);
+
 	}
 
+	public List<AnniversaryVo> getAnniversaryList(SqlSession ss, SearchVo vo) {
+		return ss.selectList("CoupleMapper.getAnniversaryList", vo);
+	}
+
+//	public AnniversaryVo getList() {
+//		return ss.
+//	}
 }
