@@ -39,12 +39,6 @@
 					</tbody>
 				</table>
 
-				<c:if test="${not empty sessionScope.loginAdminVo}">
-					<div>
-						<button id="noticeInsertButton" onclick="location.href='/LoveDiary/notice/noticeInsert'">공지작성</button>
-					</div>
-				</c:if>
-
 				<div id="page-area">
 					<c:if test="${pvo.currentPage > 1}">
 						<a href="/LoveDiary/notice/noticeList?pno=${pvo.currentPage-1}">이전</a>
@@ -63,6 +57,23 @@
 						<a href="/LoveDiary/notice/noticeList?pno=${pvo.currentPage+1}">다음</a>
 					</c:if>
 				</div>
+
+				<div id="search-area">
+					<form action="${pageContext.request.contextPath}/notice/noticeList" method="post">
+						<select name="noticeCol" class="tableButton">
+							<option value="title">제목</option>
+							<option value="content">내용</option>
+							<option value="writerNo">작성자</option>
+						</select>
+						<input type="text" name="searchBox" id="searchBox">
+						<button type="submit" class="tableButton">검색</button>
+					</form>
+					<c:if test="${not empty sessionScope.loginAdminVo}">
+						<button id="noticeInsertButton"
+							onclick="location.href='/LoveDiary/notice/noticeInsert'">공지작성</button>
+					</c:if>
+				</div>
+
 			</div>
 		</section>
 		<%@ include file="/WEB-INF/views/adminLayout/adminFooter.jsp"%>

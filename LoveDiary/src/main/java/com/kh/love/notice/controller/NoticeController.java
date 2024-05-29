@@ -12,14 +12,15 @@ import javax.servlet.http.HttpSession;
 
 import com.kh.love.admin.vo.AdminVo;
 import com.kh.love.notice.service.NoticeService;
+import com.kh.love.notice.vo.NoticeSearchVo;
 import com.kh.love.notice.vo.NoticeVo;
 import com.kh.love.notice.vo.PageVo;
 
 @WebServlet("/notice/noticeList")
 public class NoticeController extends HttpServlet {
-    
+
     private final NoticeService ns;
-    
+
     public NoticeController() {
         this.ns = new NoticeService();
     }
@@ -43,24 +44,30 @@ public class NoticeController extends HttpServlet {
 
             PageVo pvo = new PageVo(listCount, currentPage, pageLimit, boardLimit);
 
-            // 서비스
-            List<NoticeVo> voList = ns.selectNoticeList(pvo);
+            String searchCol = req.getParameter("noticeCol");
+            String searchVal = req.getParameter("searchBox");
 
-            // 결과
+            List<NoticeVo> voList;
+            if (searchCol != null && searchVal != null && !searchCol.isEmpty() && !searchVal.isEmpty()) {
+                NoticeSearchVo nsVo = new NoticeSearchVo(listCount, currentPage, pageLimit, boardLimit);
+                nsVo.setSearchCol(searchCol);
+                nsVo.setValue(searchVal);
+                voList = ns.searchNotice(nsVo);
+            } else {
+                voList = ns.selectNoticeList(pvo);
+            }
+
             req.setAttribute("voList", voList);
             req.setAttribute("pvo", pvo);
-            
-            // 포워드 직전에 응답 커밋 체크
+
             if (!resp.isCommitted()) {
                 req.getRequestDispatcher("/WEB-INF/views/notice/noticeList.jsp").forward(req, resp);
             }
 
         } catch (Exception e) {
-            System.out.println(e.getMessage());
             e.printStackTrace();
             req.setAttribute("errMsg", e.getMessage());
-            
-            // 에러 페이지로 포워드
+
             if (!resp.isCommitted()) {
                 req.getRequestDispatcher("/WEB-INF/views/adminCommon/error.jsp").forward(req, resp);
             }

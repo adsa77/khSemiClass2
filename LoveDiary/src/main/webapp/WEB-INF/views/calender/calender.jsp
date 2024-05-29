@@ -35,7 +35,7 @@
 				<button id="nextMonthBtn">▶</button>
 			</div>
 			<div id="headerR">
-				<h3>사진</h3>
+				<button id="sidebarBtn">메뉴</button>
 			</div>
 		</header>
 		<div id="popUp">
@@ -117,7 +117,7 @@
 			<button id="closeInsertCalendarBtn" class="closeDivBtn">닫기</button>
 		</div>
 		<div id="todoBoard" class="todoBoard">
-			<form id="insertCalendar">
+			<form action="/LoveDiary/todo/insert" method="post" id="insertCalendar">
 				<div>
 					<div id="categoryName">
 						<span>TODO</span>
@@ -125,15 +125,15 @@
 				</div>
 				<div id="inputBox">
 					<div>
-						<input type="text" id="title" placeholder="제목 :">
+						<input type="text" id="title" name="todoTitle" placeholder="제목 :">
 					</div>
 					<div>
-						<textarea id="content" placeholder="내용 :"></textarea>
+						<textarea id="content" name="todoContent" placeholder="내용 :"></textarea>
 					</div>
 					<div>
-						<input type="date" id="date" placeholder="날짜">
+						<input type="date" id="date" name="todoCheckDate" placeholder="날짜">
 					</div>
-					<input type="submit" id="submitBtn">
+					<input type="submit" name="todoSubmitBtn" id="submitBtn">
 				</div>
 			</form>
 			<button id="closeInsertCalendarBtn" class="closeDivBtn">닫기</button>
@@ -185,11 +185,11 @@
 		<section id="section">
 			<div class="calendar" id="calendar"></div>
 		</section>
-		<footer id="footer">
+<%-- 		<footer id="footer">
 			<h1>footer</h1>
-		</footer>
+		</footer>  --%>
+		
 	</div>
-	<button id="sidebarBtn">메뉴</button>
 	<aside id="sidebar">
 		<ul>
 			<li><a href="../index.html">홈페이지</a></li>

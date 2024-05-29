@@ -49,6 +49,7 @@ public class CalendarCodeController extends HttpServlet {
 
             if (result == 1) {
                 resp.getWriter().write("코드 생성 성공: " + loginMemberVo.getCode());
+                resp.sendRedirect("/LoveDiary/calender/calender");
             } else if(result == -1){
             	 session.setAttribute("alertMsg", "해당 코드 값은 이미 최대 사용 인원에 도달했습니다.");
                  resp.sendRedirect("/LoveDiary/code/check");

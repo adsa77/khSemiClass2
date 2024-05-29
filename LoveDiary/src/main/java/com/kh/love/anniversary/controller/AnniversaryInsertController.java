@@ -26,6 +26,11 @@ public class AnniversaryInsertController extends HttpServlet {
 		try {
 			
 			HttpSession session = req.getSession();
+
+			MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
+			String writerNo = loginMemberVo.getNo();
+//			String code = loginMemberVo.getCode();
+
 			
 			MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
 			String writerNo = "1";//loginMemberVo.getNo();
