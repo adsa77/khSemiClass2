@@ -95,7 +95,7 @@
 			<button id="closeInsertCalendarBtn" class="closeDivBtn">닫기</button>
 		</div>
 		<div id="scheduleBoard" class="scheduleBoard">
-			<form id="insertCalendar">
+			<form id="insertCalendar" action="/LoveDiary/sche/insert" method="post">
 				<div>
 					<div id="categoryName">
 						<span>스케쥴</span>
@@ -103,13 +103,13 @@
 				</div>
 				<div id="inputBox">
 					<div>
-						<input type="text" id="title" placeholder="제목 :">
+						<input type="text" id="title" name="scheTitle" placeholder="제목 :">
 					</div>
 					<div>
-						<textarea id="content" placeholder="내용 :"></textarea>
+						<textarea id="content" name="scheContent" placeholder="내용 :"></textarea>
 					</div>
 					<div>
-						<input type="date" id="date" placeholder="날짜">
+						<input type="date" id="date" name="scheDate" placeholder="날짜">
 					</div>
 					<input type="submit" id="submitBtn">
 				</div>

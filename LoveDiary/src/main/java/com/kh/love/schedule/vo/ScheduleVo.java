@@ -6,11 +6,11 @@ public class ScheduleVo {
 	private String writerNo;
 	private String title;
 	private String content;
-	private String scDate;
+	private String enrollDate;
+	private String modifyDate;
 	private String delYn;
 	private String code;
 	private String checkDate;
-
 	public String getNo() {
 		return no;
 	}
@@ -35,11 +35,17 @@ public class ScheduleVo {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getScDate() {
-		return scDate;
+	public String getEnrollDate() {
+		return enrollDate;
 	}
-	public void setScDate(String scDate) {
-		this.scDate = scDate;
+	public void setEnrollDate(String enrollDate) {
+		this.enrollDate = enrollDate;
+	}
+	public String getModifyDate() {
+		return modifyDate;
+	}
+	public void setModifyDate(String modifyDate) {
+		this.modifyDate = modifyDate;
 	}
 	public String getDelYn() {
 		return delYn;
@@ -62,16 +68,18 @@ public class ScheduleVo {
 	@Override
 	public String toString() {
 		return "ScheduleVo [no=" + no + ", writerNo=" + writerNo + ", title=" + title + ", content=" + content
-				+ ", scDate=" + scDate + ", delYn=" + delYn + ", code=" + code + ", checkDate=" + checkDate + "]";
+				+ ", enrollDate=" + enrollDate + ", modifyDate=" + modifyDate + ", delYn=" + delYn + ", code=" + code
+				+ ", checkDate=" + checkDate + "]";
 	}
-	public ScheduleVo(String no, String writerNo, String title, String content, String scDate, String delYn,
-			String code, String checkDate) {
+	public ScheduleVo(String no, String writerNo, String title, String content, String enrollDate, String modifyDate,
+			String delYn, String code, String checkDate) {
 		super();
 		this.no = no;
 		this.writerNo = writerNo;
 		this.title = title;
 		this.content = content;
-		this.scDate = scDate;
+		this.enrollDate = enrollDate;
+		this.modifyDate = modifyDate;
 		this.delYn = delYn;
 		this.code = code;
 		this.checkDate = checkDate;
@@ -80,7 +88,7 @@ public class ScheduleVo {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	
 	
 	

@@ -7,14 +7,41 @@
 <mapper namespace="ScheduleMapper">
   
   <insert id="insertSchedule">
-  	INSERT INTO SCHEDULE(NO,WRITER_NO,TITLE,CONTENT,SC_DATE,DEL_YN,CODE) 
-  	VALUES(SEQ_MEMBER_NO.NEXTVAL,#{writerNo},#{title},#{content},SYSDATE,'N',#{code})
+  	INSERT INTO SCHEDULE
+  	(
+  		NO
+  		,WRITER_NO
+  		,TITLE
+  		,CONTENT
+		,CHECK_DATE
+  		,CODE 
+  	)
+  	VALUES
+  	(
+  		SEQ_MEMBER_NO.NEXTVAL
+  		,#{writerNo}
+  		,#{title}
+  		,#{content}
+  		,#{checkDate}
+  		,#{code}
+  	)
   </insert>
   
   <select id="getScheduleList" resultType="com.kh.love.schedule.vo.ScheduleVo">
-    SELECT NO,WRITER_NO,TITLE,CONTENT,SC_DATE,DEL_YN,CODE 
-    FROM SCHEDULE
-    WHERE DEL_YN = 'N'
+    
+    SELECT
+	    S.NO
+	    ,S.WRITER_NO
+	    ,S.TITLE
+	    ,S.CONTENT
+	    ,S.ENROLL_DATE
+	    ,S.MODIFY_DATE
+	    ,S.DEL_YN
+	    ,S.CHECK_DATE
+	    ,M.CODE
+	FROM SCHEDULE S
+	JOIN MEMBER M ON S.WRITER_NO = M.NO
+	WHERE DEL_YN = 'N' 
     <if test="type == 'title'">
 		AND TITLE LIKE '%${value}%'
 	</if>
@@ -22,6 +49,7 @@
 	<if test="type == 'content'">
 		AND CONTENT LIKE '%${value}%'
 	</if>
+	ORDER BY S.NO
 	
   </select>
   
