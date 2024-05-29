@@ -2,8 +2,6 @@ package com.kh.love.anniversary.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.net.MulticastSocket;
-import java.util.Set;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,23 +18,24 @@ import com.kh.love.member.vo.MemberVo;
 public class AnniversaryInsertController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+		req.getRequestDispatcher("/WEB-INF/views/calender/calender.jsp").forward(req, resp);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
 			
-//			HttpSession session = req.getSession();
-//			MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
-//			String writerNo = loginMemberVo.getNo();
+			HttpSession session = req.getSession();
 			
+			MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
+			String writerNo = "1";//loginMemberVo.getNo();
+			String code = "1111"; //loginMemberVo.getCode();
 			String title = req.getParameter("title");
 			String content = req.getParameter("content");
 			String date = req.getParameter("date");
 			
 //			if(loginMemberVo != null) {
-//				System.out.println("로그인 성공 -" +loginMemberVo );
+//				System.out.println("로그인 성공 -" +loginMemberVo);
 //			}else {
 //				System.out.println("로그인 실패 -"+ loginMemberVo);
 //			}
@@ -45,7 +44,8 @@ public class AnniversaryInsertController extends HttpServlet {
 			avo.setTitle(title);
 			avo.setContent(content);
 			avo.setEnrollDate(date);
-//			avo.setWriterNo(writerNo);
+			avo.setWriterNo(writerNo);
+			avo.setCode(code);
 
 			AnniversaryService cs = new AnniversaryService();
 			int result = cs.anniversaryInsert(avo);
@@ -55,12 +55,11 @@ public class AnniversaryInsertController extends HttpServlet {
 			PrintWriter out = resp.getWriter();
 			out.write("result: " +result);
 			
-			
-			if(result < 1) {
-				throw new Exception("게시글 작성 실패");
-			}
-			req.setAttribute("Msg", "게시글 작성 성공!");
-			resp.sendRedirect("/LoveDiary/calender/calender");
+//			if(result < 1) {
+//				throw new Exception("게시글 작성 실패");
+//			}
+//			req.setAttribute("Msg", "게시글 작성 성공!");
+//			resp.sendRedirect("/LoveDiary/calender/calender.jsp");
 			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
