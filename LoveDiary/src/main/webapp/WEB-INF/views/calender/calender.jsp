@@ -185,9 +185,10 @@
 		<section id="section">
 			<div class="calendar" id="calendar"></div>
 		</section>
-		<footer id="footer">
+<%-- 		<footer id="footer">
 			<h1>footer</h1>
-		</footer>
+		</footer>  --%>
+		
 	</div>
 	<aside id="sidebar">
 		<ul>
