@@ -32,11 +32,11 @@ public class ScheduleInsertController extends HttpServlet {
 			String content = req.getParameter("content");
 			String scDate = req.getParameter("scDate");
 			
-			if(loginMemberVo != null) {
-				System.out.println("로그인 성공 -" +loginMemberVo );
-			}else{
-				System.out.println("로그인 실패 -"+ loginMemberVo);
-			}
+//			if(loginMemberVo != null) {
+//				System.out.println("로그인 성공 -" +loginMemberVo );
+//			}else{
+//				System.out.println("로그인 실패 -"+ loginMemberVo);
+//			}
 
 			ScheduleVo svo = new ScheduleVo();
 			svo.setTitle(title);

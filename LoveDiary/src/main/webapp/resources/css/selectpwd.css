@@ -34,7 +34,7 @@ display: none;
 }
 
 
-.joinTitle{
+.selectIdTitle{
   margin: 0 auto;
   margin-top: 10px;
   width: 250px;
@@ -45,7 +45,7 @@ display: none;
   font-weight: 1000;
 }
 
-#indexinsert {
+#selectPwdBut {
   display : grid;
   justify-self: center;
   align-self: center;
@@ -87,7 +87,7 @@ margin: 0 auto;
   font-size: 13px;
   font-weight: 1000;
 }
-#formjoin{
+#formselectpwd{
   display: inline-block;
   text-align: center;
 

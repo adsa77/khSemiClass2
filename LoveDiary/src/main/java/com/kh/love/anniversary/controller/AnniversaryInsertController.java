@@ -27,9 +27,10 @@ public class AnniversaryInsertController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
 			
-//			HttpSession session = req.getSession();
-//			MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
-//			String writerNo = loginMemberVo.getNo();
+			HttpSession session = req.getSession();
+			MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
+			String writerNo = loginMemberVo.getNo();
+//			String code = loginMemberVo.getCode();
 			
 			String title = req.getParameter("title");
 			String content = req.getParameter("content");

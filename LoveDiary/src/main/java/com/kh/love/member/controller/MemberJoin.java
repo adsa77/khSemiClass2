@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.kh.love.member.service.MemberService;
 import com.kh.love.member.vo.MemberVo;
 
-@MultipartConfig
 @WebServlet("/member/join")
 public class MemberJoin extends HttpServlet {
 

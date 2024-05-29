@@ -24,8 +24,19 @@
     </header>
     <section id="section">
       
-      <form action="/LoveDiary/select/pwd" method="post" enctype="multipart/form-data" id="formselectId">
+      <form action="/LoveDiary/select/id" method="post" id="formselectId">
          
+		<span id="resultId">
+         <% 
+            String foundId = (String) request.getAttribute("foundId");
+            if (foundId != null) {
+                out.print(foundId);
+            }
+         %>
+         </span>               
+         <br>
+         <br>
+         <br>
         <input type="text" id="username" name="name" class="selectIdTitle" placeholder="이름">
       	<div class="nameerror-message hide">이름은 한글로 입력해주세요.</div>
  
