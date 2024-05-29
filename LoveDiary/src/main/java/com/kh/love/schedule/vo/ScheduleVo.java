@@ -9,6 +9,7 @@ public class ScheduleVo {
 	private String scDate;
 	private String delYn;
 	private String code;
+	private String checkDate;
 	public String getNo() {
 		return no;
 	}
@@ -51,13 +52,19 @@ public class ScheduleVo {
 	public void setCode(String code) {
 		this.code = code;
 	}
+	public String getCheckDate() {
+		return checkDate;
+	}
+	public void setCheckDate(String checkDate) {
+		this.checkDate = checkDate;
+	}
 	@Override
 	public String toString() {
 		return "ScheduleVo [no=" + no + ", writerNo=" + writerNo + ", title=" + title + ", content=" + content
-				+ ", scDate=" + scDate + ", delYn=" + delYn + ", code=" + code + "]";
+				+ ", scDate=" + scDate + ", delYn=" + delYn + ", code=" + code + ", checkDate=" + checkDate + "]";
 	}
 	public ScheduleVo(String no, String writerNo, String title, String content, String scDate, String delYn,
-			String code) {
+			String code, String checkDate) {
 		super();
 		this.no = no;
 		this.writerNo = writerNo;
@@ -66,11 +73,13 @@ public class ScheduleVo {
 		this.scDate = scDate;
 		this.delYn = delYn;
 		this.code = code;
+		this.checkDate = checkDate;
 	}
 	public ScheduleVo() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
 	
 	
 	

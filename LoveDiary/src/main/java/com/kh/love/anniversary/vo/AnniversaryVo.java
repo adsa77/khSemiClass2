@@ -2,12 +2,14 @@ package com.kh.love.anniversary.vo;
 
 public class AnniversaryVo {
 	private String no;
-	private String  writerNo;
-	private String  title;
-	private String  content;
-	private String  enrollDate;
-	private String  modifyDate;
-	private String  delYn;
+	private String writerNo;
+	private String title;
+	private String content;
+	private String enrollDate;
+	private String modifyDate;
+	private String delYn;
+	private String code;
+	private String checkDate;
 	public String getNo() {
 		return no;
 	}
@@ -50,13 +52,26 @@ public class AnniversaryVo {
 	public void setDelYn(String delYn) {
 		this.delYn = delYn;
 	}
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
+	}
+	public String getCheckDate() {
+		return checkDate;
+	}
+	public void setCheckDate(String checkDate) {
+		this.checkDate = checkDate;
+	}
 	@Override
 	public String toString() {
 		return "AnniversaryVo [no=" + no + ", writerNo=" + writerNo + ", title=" + title + ", content=" + content
-				+ ", enrollDate=" + enrollDate + ", modifyDate=" + modifyDate + ", delYn=" + delYn + "]";
+				+ ", enrollDate=" + enrollDate + ", modifyDate=" + modifyDate + ", delYn=" + delYn + ", code=" + code
+				+ ", checkDate=" + checkDate + "]";
 	}
 	public AnniversaryVo(String no, String writerNo, String title, String content, String enrollDate, String modifyDate,
-			String delYn) {
+			String delYn, String code, String checkDate) {
 		super();
 		this.no = no;
 		this.writerNo = writerNo;
@@ -65,6 +80,8 @@ public class AnniversaryVo {
 		this.enrollDate = enrollDate;
 		this.modifyDate = modifyDate;
 		this.delYn = delYn;
+		this.code = code;
+		this.checkDate = checkDate;
 	}
 	public AnniversaryVo() {
 		super();
