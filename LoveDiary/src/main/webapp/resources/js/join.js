@@ -1,5 +1,7 @@
 // 1. 아이디 입력창 정보 가져오기
 let elInputUserid = document.querySelector('#userid');
+
+
 // 2. 버튼 메시지 정보 가져오기
 
 // 3. 실패 메시지 정보 가져오기 (글자수 제한 4~12글자)

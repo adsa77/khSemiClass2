@@ -8,6 +8,7 @@ public class AnniversaryVo {
 	private String  enrollDate;
 	private String  modifyDate;
 	private String  delYn;
+	
 	public String getNo() {
 		return no;
 	}

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="TodoMapper">
+
+	<insert id="todoInsert" >
+		INSERT INTO TODO
+			(
+			NO
+			,WRITER_NO
+			,TITLE
+			,CONTENT
+			,CODE
+			,CHECK_DATE
+			)
+		VALUES
+			(
+			SEQ_NOTICE_NO.NEXTVAL
+			,#{writerNo}
+			,#{title} 
+			,#{content}
+			,#{code}
+			,#{checkDate}
+			)
+	</insert>
+
+
+
+
+</mapper>
