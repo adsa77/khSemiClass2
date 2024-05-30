@@ -6,31 +6,34 @@
     <resultMap id="combinedResultMap" type="java.util.HashMap">
         <result property="title" column="TITLE"/>
         <result property="content" column="CONTENT"/>
-        <result property="checkDate" column="CHECK_DATE"/>
+        <result property="date" column="CHECK_DATE"/>
+        <result property="code" column="code"/>
     </resultMap>
 
 	    <select id="getCalenderList" resultMap="combinedResultMap">
-        SELECT S.TITLE, S.CONTENT, S.CHECK_DATE
-        FROM SCHEDULE S
-        WHERE S.CODE = #{code}
-        
-        UNION ALL
-        
-        SELECT A.TITLE, A.CONTENT, A.CHECK_DATE
-        FROM ANNIVERSARY A
-        WHERE A.CODE = #{code}
-        
-        UNION ALL
-        
-        SELECT D.TITLE, D.CONTENT, D.CHECK_DATE
-        FROM DIARY D
-        WHERE D.CODE = #{code}
-        
-        UNION ALL
-        
-        SELECT T.TITLE, T.CONTENT, T.CHECK_DATE
-        FROM TODO T
-        WHERE T.CODE = #{code}
+			<![CDATA[
+		    SELECT S.TITLE, S.CONTENT, TO_CHAR(S.CHECK_DATE, 'YYYY-MM-DD') AS CHECK_DATE, S.CODE
+		    FROM SCHEDULE S
+		    WHERE S.CODE = #{code}
+		    
+		    UNION ALL
+		    
+		    SELECT A.TITLE, A.CONTENT, TO_CHAR(A.CHECK_DATE, 'YYYY-MM-DD') AS CHECK_DATE, A.CODE
+		    FROM ANNIVERSARY A
+		    WHERE A.CODE = #{code}
+		    
+		    UNION ALL
+		    
+		    SELECT D.TITLE, D.CONTENT, TO_CHAR(D.CHECK_DATE, 'YYYY-MM-DD') AS CHECK_DATE, D.CODE
+		    FROM DIARY D
+		    WHERE D.CODE = #{code}
+		    
+		    UNION ALL
+		    
+		    SELECT T.TITLE, T.CONTENT, TO_CHAR(T.CHECK_DATE, 'YYYY-MM-DD') AS CHECK_DATE, T.CODE
+		    FROM TODO T
+		    WHERE T.CODE = #{code}
+		    ]]>
     </select>
 
 </mapper>
