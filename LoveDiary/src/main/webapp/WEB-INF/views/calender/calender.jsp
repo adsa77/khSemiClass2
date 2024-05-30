@@ -13,20 +13,28 @@
 	<script defer src="/LoveDiary/resources/js/sidebar.js"></script>
 	<script defer src="/LoveDiary/resources/js/calender.js"></script>
 	<script defer src="/LoveDiary/resources/js/popUpBoard.js"></script>
-	<script>
-        // 서버에서 전달받은 데이터를 JavaScript로 전달
-        var voList = [
-          <c:forEach items="${voList}" var="vo" varStatus="status">
+	<script defer>
+    var voList = [
+        <c:forEach items="${voList}" var="vo" varStatus="status">
             {
-              code: "${vo.code}",
-              title: "${vo.title}",
-              content: "${vo.content}",
-              date: "${vo.date}"
-            }
-            <c:if test="${!status.last}">,</c:if>
-          </c:forEach>
-        ];
+                code: "${vo.code}",
+                title: "${vo.title}",
+                content: "${vo.content}",
+                date: "${vo.date}"
+            }<c:if test="${!status.last}">,</c:if>
+        </c:forEach>
+    ];
+
+    // 전달된 데이터를 console.log로 출력
+    console.log(voList);
+    
     </script>
+    <c:forEach items="${voList}" var="vo">
+    Code: ${vo.code} <br>
+    Title: ${vo.title} <br>
+    Content: ${vo.content} <br>
+    Date: ${vo.date} <br>
+	</c:forEach>
 </head>
 <body id="container">
 	<!-- <aside id="sideL">
