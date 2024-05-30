@@ -120,7 +120,6 @@ function generateCalendar(year, month) {
 
 			// 휴일 표시
 			if (holidays[dateId]) {
-				console.log("공휴일 : " + holidays[dateId]);
 				let holidayLabel = document.createElement('div');
 				holidayLabel.textContent = holidays[dateId];
 				holidayLabel.classList.add('holiday');
@@ -132,7 +131,6 @@ function generateCalendar(year, month) {
 			console.log("voList :" + voList);
 			voList.forEach(event => {
 				if (event.date === dateId) {
-					console.log("vo : " + voList);
 					let scheduleLabel = document.createElement('div');
 					scheduleLabel.textContent = event.title;
 					scheduleLabel.classList.add(event.category.toLowerCase()); // 카테고리 이름을 클래스로 추가
