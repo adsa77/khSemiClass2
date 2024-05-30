@@ -1,6 +1,6 @@
 package com.kh.love.notice.vo;
 
-public class PageVo {
+public class NoticePageVo {
 	
 	@Override
 	public String toString() {
@@ -21,7 +21,7 @@ public class PageVo {
 	private int startNum;		// 조회할 ROWNUM 시작
 	private int endNum;			// 조회할 ROWNUM 마지막
 	
-	public PageVo(int listCount, int currentPage, int pageLimit, int boardLimit) {
+	public NoticePageVo(int listCount, int currentPage, int pageLimit, int boardLimit) {
 		
 		this.listCount = listCount;
 		this.currentPage = currentPage;
@@ -39,7 +39,7 @@ public class PageVo {
 		
 	}//constructor
 	
-	public PageVo() {
+	public NoticePageVo() {
 		super();
 		// TODO Auto-generated constructor stub
 	}

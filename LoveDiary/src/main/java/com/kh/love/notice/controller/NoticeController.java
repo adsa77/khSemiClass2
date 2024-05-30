@@ -14,7 +14,7 @@ import com.kh.love.admin.vo.AdminVo;
 import com.kh.love.notice.service.NoticeService;
 import com.kh.love.notice.vo.NoticeSearchVo;
 import com.kh.love.notice.vo.NoticeVo;
-import com.kh.love.notice.vo.PageVo;
+import com.kh.love.notice.vo.NoticePageVo;
 
 @WebServlet("/notice/noticeList")
 public class NoticeController extends HttpServlet {
@@ -42,7 +42,7 @@ public class NoticeController extends HttpServlet {
             int pageLimit = 5;
             int boardLimit = 20;
 
-            PageVo pvo = new PageVo(listCount, currentPage, pageLimit, boardLimit);
+            NoticePageVo pvo = new NoticePageVo(listCount, currentPage, pageLimit, boardLimit);
 
             String searchCol = req.getParameter("noticeCol");
             String searchVal = req.getParameter("searchBox");

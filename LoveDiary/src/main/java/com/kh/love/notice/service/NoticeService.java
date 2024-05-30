@@ -9,7 +9,7 @@ import com.kh.love.db.SqlSessionTemplate;
 import com.kh.love.notice.dao.NoticeDao;
 import com.kh.love.notice.vo.NoticeSearchVo;
 import com.kh.love.notice.vo.NoticeVo;
-import com.kh.love.notice.vo.PageVo;
+import com.kh.love.notice.vo.NoticePageVo;
 
 public class NoticeService {
 
@@ -32,7 +32,7 @@ public class NoticeService {
 	}// method
 
 	// 게시글 목록 조회
-	public List<NoticeVo> selectNoticeList(PageVo pvo) throws Exception {
+	public List<NoticeVo> selectNoticeList(NoticePageVo pvo) throws Exception {
 		// 비즈니스 로직
 
 		// DAO 호출
