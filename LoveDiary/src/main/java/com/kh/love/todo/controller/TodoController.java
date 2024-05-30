@@ -49,7 +49,7 @@ public class TodoController extends HttpServlet{
 			if(result < 1) {
 	            throw new Exception("게시글 작성 실패 ...");
 	         }
-	         resp.sendRedirect("/LoveDiary/calender/calender");
+	         resp.sendRedirect("/LoveDiary/calender/main");
 			
 			
 		} catch (Exception e) {

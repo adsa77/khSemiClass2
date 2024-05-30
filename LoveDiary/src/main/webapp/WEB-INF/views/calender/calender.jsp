@@ -13,6 +13,11 @@
 	<script defer src="/LoveDiary/resources/js/sidebar.js"></script>
 	<script defer src="/LoveDiary/resources/js/calender.js"></script>
 	<script defer src="/LoveDiary/resources/js/popUpBoard.js"></script>
+	<script>
+        // 서버에서 전달받은 데이터를 JavaScript로 전달
+        // xx같은 코드
+        var voList = ${voList};
+    </script>
 </head>
 <body id="container">
 	<!-- <aside id="sideL">
