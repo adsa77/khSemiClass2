@@ -1,5 +1,3 @@
-
-
 const holidays = {
     "2024-01-01": "신정",
     "2024-02-09": "설날",
@@ -131,9 +129,10 @@ for (let i = 0; i < 42; i++) {
                 }
 
                 // 일정 표시
+                console.log("voList :" +voList);
                 voList.forEach(event => {
                     if (event.date === dateId) {
-						console.log("vo : " + voList)
+						console.log("vo : " + voList);
                         let scheduleLabel = document.createElement('div');
                         scheduleLabel.textContent = event.title;
                         scheduleLabel.classList.add('schedule');
