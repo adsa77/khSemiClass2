@@ -1,5 +1,3 @@
-console.log()}
-
 const holidays = {
     "2024-01-01": "신정",
     "2024-02-09": "설날",
@@ -117,24 +115,15 @@ function generateCalendar(year, month) {
             let dateId = year + '-' + ((month + 1 < 10) ? '0' + (month + 1) : (month + 1)) + '-' + (date < 10 ? '0' + date : date);
             dayElement.id = dateId;
             
-             // 공휴일 표시
-            if (holidays[dateId]) {
-                let holidayLabel = document.createElement('div');
-                holidayLabel.textContent = holidays[dateId];
-                holidayLabel.classList.add('holiday');
-                dayElement.appendChild(holidayLabel);
-                dayElement.classList.add('holiday-day');
-                }
-        
-             //  xx같은 코드 
+             // 일정 표시
 			if (voList){
 				let scheduleLabel = document.createElement('div');
                 scheduleLabel.textContent = holidays[dateId];
-                scheduleLabel.classList.add('schedule');
+                scheduleLabel.classList.add('schedule','holiday');
                 dayElement.appendChild(scheduleLabel);
                 dayElement.classList.add('schedule-day');
 			}
-                
+        }
 
         calendar.appendChild(dayElement);
 
@@ -223,7 +212,7 @@ document.getElementById('nextMonthBtn').addEventListener('click', function () {
 generateCalendar(thisYear, thisMonth);
 
 // 초기 달력 생성시 연 월 업데이트
-
+let todayDiv = document.getElementById('today');
 if (todayDiv) {
     todayDiv.textContent = thisYear + '. ' + (thisMonth + 1);
 }
@@ -325,4 +314,4 @@ function hideAllBoards() {
     boards.forEach(board => {
         board.style.display = 'none';
     });
-  }}
+}

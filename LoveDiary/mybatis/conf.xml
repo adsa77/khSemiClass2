@@ -16,6 +16,7 @@
   </environments>
   <mappers>
     <mapper resource="admin-mapper.xml"/>
+    <mapper resource="calenderAdmin-mapper.xml"/>
     <mapper resource="calender-mapper.xml"/>
     <mapper resource="faq-mapper.xml"/>
     <mapper resource="qna-mapper.xml"/>

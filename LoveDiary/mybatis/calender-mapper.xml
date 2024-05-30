@@ -3,22 +3,34 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="CalenderMapper">
+    <resultMap id="combinedResultMap" type="java.util.HashMap">
+        <result property="title" column="TITLE"/>
+        <result property="content" column="CONTENT"/>
+        <result property="checkDate" column="CHECK_DATE"/>
+    </resultMap>
 
-	<select id="getCalenderList" resultType="com.kh.love.calender.vo.CalenderVo">
-	SELECT 
-    C.NO
-    ,C.CODE
-    ,B.CHECK_DATE
-    ,T.TITLE
-    ,T.CONTENT
-    ,C.DEL_YN
-	FROM CALENDER C
-	JOIN TODO T ON C.CODE = T.CODE
-	JOIN SCHEDULE S ON T.CODE = S.CODE
-	JOIN ANNIVERSARY A ON C.NO = A.NO
-	JOIN ACCOUNT_BOOK B ON C.NO = B.NO
-	WHERE C.CODE = #{code}
-	AND C.DEL_YN =  'N'
-	</select>
+	    <select id="getCalenderList" resultMap="combinedResultMap">
+        SELECT S.TITLE, S.CONTENT, S.CHECK_DATE
+        FROM SCHEDULE S
+        WHERE S.CODE = #{code}
+        
+        UNION ALL
+        
+        SELECT A.TITLE, A.CONTENT, A.CHECK_DATE
+        FROM ANNIVERSARY A
+        WHERE A.CODE = #{code}
+        
+        UNION ALL
+        
+        SELECT D.TITLE, D.CONTENT, D.CHECK_DATE
+        FROM DIARY D
+        WHERE D.CODE = #{code}
+        
+        UNION ALL
+        
+        SELECT T.TITLE, T.CONTENT, T.CHECK_DATE
+        FROM TODO T
+        WHERE T.CODE = #{code}
+    </select>
 
 </mapper>

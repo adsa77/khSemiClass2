@@ -15,8 +15,17 @@
 	<script defer src="/LoveDiary/resources/js/popUpBoard.js"></script>
 	<script>
         // 서버에서 전달받은 데이터를 JavaScript로 전달
-        // xx같은 코드
-        var voList = ${voList};
+        var voList = [
+          <c:forEach items="${voList}" var="vo" varStatus="status">
+            {
+              code: "${vo.code}",
+              title: "${vo.title}",
+              content: "${vo.content}",
+              date: "${vo.date}"
+            }
+            <c:if test="${!status.last}">,</c:if>
+          </c:forEach>
+        ];
     </script>
 </head>
 <body id="container">
