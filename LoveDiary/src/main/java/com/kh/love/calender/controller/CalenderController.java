@@ -33,7 +33,7 @@ public class CalenderController extends HttpServlet {
 				CalenderService cs = new CalenderService();
 				List<CalenderVo> voList = cs.calenderCodeCheck(cdvo);
 				
-				System.out.println(voList);
+				System.out.println("voList : "+voList);
 				req.setAttribute("voList", voList);
 				
 				req.getRequestDispatcher("/WEB-INF/views/calender/calender.jsp").forward(req, resp);

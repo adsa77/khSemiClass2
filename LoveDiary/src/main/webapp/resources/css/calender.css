@@ -175,3 +175,17 @@ input[type='month']::-webkit-clear-button {
 .holiday-day {
     background-color: #fdd;
 }
+
+/* 기념일 */
+.anni{
+	background-color: yellow;
+}
+/* todo */
+.todo{
+	background-color: green;
+}
+/* 스케쥴 */
+.sche{
+	background-color: blue;
+}
+
