@@ -25,20 +25,21 @@ public class CalenderController extends HttpServlet {
 			MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
 			
 			if (loginMemberVo != null) {
+				String code = loginMemberVo.getCode();
+				
+				CalenderVo cdvo = new CalenderVo();
+				cdvo.setCode(code);
+				
+				CalenderService cs = new CalenderService();
+				List<CalenderVo> voList = cs.calenderCodeCheck(cdvo);
+				
+				System.out.println(voList);
+				req.setAttribute("voList", voList);
+				
 				req.getRequestDispatcher("/WEB-INF/views/calender/calender.jsp").forward(req, resp);
 			} else {
 				resp.sendRedirect("/LoveDiary/member/login");
 			}
-
-			String code = loginMemberVo.getCode();
-			
-			CalenderVo cdvo = new CalenderVo();
-			cdvo.setCode(code);
-			
-			CalenderService cs = new CalenderService();
-			List<CalenderVo> voList = cs.calenderCodeCheck(cdvo);
-			
-			req.setAttribute("voList", voList);
 			
 			
 		} catch (Exception e) {
