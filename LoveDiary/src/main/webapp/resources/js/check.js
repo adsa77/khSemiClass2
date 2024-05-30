@@ -6,19 +6,13 @@ function initCode() {
     success: function(response) {
       $('#reText').text(response); // 응답 값을 텍스트 요소에 설정
       $('#codecheckBtn').hide(); // 버튼 숨기기
-
-      // 응답 메시지가 "코드 생성 성공"이면 텍스트만 보여줌
-      if (response.includes("코드 생성 성공")) {
-        // 페이지 리디렉션 대신, 생성된 코드가 있는 경우 해당 코드를 표시하는 로직 추가 가능
-        const generatedCode = response.split(": ")[1];
-        
-      }
     },
-    error: function(error) {
+    error: function(xhr, status, error) {
       alert('AJAX 요청 실패: ' + error);
     }
   });
 }
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const codeForm = document.querySelector("#codeForm2");

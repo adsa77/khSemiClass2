@@ -7,12 +7,15 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Insert title here</title>
+	<script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	
 	<link rel="stylesheet" href="/LoveDiary/resources/css/sidebar.css">
 	<link rel="stylesheet" href="/LoveDiary/resources/css/calender.css">
 	<link rel="stylesheet" href="/LoveDiary/resources/css/popUpBoard.css">
 	<script defer src="/LoveDiary/resources/js/sidebar.js"></script>
 	<script defer src="/LoveDiary/resources/js/calender.js"></script>
 	<script defer src="/LoveDiary/resources/js/popUpBoard.js"></script>
+	<script defer src="/LoveDiary/resources/js/logout.js"></script>
 	<script defer>
     var voList = [
         <c:forEach items="${voList}" var="vo" varStatus="status">
@@ -222,7 +225,9 @@
 				onclick="loadPage('./html/diaryList.html'); return false;">diaryList</a></li>
 			<li><a href="./html/chat.html"
 				onclick="loadPage('./html/chat.html'); return false;">채팅</a></li>
+			
 		</ul>
+		<button onclick="location.href='/LoveDiary/member/logout'">로그아웃</button>
 	</aside>
 </body>
 </html>
