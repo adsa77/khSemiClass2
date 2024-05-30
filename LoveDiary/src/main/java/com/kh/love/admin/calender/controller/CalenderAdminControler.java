@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import com.kh.love.admin.vo.AdminVo;
 
-@WebServlet("/calender/adminEditCalender")
+@WebServlet("/calender/adminEditCalenderList")
 public class CalenderAdminControler extends HttpServlet{
 	
 	@Override
@@ -21,16 +21,17 @@ public class CalenderAdminControler extends HttpServlet{
 		AdminVo loginAdminVo = (AdminVo) session.getAttribute("loginAdminVo");
 		
 		if(loginAdminVo != null) {
-			req.getRequestDispatcher("/WEB-INF/views/calender/adminEditCalender.jsp").forward(req, resp);
+			req.getRequestDispatcher("/WEB-INF/views/calender/adminEditCalenderList.jsp").forward(req, resp);
 		} else {
 			resp.sendRedirect(req.getContextPath() + "/admin/adminLogin");			
 		}
+		
 		
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+		doGet(req, resp);
 	}
 
 }

@@ -18,6 +18,6 @@
 		<a href="/LoveDiary/qna/adminQNA">QNA</a>
 	</div>
 	<div id="editCalender" class="nav">
-		<a href="/LoveDiary/calender/adminEditCalender">캘린더 수정</a>
+		<a href="/LoveDiary/calender/adminEditCalenderList">캘린더 수정</a>
 	</div>
 </nav>

@@ -387,6 +387,7 @@ CREATE TABLE HOLIDAY (
    NO               NUMBER          NOT NULL    CONSTRAINT PK_HOLIDAY_NO PRIMARY KEY
    ,TITLE           VARCHAR2(100)   NOT NULL
    ,HOLIDAY_DATE    DATE
+   ,DEL_YN          CHAR(1)         DEFAULT'N'
 );
 
 --------------------------------------------------
