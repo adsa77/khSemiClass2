@@ -15,8 +15,8 @@ import com.kh.love.calender.service.CalenderService;
 import com.kh.love.calender.vo.CalenderVo;
 import com.kh.love.member.vo.MemberVo;
 
-@WebServlet("/calender/calender")
-public class Calender extends HttpServlet {
+@WebServlet("/calender/main")
+public class CalenderController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -24,12 +24,12 @@ public class Calender extends HttpServlet {
 			HttpSession session = req.getSession();
 			MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
 			
-//			if (loginMemberVo != null) {
-//				req.getRequestDispatcher("/WEB-INF/views/calender/calender.jsp").forward(req, resp);
-//			} else {
-//				resp.sendRedirect("/LoveDiary/member/login");
-//			}
-			
+			if (loginMemberVo != null) {
+				req.getRequestDispatcher("/WEB-INF/views/calender/calender.jsp").forward(req, resp);
+			} else {
+				resp.sendRedirect("/LoveDiary/member/login");
+			}
+
 			String code = loginMemberVo.getCode();
 			
 			CalenderVo cdvo = new CalenderVo();
@@ -37,8 +37,8 @@ public class Calender extends HttpServlet {
 			
 			CalenderService cs = new CalenderService();
 			List<CalenderVo> voList = cs.calenderCodeCheck(cdvo);
-			PrintWriter out = resp.getWriter();
-			out.write("voList : " + voList);
+			
+			req.setAttribute("voList", voList);
 			
 			
 		} catch (Exception e) {

@@ -45,7 +45,7 @@ public class MemberLogin extends HttpServlet{
          if (loginMemberVo != null) {
                 session.setAttribute("loginMemberVo", loginMemberVo);
                 if (loginMemberVo.getCode() != null) {
-                    resp.sendRedirect("/LoveDiary/calender/calender");
+                    resp.sendRedirect("/LoveDiary/calender/main");
                 } else {
                     session.setAttribute("alertMsg", "로그인 성공");
                     resp.sendRedirect("/LoveDiary/code/check");

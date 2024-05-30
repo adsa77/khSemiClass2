@@ -76,7 +76,7 @@ public class AnniversaryVo {
 	public AnniversaryVo(String no, String writerNo, String title, String content, String enrollDate, String modifyDate,
 			String delYn, String code, String checkDate) {
 
-				+ "]";
+				
 	}
 	public AnniversaryVo(String no, String writerNo, String title, String content, String enrollDate, String modifyDate,
 			String delYn, String code) {
