@@ -17,7 +17,7 @@
     )
 	VALUES
 	(
-		SEQ_MEMBER_NO.NEXTVAL
+		SEQ_ANNIVERSARY_NO.NEXTVAL
 		,#{writerNo}
 		,#{title}
 		,#{content}

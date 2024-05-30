@@ -27,14 +27,9 @@
 
     // 전달된 데이터를 console.log로 출력
     console.log(voList);
+    console.log("vo.date" + vo.date);
     
     </script>
-    <c:forEach items="${voList}" var="vo">
-    Code: ${vo.code} <br>
-    Title: ${vo.title} <br>
-    Content: ${vo.content} <br>
-    Date: ${vo.date} <br>
-	</c:forEach>
 </head>
 <body id="container">
 	<!-- <aside id="sideL">

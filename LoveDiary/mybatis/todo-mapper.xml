@@ -16,7 +16,7 @@
 			)
 		VALUES
 			(
-			SEQ_NOTICE_NO.NEXTVAL
+			SEQ_TODO_NO.NEXTVAL
 			,#{writerNo}
 			,#{title} 
 			,#{content}
