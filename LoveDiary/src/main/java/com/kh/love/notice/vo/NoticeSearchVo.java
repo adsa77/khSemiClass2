@@ -1,6 +1,6 @@
 package com.kh.love.notice.vo;
 
-public class NoticeSearchVo extends PageVo {
+public class NoticeSearchVo extends NoticePageVo {
     private String searchCol;    // 검색 컬럼 (title, content)
     private String value;        // 검색어
     private int boardLimit;      // 한 페이지에 보여줄 게시글 갯수

@@ -25,7 +25,7 @@
 
 	<!-- 공지 목록 -->
 	<select id="selectNoticeList"
-		parameterType="com.kh.love.notice.vo.PageVo"
+		parameterType="com.kh.love.notice.vo.NoticePageVo"
 		resultMap="noticeResultMap">
 		SELECT *
 		FROM (

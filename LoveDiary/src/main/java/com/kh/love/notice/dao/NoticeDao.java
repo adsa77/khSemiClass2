@@ -7,7 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.kh.love.notice.vo.NoticeSearchVo;
 import com.kh.love.notice.vo.NoticeVo;
-import com.kh.love.notice.vo.PageVo;
+import com.kh.love.notice.vo.NoticePageVo;
 
 
 public class NoticeDao {
@@ -18,7 +18,7 @@ public class NoticeDao {
 	}
 
 	//게시글 목록 조회
-	public List<NoticeVo> selectNoticeList(SqlSession ss, PageVo pvo) throws Exception {
+	public List<NoticeVo> selectNoticeList(SqlSession ss, NoticePageVo pvo) throws Exception {
 		return  ss.selectList("NoticeMapper.selectNoticeList", pvo);
 	}// method
 

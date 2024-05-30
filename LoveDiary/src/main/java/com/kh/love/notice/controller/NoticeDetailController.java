@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 import com.kh.love.admin.vo.AdminVo;
 import com.kh.love.notice.service.NoticeService;
 import com.kh.love.notice.vo.NoticeVo;
-import com.kh.love.notice.vo.PageVo;
+import com.kh.love.notice.vo.NoticePageVo;
 
 @WebServlet("/notice/noticeDetail")
 public class NoticeDetailController extends HttpServlet{
