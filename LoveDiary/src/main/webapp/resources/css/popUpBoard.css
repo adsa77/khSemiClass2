@@ -176,3 +176,105 @@ input[type=text]{
   bottom: 30px;
 }
 
+.holiday {
+  color: red;
+  font-weight: 900;
+}
+
+.holiday-day {
+  background-color: #fdd;
+}
+
+/* 기념일 */
+.anni{
+background-color: rgb(230, 230, 25);
+}
+/* todo */
+.todo{
+background-color: lightgreen;
+}
+/* 스케쥴 */
+.sche{
+background-color: skyblue;
+}
+.anni, .holiday, .sche, .todo{
+font-size: 8pt;
+}
+
+
+/* 테이블 */
+#tableView{
+	max-width: 470px; 
+}
+
+#tableViewTitle > #title{
+margin: 0;
+width: auto;
+}
+#tableViewTitle{
+display: grid;
+justify-content: center
+}
+#tableViewDate > #date{
+margin: 0;
+width: auto;
+}
+#tableViewDate{
+display: grid;
+justify-content: center
+}
+
+#title > #tableViewSpanId{
+color: blue;
+font-size: 20pt;
+}
+#content > #tableViewSpanContent{
+color: blue;
+font-size: 15pt;
+}
+#date > #tableViewSpanDate{
+color: blue;
+font-size: 15pt;
+}
+
+#tableViewTitle{
+display: grid;
+border: 1px solid black;
+border-radius: 10px;
+}
+
+#tableViewTitle > span{
+margin: 0;
+height: auto;
+}
+
+#tableViewContent{
+border: 1px solid black;
+border-radius: 10px;
+}
+
+#tableViewDate{
+border: 1px solid black;
+border-radius: 10px;
+}
+
+#tableViewBtnBox{
+position: absolute;
+bottom: 5px;
+right: 10px;
+}
+#closeInsertCalendarBtn{
+position: relative;
+bottom: 1px;
+right: 10px;
+}
+#tableViewDelete{
+position: relative;
+bottom: 1px;
+right: 5px;
+}
+#tableViewEdit{
+  position: relative;
+  bottom: 1px;
+  right: 1px;
+  }
