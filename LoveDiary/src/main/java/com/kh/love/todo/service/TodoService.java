@@ -2,6 +2,8 @@ package com.kh.love.todo.service;
 
 import static com.kh.love.db.SqlSessionTemplate.getSqlSession;
 
+import java.sql.Connection;
+
 import org.apache.ibatis.session.SqlSession;
 
 import com.kh.love.todo.dao.TodoDao;
@@ -26,6 +28,21 @@ public class TodoService {
 		    
 		    return result;
 		
+	}
+	public int delete(TodoVo tvo) throws Exception {
+		//dao호출
+		SqlSession ss = getSqlSession();
+        int result =  dao.delete(ss,tvo);
+        
+        if(result == 1) {
+           ss.commit();
+        }else {
+           ss.rollback();
+           throw new Exception("게시글 삭제 실패 발생");
+        }
+        ss.close();
+        
+        return result;
 	}
 
 	

@@ -78,26 +78,19 @@ private MemberDao dao;
 		
 		return result == 0;
 	}
-	public int edit(MemberVo vo) throws Exception {
-		//비즈니스 로직
-		if(!vo.getPwd().equals(vo.getPwd2())) {
-			throw new Exception("비밀번호 일치하지않음");
-		}
-				
-		//dao호출 
-		SqlSession ss = SqlSessionTemplate.getSqlSession();
-		int result = dao.edit(ss,vo);
-				
-		//sql 호출
-		if(result == 1) {
-			ss.commit();
-		}else {
-			ss.rollback();
-		}
-		ss.close();
-				
-		return result;
-	}
+	public MemberVo edit(MemberVo vo) throws Exception {
+        // 비즈니스 로직
+        if (!vo.getPwd().equals(vo.getPwd2())) {
+            throw new Exception("비밀번호 일치하지 않습니다.");
+        }
+
+        // dao 호출
+        SqlSession ss = SqlSessionTemplate.getSqlSession();
+        MemberVo result = dao.edit(ss, vo);
+        ss.close();
+        
+        return result;
+    }
 	
 	private boolean isValidName(String name) {
 	   // 한글만 포함하는지 검사하는 정규 표현식

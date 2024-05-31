@@ -11,4 +11,9 @@ public class TodoDao {
 		return ss.insert("TodoMapper.todoInsert",tvo);
 	}
 
+	public int delete(SqlSession ss, TodoVo tvo) {
+		
+		return ss.update("TodoMapper.todoDelete",tvo);
+	}
+
 }

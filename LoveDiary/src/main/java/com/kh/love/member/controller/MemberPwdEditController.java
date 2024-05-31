@@ -12,8 +12,8 @@ import javax.servlet.http.HttpSession;
 import com.kh.love.member.service.MemberService;
 import com.kh.love.member.vo.MemberVo;
 
-@WebServlet("/member/edit")
-public class MemberEdit extends HttpServlet{
+@WebServlet("/member/pwdedit")
+public class MemberPwdEditController extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -21,7 +21,9 @@ public class MemberEdit extends HttpServlet{
 	         HttpSession session = req.getSession();
 	         MemberVo loginMemberVo = (MemberVo)session.getAttribute("loginMemberVo");
 	         if(loginMemberVo == null) {
+	        	resp.sendRedirect("/LoveDiary/home");
 	            throw new Exception("로그인 하고 오세요");
+	            
 	         }
 	         req.getRequestDispatcher("/WEB-INF/views/member/edit.jsp").forward(req, resp);
 	         
@@ -36,7 +38,6 @@ public class MemberEdit extends HttpServlet{
 		try {
 			//데이터 꺼내기
 			
-//			String no = req.getParameter("no");
 			HttpSession session = req.getSession();
 			MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
 			String no = loginMemberVo.getNo();
@@ -44,20 +45,18 @@ public class MemberEdit extends HttpServlet{
 			String pwd = req.getParameter("editpwd");
 			String pwd2 = req.getParameter("editpwd2");
 			
-			System.out.println("컨트 상단"+loginMemberVo);
 			MemberVo vo = new MemberVo();
 			vo.setNo(no);
 			vo.setId(id);
 			vo.setPwd(pwd);
 			vo.setPwd2(pwd2);
 			//서비스호출
-			System.out.println("컨트 하단"+loginMemberVo);
 			MemberService ms = new MemberService();
-			int result = ms.edit(vo);
+			MemberVo result = ms.edit(vo);
 			//출력하기
 			
 			
-			if(result !=1 ) {
+			if(result =! null ) {
 				throw new Exception("회원정보 수정 실패");
 				
 			}
