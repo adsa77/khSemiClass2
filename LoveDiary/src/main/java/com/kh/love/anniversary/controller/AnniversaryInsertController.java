@@ -28,18 +28,18 @@ public class AnniversaryInsertController extends HttpServlet {
 
 			HttpSession session = req.getSession();
 			MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
-			String writerNo = loginMemberVo.getNo();
-			String code = loginMemberVo.getCode();
-			
-			String title = req.getParameter("anniTitle");
-			String content = req.getParameter("anniContent");
-			String checkDate = req.getParameter("anniDate");
 			
 			if(loginMemberVo != null) {
 				System.out.println("로그인 성공 -" +loginMemberVo);
 			}else {
 				System.out.println("로그인 실패 -"+ loginMemberVo);
 			}
+			
+			String writerNo = loginMemberVo.getNo();
+			String code = loginMemberVo.getCode();
+			String title = req.getParameter("anniTitle");
+			String content = req.getParameter("anniContent");
+			String checkDate = req.getParameter("anniDate");
 			
 			AnniversaryVo avo = new AnniversaryVo();
 			avo.setTitle(title);

@@ -28,6 +28,13 @@ public class ScheduleInsertController extends HttpServlet {
 		try {
 			HttpSession session = req.getSession();
 			MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
+			
+			if(loginMemberVo != null) {
+				System.out.println("로그인 성공 -" +loginMemberVo );
+			}else{
+				System.out.println("로그인 실패 -"+ loginMemberVo);
+			}
+			
 			String writerNo = loginMemberVo.getNo();
 			String code = loginMemberVo.getCode();
 			
@@ -35,11 +42,6 @@ public class ScheduleInsertController extends HttpServlet {
 			String content = req.getParameter("scheContent");
 			String checkDate = req.getParameter("scheDate");
 			
-			if(loginMemberVo != null) {
-				System.out.println("로그인 성공 -" +loginMemberVo );
-			}else{
-				System.out.println("로그인 실패 -"+ loginMemberVo);
-			}
 
 			ScheduleVo svo = new ScheduleVo();
 			svo.setTitle(title);
