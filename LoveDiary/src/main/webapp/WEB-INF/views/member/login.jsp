@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>러브 다이어리 회원가입</title>
-<link rel="stylesheet" href="/LoveDiary/resources/css/edit.css">
+  <link rel="stylesheet" href="/LoveDiary/resources/css/login.css">
 
 </head>
 <body id="container">
