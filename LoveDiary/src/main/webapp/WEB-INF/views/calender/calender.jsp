@@ -196,34 +196,10 @@
 			<button id="closeInsertCalendarBtn" class="closeDivBtn">닫기</button>
 		</div>
 		<div id="tableView" class="tableView" style="display: none;">
-<<<<<<< Updated upstream
-    <div>
-        <div id="categoryName">
-            <span id="tableViewSpan"></span><!-- 수정: id를 "tableViewSpan"으로 변경 -->
-        </div>
-    </div>
-    <div id="inputBox">
-        <div>
-            <div id="title"></div>
-        </div>
-        <div>
-            <div id="content"></div>
-        </div>
-        <div>
-            <div id="date"></div>
-        </div>
-    </div>
-    <button id="closeInsertCalendarBtn" class="closeDivBtn">닫기</button>
-</div>
-		<section id="section">
-			<div class="calendar" id="calendar">
-				<div class="day"></div>
-=======
 			<div>
 				<div id="categoryName">
 					<span id="tableViewSpan"></span>
 				</div>
->>>>>>> Stashed changes
 			</div>
 			<div id="inputBox">
 				<div id="tableViewTitle">
@@ -245,8 +221,9 @@
 			<div id="tableViewBtnBox">
 				<button id="tableViewEdit" class="closeDivBtn">수정</button>
 				<button id="tableViewDelete" class="closeDivBtn">삭제</button>
-				<button id="closeInsertCalendarBtn" class="closeDivBtn">닫기</button>
 			</div>
+			<button id="closeInsertCalendarBtn" class="closeDivBtn">닫기</button>
+			
 		</div>
 		<section id="section">
 			<div class="calendar" id="calendar">
@@ -268,14 +245,6 @@
 				onclick="loadPage('./html/diaryList.html'); return false;">diaryList</a></li>
 			<li><a href="./html/chat.html"
 				onclick="loadPage('./html/chat.html'); return false;">채팅</a></li>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
-=======
-
->>>>>>> Stashed changes
 		</ul>
 		<button onclick="location.href='/LoveDiary/member/edit'">회원정보수정</button>
 		<button onclick="location.href='/LoveDiary/member/logout'">로그아웃</button>
