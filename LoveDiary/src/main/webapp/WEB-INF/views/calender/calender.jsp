@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="/LoveDiary/resources/css/popUpBoard.css">
 	<script defer src="/LoveDiary/resources/js/sidebar.js"></script>
 	<script defer src="/LoveDiary/resources/js/calender.js"></script>
+	<script defer src="/LoveDiary/resources/js/calenderCode.js"></script>
 	<script defer src="/LoveDiary/resources/js/popUpBoard.js"></script>
 	<script defer src="/LoveDiary/resources/js/logout.js"></script>
 	<script defer>
@@ -23,15 +24,11 @@
                 code: "${vo.code}",
                 title: "${vo.title}",
                 content: "${vo.content}",
-                date: "${vo.date}"
+                date: "${vo.date}",
+                category: "${vo.category}"
             }<c:if test="${!status.last}">,</c:if>
         </c:forEach>
     ];
-
-    // 전달된 데이터를 console.log로 출력
-    console.log(voList);
-    console.log("vo.date" + vo.date);
-    
     </script>
 </head>
 <body id="container">
@@ -61,19 +58,9 @@
 		</header>
 		<div id="popUp">
 			<span id="popUpDate">팝업</span>
-			<ul>
+			<ul id="eventList">
+				<!-- 기본 일정 목록 -->
 				<li>일정1</li>
-				<li>일정2</li>
-				<li>일정3</li>
-				<li>일정4</li>
-				<li>일정5</li>
-				<li>일정6</li>
-				<li>일정7</li>
-				<li>일정8</li>
-				<li>일정9</li>
-				<li>일정10</li>
-				<li>일정11</li>
-				<li>일정12</li>
 			</ul>
 			<div>
 				<div id="anniversaryBoardBtn"
