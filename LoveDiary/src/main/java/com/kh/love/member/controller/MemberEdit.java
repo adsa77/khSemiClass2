@@ -41,17 +41,17 @@ public class MemberEdit extends HttpServlet{
 			MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
 			String no = loginMemberVo.getNo();
 			String id = req.getParameter("id");
-			String pwd = req.getParameter("pwd");
-			String pwd2 = req.getParameter("pwd2");
-			String nick = req.getParameter("nick");
+			String pwd = req.getParameter("editpwd");
+			String pwd2 = req.getParameter("editpwd2");
 			
+			System.out.println("컨트 상단"+loginMemberVo);
 			MemberVo vo = new MemberVo();
 			vo.setNo(no);
 			vo.setId(id);
 			vo.setPwd(pwd);
 			vo.setPwd2(pwd2);
-			vo.setNick(nick);
 			//서비스호출
+			System.out.println("컨트 하단"+loginMemberVo);
 			MemberService ms = new MemberService();
 			int result = ms.edit(vo);
 			//출력하기
@@ -59,6 +59,7 @@ public class MemberEdit extends HttpServlet{
 			
 			if(result !=1 ) {
 				throw new Exception("회원정보 수정 실패");
+				
 			}
 			session.setAttribute("alertMsg","회원정보 수정 성공");
 			

@@ -35,8 +35,8 @@
 	
 	<update id="memberEdit">
 	UPDATE MEMBER 
-	SET PWD = ?  
-	WHERE NO = ?
+	SET PWD = #{pwd}  
+	WHERE NO = #{no}
 	</update>
 	
 </mapper>
