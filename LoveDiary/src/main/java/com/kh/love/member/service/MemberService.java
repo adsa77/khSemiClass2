@@ -2,12 +2,6 @@ package com.kh.love.member.service;
 
 
 
-import static com.kh.love.db.JDBCTemplate.close;
-import static com.kh.love.db.JDBCTemplate.commit;
-import static com.kh.love.db.JDBCTemplate.getConnection;
-import static com.kh.love.db.JDBCTemplate.rollback;
-
-import java.sql.Connection;
 import java.util.regex.Pattern;
 
 import org.apache.ibatis.session.SqlSession;
@@ -84,6 +78,26 @@ private MemberDao dao;
 		
 		return result == 0;
 	}
+	public int edit(MemberVo vo) throws Exception {
+		//비즈니스 로직
+		if(!vo.getPwd().equals(vo.getPwd2())) {
+			throw new Exception("비밀번호 일치하지않음");
+		}
+				
+		//dao호출 
+		SqlSession ss = SqlSessionTemplate.getSqlSession();
+		int result = dao.edit(ss,vo);
+				
+		//sql 호출
+		if(result == 1) {
+			ss.commit();
+		}else {
+			ss.rollback();
+		}
+		ss.close();
+				
+		return result;
+	}
 	
 	private boolean isValidName(String name) {
 	   // 한글만 포함하는지 검사하는 정규 표현식
@@ -101,5 +115,6 @@ private MemberDao dao;
     private boolean isValidEmail(String email) {
         return Pattern.matches("^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$", email);
     }
+	
 
 }

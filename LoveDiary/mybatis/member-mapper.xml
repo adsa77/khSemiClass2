@@ -33,4 +33,10 @@
 	WHERE ID = #{id}
 	</select>
 	
+	<update id="memberEdit">
+	UPDATE MEMBER 
+	SET PWD = ?  
+	WHERE NO = ?
+	</update>
+	
 </mapper>
