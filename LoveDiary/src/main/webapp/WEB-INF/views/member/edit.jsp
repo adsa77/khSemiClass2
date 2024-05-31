@@ -23,13 +23,13 @@
     </header>
     <section id="section">
       <form action="/LoveDiary/member/edit" method="post">
-        <input type="text" id="editTitle" name="editid" placeholder="아이디">
+        <span id="idtitle">회원님의 아이디는 : ${loginMemberVo.id} 입니다.</span>
+     	<span id="idtitle">회원님의 코드는 : ${loginMemberVo.code} 입니다.</span>
+     	<span id="idtitle">회원님의 닉네임은 : ${loginMemberVo.nick} 입니다.</span>
      	<br>
-     	<br>
-     	<br>
-        <input type="password" id="editTitle" name="editpwd" placeholder="변경할 비밀번호">
+        <input type="password" id="editTitle" name="editpwd" placeholder="비밀번호">
         <br>
-        <input type="password" id="editTitle" name="editpwd2" placeholder="변경할 비밀번호 확인">
+        <input type="password" id="editTitle" name="editpwd2" placeholder="비밀번호 확인">
         <br>
         <br>
         <br>

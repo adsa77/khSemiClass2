@@ -25,7 +25,13 @@
 			)
 	</insert>
 
-
+	<update id="todoDelete">
+		UPDATE TODO 
+		SET DEL_YN = 'Y'
+		WHERE NO = #{no} 
+		AND CODE = #{CODE}
+		AND DEL_YN = 'N'
+	</update>
 
 
 </mapper>

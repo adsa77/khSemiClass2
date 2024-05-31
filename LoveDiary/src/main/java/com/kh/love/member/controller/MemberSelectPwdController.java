@@ -13,7 +13,7 @@ import com.kh.love.member.service.MemberSelectService;
 import com.kh.love.member.vo.MemberVo;
 
 @WebServlet("/select/pwd")
-public class MemberSelectPwd extends HttpServlet{
+public class MemberSelectPwdController extends HttpServlet{
 
 	
 	@Override

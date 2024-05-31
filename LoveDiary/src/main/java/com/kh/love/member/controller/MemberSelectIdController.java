@@ -14,7 +14,7 @@ import com.kh.love.member.vo.MemberVo;
 
 
 @WebServlet("/select/id")
-public class MemberSelectId extends HttpServlet{
+public class MemberSelectIdController extends HttpServlet{
 
 	
 	@Override

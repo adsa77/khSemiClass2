@@ -13,7 +13,7 @@ import com.kh.love.member.service.MemberService;
 import com.kh.love.member.vo.MemberVo;
 
 @WebServlet("/member/join")
-public class MemberJoin extends HttpServlet {
+public class MemberJoinController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

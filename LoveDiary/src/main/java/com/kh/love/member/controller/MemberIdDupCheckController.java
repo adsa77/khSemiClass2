@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.kh.love.member.service.MemberService;
 
 @WebServlet("/member/id-dup")
-public class MemberIdDupCheck extends HttpServlet{
+public class MemberIdDupCheckController extends HttpServlet{
 
 	//아이디 중복 검사
 		@Override

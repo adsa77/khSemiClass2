@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 @WebServlet("/member/logout")
-public class MemberLogout extends HttpServlet{
+public class MemberLogoutController extends HttpServlet{
 
 	
 	@Override
