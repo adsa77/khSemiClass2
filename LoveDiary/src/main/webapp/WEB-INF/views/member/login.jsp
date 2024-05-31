@@ -23,7 +23,7 @@
     </header>
     <section id="section">
       
-      <form action="/LoveDiary/member/edit" method="post">
+      <form action="/LoveDiary/member/login" method="post">
         <input type="text" id="joinTitle" name="id" placeholder="아이디">
      	<br>
      	<br>
