@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>회원정보 수정</title>
-<link rel="stylesheet" href="/LoveDiary/resources/css/login.css">
+<link rel="stylesheet" href="/LoveDiary/resources/css/edit.css">
 
 </head>
 <body id="container">
@@ -22,27 +22,22 @@
       >
     </header>
     <section id="section">
-      
-      <form action="/LoveDiary/member/login" method="post">
-        <input type="text" id="joinTitle" name="id" placeholder="아이디">
+      <form action="/LoveDiary/member/edit" method="post">
+        <input type="text" id="editTitle" name="editid" placeholder="아이디">
      	<br>
      	<br>
      	<br>
-        <input type="password" id="joinTitle" name="pwd" placeholder="비밀번호">
+        <input type="password" id="editTitle" name="editpwd" placeholder="변경할 비밀번호">
+        <br>
+        <input type="password" id="editTitle" name="editpwd2" placeholder="변경할 비밀번호 확인">
         <br>
         <br>
         <br>
-         
         <br>
         <br>
-        <br>
-        <input type="submit" id="indexinsert" value="로그인 하기">
+        <input type="submit" id="editUpdate" value="비밀번호 변경">
       </form>
-      	<div>
-     	 	<a href="http://127.0.0.1:8888/LoveDiary/select/id" id="selectId" class="forgetpass">아이디 찾기</a>
-       		
-       		<a href="http://127.0.0.1:8888/LoveDiary/select/pwd" id="selectPwd" class="forgetpass">비밀번호 찾기</a>
-      	</div>
+   
     </section>
     <footer>
       <h1>footer</h1>
