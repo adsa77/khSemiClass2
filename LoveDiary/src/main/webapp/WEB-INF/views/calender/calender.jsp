@@ -4,20 +4,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Insert title here</title>
-	<script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-	
-	<link rel="stylesheet" href="/LoveDiary/resources/css/sidebar.css">
-	<link rel="stylesheet" href="/LoveDiary/resources/css/calender.css">
-	<link rel="stylesheet" href="/LoveDiary/resources/css/popUpBoard.css">
-	<script defer src="/LoveDiary/resources/js/sidebar.js"></script>
-	<script defer src="/LoveDiary/resources/js/calender.js"></script>
-	<script defer src="/LoveDiary/resources/js/calenderCode.js"></script>
-	<script defer src="/LoveDiary/resources/js/popUpBoard.js"></script>
-	<script defer src="/LoveDiary/resources/js/logout.js"></script>
-	<script defer>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<script defer
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="/LoveDiary/resources/css/sidebar.css">
+<link rel="stylesheet" href="/LoveDiary/resources/css/calender.css">
+<link rel="stylesheet" href="/LoveDiary/resources/css/popUpBoard.css">
+<script defer src="/LoveDiary/resources/js/sidebar.js"></script>
+<script defer src="/LoveDiary/resources/js/calender.js"></script>
+<script defer src="/LoveDiary/resources/js/calenderCode.js"></script>
+<script defer src="/LoveDiary/resources/js/popUpBoard.js"></script>
+<script defer src="/LoveDiary/resources/js/logout.js"></script>
+<script defer>
     var voList = [
         <c:forEach items="${voList}" var="vo" varStatus="status">
             {
@@ -83,7 +84,8 @@
 			<button id="insertToggleBtn" class="closeDivBtn">닫기</button>
 		</div>
 		<div id="anniversaryBoard" class="anniversaryBoard">
-			<form id="insertCalendar" action="/LoveDiary/anni/insert" method="post">
+			<form id="insertCalendar" action="/LoveDiary/anni/insert"
+				method="post">
 				<div id="categoryName">
 					<span>기념일</span>
 				</div>
@@ -103,7 +105,8 @@
 			<button id="closeInsertCalendarBtn" class="closeDivBtn">닫기</button>
 		</div>
 		<div id="scheduleBoard" class="scheduleBoard">
-			<form id="insertCalendar" action="/LoveDiary/sche/insert" method="post">
+			<form id="insertCalendar" action="/LoveDiary/sche/insert"
+				method="post">
 				<div>
 					<div id="categoryName">
 						<span>스케쥴</span>
@@ -125,7 +128,8 @@
 			<button id="closeInsertCalendarBtn" class="closeDivBtn">닫기</button>
 		</div>
 		<div id="todoBoard" class="todoBoard">
-			<form action="/LoveDiary/todo/insert" method="post" id="insertCalendar">
+			<form action="/LoveDiary/todo/insert" method="post"
+				id="insertCalendar">
 				<div>
 					<div id="categoryName">
 						<span>TODO</span>
@@ -190,17 +194,34 @@
 			</form>
 			<button id="closeInsertCalendarBtn" class="closeDivBtn">닫기</button>
 		</div>
+		<div id="tableView" class="tableView" style="display: none;">
+    <div>
+        <div id="categoryName">
+            <span id="tableViewSpan"></span><!-- 수정: id를 "tableViewSpan"으로 변경 -->
+        </div>
+    </div>
+    <div id="inputBox">
+        <div>
+            <div id="title"></div>
+        </div>
+        <div>
+            <div id="content"></div>
+        </div>
+        <div>
+            <div id="date"></div>
+        </div>
+    </div>
+    <button id="closeInsertCalendarBtn" class="closeDivBtn">닫기</button>
+</div>
 		<section id="section">
 			<div class="calendar" id="calendar">
-				<div class="day">
-					
-				</div>
+				<div class="day"></div>
 			</div>
 		</section>
-<%-- 		<footer id="footer">
+		<%-- 		<footer id="footer">
 			<h1>footer</h1>
 		</footer>  --%>
-		
+
 	</div>
 	<aside id="sidebar">
 		<ul>
@@ -212,6 +233,10 @@
 				onclick="loadPage('./html/diaryList.html'); return false;">diaryList</a></li>
 			<li><a href="./html/chat.html"
 				onclick="loadPage('./html/chat.html'); return false;">채팅</a></li>
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 		</ul>
 		<button onclick="location.href='/LoveDiary/member/edit'">회원정보수정</button>
 		<button onclick="location.href='/LoveDiary/member/logout'">로그아웃</button>
