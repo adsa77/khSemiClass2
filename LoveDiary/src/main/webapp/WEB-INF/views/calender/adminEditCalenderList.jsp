@@ -6,14 +6,14 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>공휴일 목록</title>
 
-<%@ include file="/WEB-INF/views/adminLayout/adminUtil.jsp" %>
+<%@ include file="/WEB-INF/views/adminLayout/adminUtil.jsp"%>
 
 </head>
 
 <body id="container">
-	<div id="warp">
+	<div id="wrap">
 		<%@ include file="/WEB-INF/views/adminLayout/adminHeader.jsp"%>
 		<%@ include file="/WEB-INF/views/adminLayout/adminNav.jsp"%>
 		<section id="adminPageMain">
@@ -23,18 +23,18 @@
 					<thead>
 						<tr>
 							<th>번호</th>
-							<th>제목</th>
-							<th>작성자</th>
+							<th>공휴일</th>
+							<th>날짜</th>
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${voList}" var="nvo">
+						<c:forEach items="${voList}" var="hvo">
 							<tr>
-								<td>${nvo.no}</td>
+								<td>${hvo.no}</td>
 								<td><a
-									href="/LoveDiary/notice/noticeDetail?no=${nvo.no}&writerNo=${nvo.writerNo}">${nvo.title}</a>
+									href="/LoveDiary/calender/adminEditCalenderList?no=${hvo.no}&writerNo=${hvo.writerNo}">${hvo.title}</a>
 								</td>
-								<td><c:if test="${nvo.writerNo == 1}">관리자</c:if></td>
+								<td>${hvo.holidayDate}</td>
 							</tr>
 						</c:forEach>
 					</tbody>
@@ -42,7 +42,7 @@
 
 				<div id="page-area">
 					<c:if test="${pvo.currentPage > 1}">
-						<a href="/LoveDiary/notice/noticeList?pno=${pvo.currentPage-1}">이전</a>
+						<a href="/LoveDiary/calender/adminEditCalenderList?caPvo=${pvo.currentPage-1}">이전</a>
 					</c:if>
 					<c:forEach begin="${pvo.startPage}" end="${pvo.endPage}" var="x">
 						<c:choose>
@@ -50,17 +50,17 @@
 								<strong>${x}</strong>
 							</c:when>
 							<c:otherwise>
-								<a href="/LoveDiary/notice/noticeList?pno=${x}">${x}</a>
+								<a href="/LoveDiary/notice/noticeList?caPvo=${x}">${x}</a>
 							</c:otherwise>
 						</c:choose>
 					</c:forEach>
 					<c:if test="${pvo.currentPage < pvo.maxPage}">
-						<a href="/LoveDiary/notice/noticeList?pno=${pvo.currentPage+1}">다음</a>
+						<a href="/LoveDiary/calender/adminEditCalenderList?caPvo=${pvo.currentPage+1}">다음</a>
 					</c:if>
 				</div>
 
 				<div id="search-area">
-					<form action="${pageContext.request.contextPath}/notice/noticeList" method="post">
+					<form action="${pageContext.request.contextPath}/calender/adminEditCalenderList" method="post">
 						<select name="noticeCol" class="tableButton">
 							<option value="title">제목</option>
 							<option value="content">내용</option>
@@ -71,7 +71,7 @@
 					</form>
 					<c:if test="${not empty sessionScope.loginAdminVo}">
 						<button id="noticeInsertButton"
-							onclick="location.href='/LoveDiary/notice/noticeInsert'">공지작성</button>
+							onclick="location.href='/LoveDiary/calender/noticeInsert'">공휴일 작성</button>
 					</c:if>
 				</div>
 

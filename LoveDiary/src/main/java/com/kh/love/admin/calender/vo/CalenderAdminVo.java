@@ -7,17 +7,24 @@ public class CalenderAdminVo {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public CalenderAdminVo(String no, String code, String enrollDate, String delYn) {
+	public CalenderAdminVo(String no, String title, String content, String writerNo, String holidayDate,
+			String category, String delYn) {
 		super();
 		this.no = no;
-		this.code = code;
-		this.enrollDate = enrollDate;
+		this.title = title;
+		this.content = content;
+		this.writerNo = writerNo;
+		this.holidayDate = holidayDate;
+		this.category = category;
 		this.delYn = delYn;
 	}
 
 	private String no;
-	private String code;
-	private String enrollDate;
+	private String title;
+	private String content;
+	private String writerNo;
+	private String holidayDate;
+	private String category;
 	private String delYn;
 	public String getNo() {
 		return no;
@@ -27,20 +34,44 @@ public class CalenderAdminVo {
 		this.no = no;
 	}
 
-	public String getCode() {
-		return code;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setCode(String code) {
-		this.code = code;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
-	public String getEnrollDate() {
-		return enrollDate;
+	public String getContent() {
+		return content;
 	}
 
-	public void setEnrollDate(String enrollDate) {
-		this.enrollDate = enrollDate;
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public String getWriterNo() {
+		return writerNo;
+	}
+
+	public void setWriterNo(String writerNo) {
+		this.writerNo = writerNo;
+	}
+
+	public String getHolidayDate() {
+		return holidayDate;
+	}
+
+	public void setHolidayDate(String holidayDate) {
+		this.holidayDate = holidayDate;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 	public String getDelYn() {
@@ -53,9 +84,9 @@ public class CalenderAdminVo {
 
 	@Override
 	public String toString() {
-		return "CalenderAdminVo [no=" + no + ", code=" + code + ", enrollDate=" + enrollDate + ", delYn=" + delYn + "]";
+		return "CalenderAdminVo [no=" + no + ", title=" + title + ", content=" + content + ", writerNo=" + writerNo
+				+ ", holidayDate=" + holidayDate + ", category=" + category + ", delYn=" + delYn + "]";
 	}
-	
 	
 
 }

@@ -61,7 +61,7 @@ public class NoticeController extends HttpServlet {
             req.setAttribute("pvo", pvo);
 
             if (!resp.isCommitted()) {
-                req.getRequestDispatcher("/WEB-INF/views/notice/noticeList.jsp").forward(req, resp);
+            	req.getRequestDispatcher("/WEB-INF/views/notice/noticeList.jsp").forward(req, resp);
             }
 
         } catch (Exception e) {
