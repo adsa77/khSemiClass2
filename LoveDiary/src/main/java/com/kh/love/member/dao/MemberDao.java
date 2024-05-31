@@ -26,4 +26,8 @@ public class MemberDao {
 	public int checkIdDup(SqlSession ss, String id) throws Exception {
 		return ss.selectOne("MemberMapper.membercheckIdDup", id);
 	}
+
+	public int edit(SqlSession ss, MemberVo vo)throws Exception {
+		return ss.update("MemberMapper.memberEdit",vo);
+	}
 }
