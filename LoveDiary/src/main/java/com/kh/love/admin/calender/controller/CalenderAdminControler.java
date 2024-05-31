@@ -33,9 +33,7 @@ public class CalenderAdminControler extends HttpServlet{
 		HttpSession session = req.getSession();
 		AdminVo loginAdminVo = (AdminVo) session.getAttribute("loginAdminVo");
 		
-		if(loginAdminVo != null) {
-			req.getRequestDispatcher("/WEB-INF/views/calender/adminEditCalenderList.jsp").forward(req, resp);
-		} else {
+		if(loginAdminVo == null) {
 			resp.sendRedirect(req.getContextPath() + "/admin/adminLogin");			
 		}
 		
@@ -49,6 +47,14 @@ public class CalenderAdminControler extends HttpServlet{
             CalenderAdminPageVo caPvo = new CalenderAdminPageVo(listCount, currentPage, pageLimit, boardLimit);
             
             List<CalenderAdminVo> voList = caService.selectCalenderAdminPageList(caPvo);
+            
+            req.setAttribute("voList", voList);
+            req.setAttribute("caPvo", caPvo);
+            
+            System.out.println("HvoList :" +voList);
+            if (!resp.isCommitted()) {
+            	req.getRequestDispatcher("/WEB-INF/views/calender/adminEditCalenderList.jsp").forward(req, resp);
+            }
             
 
 		} catch (Exception e) {

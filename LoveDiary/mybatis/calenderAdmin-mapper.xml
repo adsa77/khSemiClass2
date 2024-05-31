@@ -3,6 +3,15 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="CalenderAdminMapper">
+    <resultMap id="holidayResultMap" type="Holiday">
+        <id property="no" column="NO"/>
+        <result property="title" column="TITLE"/>
+        <result property="content" column="CONTENT"/>
+        <result property="writerNo" column="WRITER_NO"/>
+        <result property="holidayDate" column="HOLIDAY_DATE"/>
+        <result property="category" column="CATEGORY"/>
+        <result property="delYn" column="DEL_YN"/>
+    </resultMap>
 	<select id="getCalenderAdminCnt" resultType="int">
 		SELECT COUNT(NO)
 		FROM HOLIDAY
@@ -10,11 +19,10 @@
 	</select>
 	
 		<!-- 공지 목록 -->
-	<select id="selectCalenderAdminList" parameterType="com.kh.love.admin.calender.vo.CalenderAdminPageVo" resultType="com.kh.love.admin.calender.vo.CalenderAdminPageVo">
-		SELECT *
-		FROM HOLIDAY
-		
-	</select>
+    <select id="selectCalenderAdminList" parameterType="CalenderAdminPageVo" resultMap="holidayResultMap">
+        SELECT NO, TITLE, TO_CHAR(HOLIDAY_DATE, 'YYYY-MM-DD') AS HOLIDAY_DATE
+        FROM HOLIDAY
+    </select>
 	
 	
 
