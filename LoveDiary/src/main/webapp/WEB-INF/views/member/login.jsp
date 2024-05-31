@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>러브 다이어리 회원가입</title>
-<link rel="stylesheet" href="/LoveDiary/resources/css/edit.css">
+<link rel="stylesheet" href="/LoveDiary/resources/css/login.css">
 
 </head>
 <body id="container">
@@ -38,11 +38,7 @@
         <br>
         <input type="submit" id="indexinsert" value="로그인 하기">
       </form>
-      	<div>
-     	 	<a href="http://127.0.0.1:8888/LoveDiary/select/id" id="selectId" class="forgetpass">아이디 찾기</a>
-       		
-       		<a href="http://127.0.0.1:8888/LoveDiary/select/pwd" id="selectPwd" class="forgetpass">비밀번호 찾기</a>
-      	</div>
+      
     </section>
     <footer>
       <h1>footer</h1>
