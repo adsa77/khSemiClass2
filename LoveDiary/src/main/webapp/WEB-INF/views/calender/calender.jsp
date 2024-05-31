@@ -30,6 +30,7 @@
             }<c:if test="${!status.last}">,</c:if>
         </c:forEach>
     ];
+
     </script>
 </head>
 <body id="container">
@@ -195,6 +196,7 @@
 			<button id="closeInsertCalendarBtn" class="closeDivBtn">닫기</button>
 		</div>
 		<div id="tableView" class="tableView" style="display: none;">
+<<<<<<< Updated upstream
     <div>
         <div id="categoryName">
             <span id="tableViewSpan"></span><!-- 수정: id를 "tableViewSpan"으로 변경 -->
@@ -216,6 +218,39 @@
 		<section id="section">
 			<div class="calendar" id="calendar">
 				<div class="day"></div>
+=======
+			<div>
+				<div id="categoryName">
+					<span id="tableViewSpan"></span>
+				</div>
+>>>>>>> Stashed changes
+			</div>
+			<div id="inputBox">
+				<div id="tableViewTitle">
+					<div id="title">
+					<span id="tableViewSpanId"></span>
+					</div>
+				</div>
+				<div id="tableViewContent">
+					<div id="content">
+					<span id="tableViewSpanContent"></span>
+					</div>
+				</div>
+				<div id="tableViewDate">
+					<div id="date">
+					<span id="tableViewSpanDate"></span>
+					</div>
+				</div>
+			</div>
+			<div id="tableViewBtnBox">
+				<button id="tableViewEdit" class="closeDivBtn">수정</button>
+				<button id="tableViewDelete" class="closeDivBtn">삭제</button>
+				<button id="closeInsertCalendarBtn" class="closeDivBtn">닫기</button>
+			</div>
+		</div>
+		<section id="section">
+			<div class="calendar" id="calendar">
+				<div class="day"></div>
 			</div>
 		</section>
 		<%-- 		<footer id="footer">
@@ -234,6 +269,10 @@
 			<li><a href="./html/chat.html"
 				onclick="loadPage('./html/chat.html'); return false;">채팅</a></li>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 =======
 
 >>>>>>> Stashed changes

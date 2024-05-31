@@ -3,7 +3,11 @@
   height: 30px;
   border: none;
   border-radius: 10px;
+<<<<<<< Updated upstream
   background-color: skyblue;
+=======
+  background-color: #fce7ea;
+>>>>>>> Stashed changes
   cursor: pointer;
 }
 

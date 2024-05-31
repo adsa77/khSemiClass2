@@ -176,11 +176,50 @@ function generateCalendar(year, month) {
 				voList.forEach(event => {
 					if (event.date === clickedDate) {
 						let li = document.createElement('li');
-						li.textContent = event.title;
+						let link = document.createElement('a');
+						link.textContent = event.title;
+						link.href = '#'; // 현재는 더미 링크
+						link.addEventListener('click', function() {
+							fillTableView(event);
+						});
+						li.appendChild(link);
+						li.id = event.date; // 클릭한 날짜를 id로 할당
 						eventList.appendChild(li);
 					}
 				});
+
+				function fillTableView(event) {
+					let tableView = document.getElementById('tableView');
+					let tableViewSpan = document.getElementById('tableViewSpan');
+					let tableViewSpanTitle = document.getElementById('tableViewSpanId');
+					let tableViewSpanContent = document.getElementById('tableViewSpanContent');
+					let tableViewSpanDate = document.getElementById('tableViewSpanDate');
+					let closeInsertCalendarBtn = document.getElementById('closeInsertCalendarBtn');
+
+					tableView.style.display = 'block';
+					tableViewSpan.textContent = getCategoryName(event.category);
+					tableViewSpanTitle.textContent = event.title;
+					tableViewSpanContent.textContent = event.content;
+					tableViewSpanDate.textContent = event.date;
+
+					closeInsertCalendarBtn.addEventListener('click', function() {
+						tableView.style.display = 'none';
+					});
+				}
+				function getCategoryName(category) {
+					switch (category) {
+						case 'SCHE':
+							return '스케쥴';
+						case 'HOLIDAY':
+							return '공휴일';
+						case 'ANNI':
+							return '기념일';
+						default:
+							return category; // 기본값은 category 그대로 출력
+					}
+				}
 			}
+
 		});
 	}
 
@@ -244,31 +283,31 @@ generateCalendar(thisYear, thisMonth);
 // 초기 달력 생성시 연 월 업데이트
 let todayDiv = document.getElementById('today');
 if (todayDiv) {
-    todayDiv.textContent = thisYear + '. ' + (thisMonth + 1);
+	todayDiv.textContent = thisYear + '. ' + (thisMonth + 1);
 }
 
 // 현재 년월을 input에 설정
 document.getElementById('currentMonth').value = `${thisYear}-${thisMonthInput}`;
 
-document.getElementById('currentMonth').addEventListener('change', function () {
-    // 선택된 월 가져오기
-    let selectedMonth = this.value;
+document.getElementById('currentMonth').addEventListener('change', function() {
+	// 선택된 월 가져오기
+	let selectedMonth = this.value;
 
-    if (selectedMonth) {
-        let [selectedYear, selectedMonthInput] = selectedMonth.split('-');
-        selectedMonthInput = parseInt(selectedMonthInput) - 1; // JavaScript의 Date 객체에서 월은 0부터 시작하므로 1을 뺍니다.
+	if (selectedMonth) {
+		let [selectedYear, selectedMonthInput] = selectedMonth.split('-');
+		selectedMonthInput = parseInt(selectedMonthInput) - 1; // JavaScript의 Date 객체에서 월은 0부터 시작하므로 1을 뺍니다.
 
-        // 달력 다시 생성 및 연 월 업데이트
-        regenerateCalendar(parseInt(selectedYear), selectedMonthInput);
-    } else {
-        // 월을 선택하지 않은 경우 현재 날짜 기준으로 달력 생성
-        let today = new Date();
-        let year = today.getFullYear();
-        let month = today.getMonth();
+		// 달력 다시 생성 및 연 월 업데이트
+		regenerateCalendar(parseInt(selectedYear), selectedMonthInput);
+	} else {
+		// 월을 선택하지 않은 경우 현재 날짜 기준으로 달력 생성
+		let today = new Date();
+		let year = today.getFullYear();
+		let month = today.getMonth();
 
-        // 달력 다시 생성 및 연 월 업데이트
-        regenerateCalendar(year, month);
-    }
+		// 달력 다시 생성 및 연 월 업데이트
+		regenerateCalendar(year, month);
+	}
 });
 
 // 슬라이드 이벤트 처리

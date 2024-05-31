@@ -167,25 +167,7 @@ input[type='month']::-webkit-clear-button {
   bottom: 30px;
 }
 
-.holiday {
-    color: red;
-    font-weight: bold;
-}
 
-.holiday-day {
-    background-color: #fdd;
-}
 
-/* 기념일 */
-.anni{
-	background-color: yellow;
-}
-/* todo */
-.todo{
-	background-color: green;
-}
-/* 스케쥴 */
-.sche{
-	background-color: blue;
-}
+
 
