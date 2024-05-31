@@ -238,15 +238,109 @@ document.getElementById('nextMonthBtn').addEventListener('click', function() {
 	document.getElementById('currentMonth').value = `${thisYear}-${(thisMonth + 1).toString().padStart(2, '0')}`;
 });
 
-// input type="month"에서 선택된 연월 변경 시 이벤트 설정
-document.getElementById('currentMonth').addEventListener('change', function() {
-	// 선택된 연월 값 가져오기
-	let [selectedYear, selectedMonth] = this.value.split('-');
-	selectedYear = parseInt(selectedYear, 10);
-	selectedMonth = parseInt(selectedMonth, 10) - 1;
-	// 달력 다시 생성 및 연 월 업데이트
-	regenerateCalendar(selectedYear, selectedMonth);
+// 초기 달력 생성
+generateCalendar(thisYear, thisMonth);
+
+// 초기 달력 생성시 연 월 업데이트
+let todayDiv = document.getElementById('today');
+if (todayDiv) {
+    todayDiv.textContent = thisYear + '. ' + (thisMonth + 1);
+}
+
+// 현재 년월을 input에 설정
+document.getElementById('currentMonth').value = `${thisYear}-${thisMonthInput}`;
+
+document.getElementById('currentMonth').addEventListener('change', function () {
+    // 선택된 월 가져오기
+    let selectedMonth = this.value;
+
+    if (selectedMonth) {
+        let [selectedYear, selectedMonthInput] = selectedMonth.split('-');
+        selectedMonthInput = parseInt(selectedMonthInput) - 1; // JavaScript의 Date 객체에서 월은 0부터 시작하므로 1을 뺍니다.
+
+        // 달력 다시 생성 및 연 월 업데이트
+        regenerateCalendar(parseInt(selectedYear), selectedMonthInput);
+    } else {
+        // 월을 선택하지 않은 경우 현재 날짜 기준으로 달력 생성
+        let today = new Date();
+        let year = today.getFullYear();
+        let month = today.getMonth();
+
+        // 달력 다시 생성 및 연 월 업데이트
+        regenerateCalendar(year, month);
+    }
 });
 
-// 페이지 로드 시 현재 연월의 달력 생성
-generateCalendar(thisYear, thisMonth);
+// 슬라이드 이벤트 처리
+let container = document.getElementById('container');
+let startX, moveX;
+
+container.addEventListener('touchstart', function(event) {
+	startX = event.touches[0].clientX;
+	moveX = 0; // 초기화
+});
+
+container.addEventListener('touchmove', function(event) {
+	let currentX = event.touches[0].clientX;
+	moveX = currentX - startX;
+
+	// 좌우 이동 제한 설정
+	if (moveX > 50) {
+		moveX = 50;
+	} else if (moveX < -50) {
+		moveX = -50;
+	}
+});
+
+container.addEventListener('touchend', function() {
+	if (moveX > 15) {
+		thisMonth--;
+		if (thisMonth < 0) {
+			thisMonth = 11;
+			thisYear--;
+		}
+	} else if (moveX < -15) {
+		thisMonth++;
+		if (thisMonth > 11) {
+			thisMonth = 0;
+			thisYear++;
+		}
+	}
+	regenerateCalendar(thisYear, thisMonth);
+	document.getElementById('currentMonth').value = `${thisYear}-${(thisMonth + 1).toString().padStart(2, '0')}`;
+});
+
+// 초기 달력 설정
+regenerateCalendar(thisYear, thisMonth);
+document.getElementById('currentMonth').value = `${thisYear}-${thisMonthInput}`;
+
+
+// 버튼 클릭 이벤트 설정
+document.getElementById('anniversaryBoardBtn').addEventListener('click', toggleBoard);
+document.getElementById('scheduleBoardBtn').addEventListener('click', toggleBoard);
+document.getElementById('todoBoardBtn').addEventListener('click', toggleBoard);
+document.getElementById('diaryBoardBtn').addEventListener('click', toggleBoard);
+document.getElementById('accountBoardBtn').addEventListener('click', toggleBoard);
+
+// div 토글 함수 정의
+function toggleBoard() {
+	// 모든 보드 숨기기
+	hideAllBoards();
+
+	// 클릭된 버튼에 해당하는 보드 보이기
+	let boardId = this.id.replace("Btn", "");
+	let board = document.getElementById(boardId);
+	if (board) {
+		board.style.display = 'block';
+	} else {
+		console.error('Board not found:', boardId);
+	}
+}
+
+// 모든 보드 숨기는 함수 정의
+function hideAllBoards() {
+	let boards = document.querySelectorAll('.board');
+	boards.forEach(board => {
+		board.style.display = 'none';
+	});
+}
