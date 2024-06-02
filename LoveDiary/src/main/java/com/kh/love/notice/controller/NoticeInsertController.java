@@ -54,9 +54,8 @@ public class NoticeInsertController extends HttpServlet {
 		} catch (Exception e) {
 	        System.out.println(e.getMessage());
 	        e.printStackTrace();
-	        req.setAttribute("errMsg", "게시글 작성 중 오류가 발생했습니다. 다시 시도해 주세요."); // 일반적인 메시지 설정
+	        req.setAttribute("errMsg", "게시글 작성 중 오류가 발생했습니다. 다시 시도해 주세요.");
 	        
-	        // 에러 페이지로 포워드
 	        if (!resp.isCommitted()) {
 	            req.getRequestDispatcher("/WEB-INF/views/adminCommon/error.jsp").forward(req, resp);
 			}

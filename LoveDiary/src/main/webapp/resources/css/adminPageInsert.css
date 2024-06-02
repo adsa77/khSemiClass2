@@ -41,7 +41,7 @@ body {
 	padding: 8px;
 }
 
-.insertTable input[type="text"], .insertTable textarea {
+.insertTable input[type="text"], .insertTable textarea, .insertTable input[type="date"]{
 	width: 90%;
 	padding: 8px;
 	border: 1px solid #ccc;

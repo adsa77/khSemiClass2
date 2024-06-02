@@ -34,6 +34,45 @@ public class CalenderAdminService {
 		List<CalenderAdminVo> voList = dao.selectCalenderAdminPageList(ss, caPvo);
 		return voList;
 	}
+
+
+
+	public List<CalenderAdminVo> CalenderHoliday() throws Exception {
+		SqlSession ss = getSqlSession();
+		List<CalenderAdminVo> voHoliList = dao.CalenderHoliday(ss);
+		return voHoliList;
+	}
+
+
+
+	public int CalenderAdminInsert(CalenderAdminVo cavo) throws Exception {
+		SqlSession ss = getSqlSession();
+		int result = dao.CalenderAdminInsert(ss, cavo);
+		
+		if (result == 1) {
+			ss.commit();
+		} else {
+			ss.rollback();
+		}
+		ss.close();
+
+		return result;
+	}
+
+
+
+	public int CalenderAdminDelete(int no) throws Exception {
+		SqlSession ss = getSqlSession();
+		int result = dao.CalenderAdminDelete(ss, no);
+		if (result == 1) {
+			ss.commit();
+		} else {
+			ss.rollback();
+		}
+		ss.close();
+
+		return result;
+	}
 	
 	
 

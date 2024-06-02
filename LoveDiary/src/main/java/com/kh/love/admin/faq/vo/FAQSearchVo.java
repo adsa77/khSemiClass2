@@ -1,15 +1,15 @@
-package com.kh.love.notice.vo;
+package com.kh.love.admin.faq.vo;
 
-public class NoticeSearchVo extends NoticePageVo {
+public class FAQSearchVo extends FAQPageVo {
     private String searchCol;
     private String value;
     private int boardLimit;
 
-    public NoticeSearchVo() {
+    public FAQSearchVo() {
         super();
     }
 
-    public NoticeSearchVo(int listCount, int currentPage, int pageLimit, int boardLimit) {
+    public FAQSearchVo(int listCount, int currentPage, int pageLimit, int boardLimit) {
         super(listCount, currentPage, pageLimit, boardLimit);
         this.boardLimit = boardLimit;
     }

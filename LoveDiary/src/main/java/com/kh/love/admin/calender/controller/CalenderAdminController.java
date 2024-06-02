@@ -17,13 +17,13 @@ import com.kh.love.admin.vo.AdminVo;
 import com.kh.love.notice.vo.NoticePageVo;
 
 @WebServlet("/calender/adminEditCalenderList")
-public class CalenderAdminControler extends HttpServlet{
+public class CalenderAdminController extends HttpServlet{
 	
 	private final CalenderAdminService caService;
 	
 	
 	
-	public CalenderAdminControler() {
+	public CalenderAdminController() {
 		this.caService = new CalenderAdminService();
 	}
 

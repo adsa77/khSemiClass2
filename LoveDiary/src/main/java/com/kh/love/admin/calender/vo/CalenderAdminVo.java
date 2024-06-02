@@ -8,7 +8,7 @@ public class CalenderAdminVo {
 	}
 	
 	public CalenderAdminVo(String no, String title, String content, String writerNo, String holidayDate,
-			String category, String delYn) {
+			String category, String code, String delYn) {
 		super();
 		this.no = no;
 		this.title = title;
@@ -16,6 +16,7 @@ public class CalenderAdminVo {
 		this.writerNo = writerNo;
 		this.holidayDate = holidayDate;
 		this.category = category;
+		this.code = code;
 		this.delYn = delYn;
 	}
 
@@ -25,6 +26,7 @@ public class CalenderAdminVo {
 	private String writerNo;
 	private String holidayDate;
 	private String category;
+	private String code;
 	private String delYn;
 	public String getNo() {
 		return no;
@@ -74,6 +76,14 @@ public class CalenderAdminVo {
 		this.category = category;
 	}
 
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
 	public String getDelYn() {
 		return delYn;
 	}
@@ -85,7 +95,8 @@ public class CalenderAdminVo {
 	@Override
 	public String toString() {
 		return "CalenderAdminVo [no=" + no + ", title=" + title + ", content=" + content + ", writerNo=" + writerNo
-				+ ", holidayDate=" + holidayDate + ", category=" + category + ", delYn=" + delYn + "]";
+				+ ", holidayDate=" + holidayDate + ", category=" + category + ", code=" + code + ", delYn=" + delYn
+				+ "]";
 	}
 	
 
