@@ -1,7 +1,6 @@
 package com.kh.love.calender.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -11,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.kh.love.admin.calender.service.CalenderAdminService;
+import com.kh.love.admin.calender.vo.CalenderAdminVo;
 import com.kh.love.calender.service.CalenderService;
 import com.kh.love.calender.vo.CalenderVo;
 import com.kh.love.member.vo.MemberVo;
@@ -33,8 +34,14 @@ public class CalenderController extends HttpServlet {
 				CalenderService cs = new CalenderService();
 				List<CalenderVo> voList = cs.calenderCodeCheck(cdvo);
 				
-				System.out.println("voList : "+voList);
+				// 공휴일 조회
+				CalenderAdminService cas = new CalenderAdminService();
+				List<CalenderAdminVo> voHoliList = cas.CalenderHoliday();
+				
 				req.setAttribute("voList", voList);
+				req.setAttribute("voHoliList", voHoliList);
+				System.out.println(voHoliList);
+				
 				
 				req.getRequestDispatcher("/WEB-INF/views/calender/calender.jsp").forward(req, resp);
 			} else {

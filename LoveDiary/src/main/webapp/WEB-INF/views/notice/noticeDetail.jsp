@@ -16,7 +16,7 @@
             if (confirm("정말 삭제하시겠습니까?")) {
                 var form = document.createElement('form');
                 form.method = 'POST';
-                form.action = '/LoveDiary/notice/noticeDelete'; // 여기에 애플리케이션의 실제 삭제 URL을 입력해주세요.
+                form.action = '/LoveDiary/notice/noticeDelete';
 
                 var input = document.createElement('input');
                 input.type = 'hidden';
@@ -54,7 +54,6 @@
                 </table>
                 <button id="noticeEditButton" class="tableButton" onclick="location.href='/LoveDiary/notice/noticeEdit?no=${vo.no}'">공지수정</button>
                 
-                <!-- 삭제 버튼을 JavaScript 함수와 연결 -->
                 <button id="noticeDeleteButton" class="tableButton" onclick="deleteNotice(${vo.no})">공지삭제</button>
             </div>
         </section>

@@ -3,27 +3,53 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="CalenderAdminMapper">
-    <resultMap id="holidayResultMap" type="Holiday">
-        <id property="no" column="NO"/>
-        <result property="title" column="TITLE"/>
-        <result property="content" column="CONTENT"/>
-        <result property="writerNo" column="WRITER_NO"/>
-        <result property="holidayDate" column="HOLIDAY_DATE"/>
-        <result property="category" column="CATEGORY"/>
-        <result property="delYn" column="DEL_YN"/>
-    </resultMap>
+	<resultMap id="holidayResultMap"
+		type="com.kh.love.admin.calender.vo.CalenderAdminVo">
+		<id property="no" column="NO" />
+		<result property="title" column="TITLE" />
+		<result property="content" column="CONTENT" />
+		<result property="writerNo" column="WRITER_NO" />
+		<result property="holidayDate" column="HOLIDAY_DATE" />
+		<result property="category" column="CATEGORY" />
+		<result property="code" column="CODE" />
+		<result property="delYn" column="DEL_YN" />
+	</resultMap>
+
 	<select id="getCalenderAdminCnt" resultType="int">
 		SELECT COUNT(NO)
 		FROM HOLIDAY
 		WHERE DEL_YN = 'N'
 	</select>
+
+	<select id="selectCalenderAdminList"
+		parameterType="CalenderAdminPageVo" resultMap="holidayResultMap">
+		SELECT NO, TITLE,
+		TO_CHAR(HOLIDAY_DATE, 'YYYY-MM-DD') AS HOLIDAY_DATE
+		FROM HOLIDAY
+		WHERE DEL_YN = 'N'
+		ORDER BY NO DESC
+	</select>
+
+	<select id="selectCalenderHoliday" resultMap="holidayResultMap">
+		SELECT NO, TITLE,
+		TO_CHAR(HOLIDAY_DATE, 'YYYY-MM-DD') AS HOLIDAY_DATE, CATEGORY, CODE
+		FROM HOLIDAY
+	</select>
+
+	<select id="CalenderAdminInsert"
+		parameterType="com.kh.love.admin.calender.vo.CalenderAdminVo"
+		resultType="int">
+		INSERT INTO HOLIDAY (NO, TITLE, WRITER_NO, HOLIDAY_DATE)
+		VALUES (SEQ_HOLIDAY_NO.NEXTVAL, #{title}, #{writerNo}, #{holidayDate,
+		jdbcType=DATE})
+	</select>
 	
-		<!-- 공지 목록 -->
-    <select id="selectCalenderAdminList" parameterType="CalenderAdminPageVo" resultMap="holidayResultMap">
-        SELECT NO, TITLE, TO_CHAR(HOLIDAY_DATE, 'YYYY-MM-DD') AS HOLIDAY_DATE
-        FROM HOLIDAY
-    </select>
-	
-	
+	<delete id="CalenderAdminDelete">
+		UPDATE HOLIDAY
+		SET DEL_YN = 'Y'
+		WHERE NO = #{no}
+	</delete>
+
+
 
 </mapper>

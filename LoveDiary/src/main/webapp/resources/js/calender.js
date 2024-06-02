@@ -1,46 +1,8 @@
-const holidays = {
-	"2024-01-01": "신정",
-	"2024-02-09": "설날",
-	"2024-02-10": "설날",
-	"2024-02-11": "설날",
-	"2024-02-12": "대체공휴일", // 설날 대체공휴일
-	"2024-03-01": "삼일절",
-	"2024-05-05": "어린이날",
-	"2024-05-06": "대체공휴일", // 어린이날 대체공휴일
-	"2024-05-15": "석가탄신일",
-	"2024-06-06": "현충일",
-	"2024-08-15": "광복절",
-	"2024-09-14": "추석",
-	"2024-09-15": "추석",
-	"2024-09-16": "추석",
-	"2024-09-17": "대체공휴일", // 추석 대체공휴일
-	"2024-10-03": "개천절",
-	"2024-10-09": "한글날",
-	"2024-12-25": "성탄절",
-
-	"2025-01-01": "신정",
-	"2025-01-28": "설날",
-	"2025-01-29": "설날",
-	"2025-01-30": "설날",
-	"2025-03-01": "삼일절",
-	"2025-05-05": "어린이날",
-	"2025-05-06": "대체공휴일", // 어린이날 대체공휴일
-	"2025-05-14": "석가탄신일",
-	"2025-06-06": "현충일",
-	"2025-08-15": "광복절",
-	"2025-10-03": "개천절",
-	"2025-10-06": "추석",
-	"2025-10-07": "추석",
-	"2025-10-08": "추석",
-	"2025-10-09": "한글날",
-	"2025-12-25": "성탄절",
-};
-
 // 오늘 날짜 가져오기
 let today = new Date();
 let thisMonth = today.getMonth();
 let thisMonthInput = today.getMonth() + 1; // 0부터 시작하기 때문에 1을 더해줌
-thisMonthInput = thisMonthInput < 10 ? '0' + thisMonthInput : thisMonthInput; // 년월 형식에 맞게 0을 붙여줍니다.
+thisMonthInput = thisMonthInput < 10 ? '0' + thisMonthInput : thisMonthInput; // 년월 형식에 맞게 0을 붙여줌.
 let todayDate = today.getDate();
 let thisYear = today.getFullYear();
 
@@ -119,16 +81,20 @@ function generateCalendar(year, month) {
 			dayElement.id = dateId;
 
 			// 휴일 표시
-			if (holidays[dateId]) {
-				let holidayLabel = document.createElement('div');
-				holidayLabel.textContent = holidays[dateId];
-				holidayLabel.classList.add('holiday');
-				dayElement.appendChild(holidayLabel);
-				dayElement.classList.add('holiday-day');
-			}
+			voHoliList.forEach(event => {
+				if (event.date === dateId) {
+					let holidayLabel = document.createElement('div');
+					let popUpDateHoli = document.getElementById('popUpDateHoli');
+					holidayLabel.textContent = event.title;
+					popUpDateHoli.textContent = event.title;
+					holidayLabel.classList.add(event.category.toLowerCase());
+					dayElement.appendChild(holidayLabel);
+					dayElement.classList.add('holiday-day');
+					
+				}
+			})
 
 			// 일정 표시
-			console.log("voList :" + voList);
 			voList.forEach(event => {
 				if (event.date === dateId) {
 					let scheduleLabel = document.createElement('div');
@@ -153,32 +119,32 @@ function generateCalendar(year, month) {
 				let popUp = document.getElementById('popUp');
 				popUp.style.display = "block";
 
-				// 클릭된 날짜를 가져옵니다.
+				// 클릭된 날짜를 가져옴
 				let clickedDate = this.id;
 
-				// 날짜를 연, 월, 일로 분리합니다.
+				// 날짜를 연, 월, 일로 분리
 				let [clickedYear, clickedMonth, clickedDay] = clickedDate.split('-');
 
-				// 클릭된 날짜의 요일을 가져옵니다.
+				// 클릭된 날짜의 요일을 가져옴
 				let clickedDayOfWeek = new Date(clickedYear, clickedMonth - 1, clickedDay).getDay();
 				let weekdays = ['일', '월', '화', '수', '목', '금', '토'];
 				let dayOfWeek = weekdays[clickedDayOfWeek];
 
-				// 팝업의 날짜와 요일에 클릭된 날짜를 적용합니다.
+				// 팝업의 날짜와 요일에 클릭된 날짜를 적용
 				let popUpDate = document.getElementById('popUpDate');
 				popUpDate.textContent = `${clickedYear}년 ${clickedMonth}월 ${clickedDay}일 (${dayOfWeek})`;
 
 				// 팝업 내용을 초기화합니다.
 				let eventList = document.getElementById('eventList');
-				eventList.innerHTML = ''; // 기존의 내용을 비웁니다.
+				eventList.innerHTML = ''; // 기존의 내용을 비움
 
-				// 클릭된 날짜와 일치하는 일정을 가져와서 리스트에 추가합니다.
+				// 클릭된 날짜와 일치하는 일정을 가져와서 리스트에 추가
 				voList.forEach(event => {
 					if (event.date === clickedDate) {
 						let li = document.createElement('li');
 						let link = document.createElement('a');
 						link.textContent = event.title;
-						link.href = '#'; // 현재는 더미 링크
+						link.href = '#';
 						link.addEventListener('click', function() {
 							fillTableView(event);
 						});
@@ -227,12 +193,12 @@ function generateCalendar(year, month) {
 
 // 팝업된 div 닫기 버튼
 document.addEventListener("DOMContentLoaded", function() {
-	// 모든 클래스가 "closeDivBtn"인 버튼에 대해 반복합니다.
+	// 모든 클래스가 "closeDivBtn"인 버튼에 대해 반복
 	var closeBtns = document.querySelectorAll(".closeDivBtn");
 	closeBtns.forEach(function(btn) {
-		// 각 버튼에 클릭 이벤트 리스너를 추가합니다.
+		// 각 버튼에 클릭 이벤트 리스너를 추가
 		btn.addEventListener("click", function() {
-			// 클릭된 버튼의 부모 요소인 div를 숨깁니다.
+			// 클릭된 버튼의 부모 요소인 div를 숨김
 			this.parentNode.style.display = "none";
 		});
 	});

@@ -9,6 +9,26 @@
 <title>공휴일 목록</title>
 
 <%@ include file="/WEB-INF/views/adminLayout/adminUtil.jsp"%>
+<script>
+function deleteHoliday(holidayNo) {
+    if (confirm('정말로 삭제하시겠습니까?')) {
+        var deleteUrl = '/LoveDiary/calender/CalenderAdminDelete';
+
+        var form = document.createElement('form');
+        form.method = 'POST';
+        form.action = deleteUrl;
+        document.body.appendChild(form);
+
+        var input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = 'no';
+        input.value = holidayNo;
+        form.appendChild(input);
+
+        form.submit();
+    }
+}
+</script>
 
 </head>
 
@@ -25,6 +45,7 @@
 							<th>번호</th>
 							<th>공휴일</th>
 							<th>날짜</th>
+							<th>삭제</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -35,6 +56,7 @@
 									href="/LoveDiary/calender/adminEditCalenderList?no=${hvo.no}&writerNo=${hvo.writerNo}">${hvo.title}</a>
 								</td>
 								<td>${hvo.holidayDate}</td>
+								<td><button onclick="deleteHoliday(${hvo.no})" id="tableDeleteButton">삭제</button></td>
 							</tr>
 						</c:forEach>
 					</tbody>
@@ -71,7 +93,7 @@
 					</form>
 					<c:if test="${not empty sessionScope.loginAdminVo}">
 						<button id="noticeInsertButton"
-							onclick="location.href='/LoveDiary/calender/noticeInsert'">공휴일 작성</button>
+							onclick="location.href='/LoveDiary/calender/adminEditCalenderInsert'">공휴일 작성</button>
 					</c:if>
 				</div>
 

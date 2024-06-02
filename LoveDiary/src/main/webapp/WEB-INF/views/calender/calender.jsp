@@ -30,7 +30,20 @@
             }<c:if test="${!status.last}">,</c:if>
         </c:forEach>
     ];
+    
+    var voHoliList = [
+        <c:forEach items="${voHoliList}" var="hvo" varStatus="status">
+            {
+                code: "${hvo.code}",
+                title: "${hvo.title}",
+                date: "${hvo.holidayDate}",
+                category: "${hvo.category}"
+            }<c:if test="${!status.last}">,</c:if>
+        </c:forEach>
+    ];
 
+    console.log(voHoliList);
+    
     </script>
 </head>
 <body id="container">
@@ -60,8 +73,9 @@
 		</header>
 		<div id="popUp">
 			<span id="popUpDate">팝업</span>
+			<br>
+			<span id="popUpDateHoli"></span>
 			<ul id="eventList">
-				<!-- 기본 일정 목록 -->
 				<li>일정1</li>
 			</ul>
 			<div>
@@ -204,17 +218,17 @@
 			<div id="inputBox">
 				<div id="tableViewTitle">
 					<div id="title">
-					<span id="tableViewSpanId"></span>
+						<span id="tableViewSpanId"></span>
 					</div>
 				</div>
 				<div id="tableViewContent">
 					<div id="content">
-					<span id="tableViewSpanContent"></span>
+						<span id="tableViewSpanContent"></span>
 					</div>
 				</div>
 				<div id="tableViewDate">
 					<div id="date">
-					<span id="tableViewSpanDate"></span>
+						<span id="tableViewSpanDate"></span>
 					</div>
 				</div>
 			</div>
@@ -223,7 +237,7 @@
 				<button id="tableViewDelete" class="closeDivBtn">삭제</button>
 			</div>
 			<button id="closeInsertCalendarBtn" class="closeDivBtn">닫기</button>
-			
+
 		</div>
 		<section id="section">
 			<div class="calendar" id="calendar">

@@ -351,7 +351,8 @@ CREATE TABLE HOLIDAY (
     , WRITER_NO     NUMBER          NOT NULL
     , HOLIDAY_DATE  DATE
     , CATEGORY      VARCHAR2(100)   DEFAULT 'HOLI'
-    , DEL_YN        CHAR(1)
+    , CODE          VARCHAR2(4)     DEFAULT 'HOLI'
+    , DEL_YN        CHAR(1)         DEFAULT 'N'
 );
 
 --------------------------------------------------
