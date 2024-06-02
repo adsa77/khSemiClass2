@@ -31,5 +31,9 @@ public class MemberDao {
         return ss.selectOne("MemberMapper.memberEdit", vo);
     }
 
+	public int pwdedit(SqlSession ss, MemberVo vo) {
+		return ss.update("MemberMapper.pwdedit",vo);
+	}
+
 	
 }

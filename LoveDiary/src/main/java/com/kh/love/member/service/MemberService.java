@@ -83,7 +83,7 @@ private MemberDao dao;
         if (!vo.getPwd().equals(vo.getPwd2())) {
             throw new Exception("비밀번호 일치하지 않습니다.");
         }
-
+         
         // dao 호출
         SqlSession ss = SqlSessionTemplate.getSqlSession();
         MemberVo result = dao.edit(ss, vo);
@@ -91,6 +91,20 @@ private MemberDao dao;
         
         return result;
     }
+	
+	public int pwdedit(MemberVo vo) throws Exception {
+		 // 비즈니스 로직
+        
+         
+        // dao 호출
+		 SqlSession ss = SqlSessionTemplate.getSqlSession();
+		    int result = dao.pwdedit(ss, vo);
+		    ss.close();
+
+		    return result;
+	}
+	
+	
 	
 	private boolean isValidName(String name) {
 	   // 한글만 포함하는지 검사하는 정규 표현식
@@ -108,6 +122,7 @@ private MemberDao dao;
     private boolean isValidEmail(String email) {
         return Pattern.matches("^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$", email);
     }
+	
 	
 
 }
