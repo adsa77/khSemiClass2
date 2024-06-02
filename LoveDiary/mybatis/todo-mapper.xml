@@ -29,7 +29,7 @@
 		UPDATE TODO 
 		SET DEL_YN = 'Y'
 		WHERE NO = #{no} 
-		AND CODE = #{CODE}
+		AND CODE = #{code}
 		AND DEL_YN = 'N'
 	</update>
 

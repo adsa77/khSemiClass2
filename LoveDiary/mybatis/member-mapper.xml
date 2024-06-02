@@ -41,4 +41,13 @@
         AND ID = #{id}
 	</select>
 	
+	<update id="pwdedit">
+	UPDATE MEMBER 
+	SET CODE = #{pwd} 
+	WHERE NO = #{no}
+	AND CODE = #{code}
+	AND ID	=  #{id} 
+	AND QUIT_YN = 'N'
+	</update>
+	
 </mapper>

@@ -24,4 +24,27 @@
 			,#{checkDate}
 			)
 	</insert>
+	
+	<select id="MemoListByWriter" resultType="com.kh.love.memo.vo.MemoVo">
+	        SELECT 
+            M.NO, 
+            M.WRITER_NO, 
+            M.TITLE, 
+            M.CONTENT, 
+            M.ENROLL_DATE, 
+            M.MODIFY_DATE, 
+            M.DEL_YN, 
+            M.CHECK_DATE, 
+            M.CODE,
+            MEM.NAME AS WRITER_NAME
+        FROM 
+            MEMO M
+        JOIN 
+            MEMBER MEM ON m.WRITER_NO = mem.NO
+        WHERE 
+            M.WRITER_NO = #{writerNo}
+        ORDER BY 
+            M.ENROLL_DATE DESC
+	</select>
+	
 </mapper>

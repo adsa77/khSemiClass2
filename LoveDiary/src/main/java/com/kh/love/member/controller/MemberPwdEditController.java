@@ -41,7 +41,7 @@ public class MemberPwdEditController extends HttpServlet{
 			HttpSession session = req.getSession();
 			MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
 			String no = loginMemberVo.getNo();
-			String id = req.getParameter("id");
+			String id = loginMemberVo.getId();
 			String pwd = req.getParameter("editpwd");
 			String pwd2 = req.getParameter("editpwd2");
 			
@@ -51,25 +51,29 @@ public class MemberPwdEditController extends HttpServlet{
 			vo.setPwd(pwd);
 			vo.setPwd2(pwd2);
 			//서비스호출
-			MemberService ms = new MemberService();
-			MemberVo result = ms.edit(vo);
+			
+		
 			//출력하기
 			
 			
-			if(result =! null ) {
-				throw new Exception("회원정보 수정 실패");
-				
-			}
-			session.setAttribute("alertMsg","회원정보 수정 성공");
-			
-			session.removeAttribute("loginMemberVo");
-			resp.sendRedirect("/LoveDiary/home");
-		}catch (Exception e){
-			System.out.println(e.getMessage());
-			e.printStackTrace();
-			req.setAttribute("errMsg","회원정보 수정중 에러발생");
-			req.getRequestDispatcher("/WEB-INF/views/common/error.jsp").forward(req, resp);
-		}
+			 MemberService ms = new MemberService();
+		        int result = ms.pwdedit(vo);
+
+		        // 출력하기
+		        if (result != 1) {
+		            throw new Exception("회원정보 수정 실패");
+		        }
+
+		        session.setAttribute("alertMsg", "회원정보 수정 성공");
+
+		        session.removeAttribute("loginMemberVo");
+		        resp.sendRedirect("/LoveDiary/home");
+		    } catch (Exception e) {
+		        System.out.println(e.getMessage());
+		        e.printStackTrace();
+		        req.setAttribute("errMsg", "회원정보 수정중 에러발생");
+		        req.getRequestDispatcher("/WEB-INF/views/common/error.jsp").forward(req, resp);
+		    }
 	}
 	
 }

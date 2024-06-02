@@ -31,5 +31,6 @@
     <mapper resource="member-select-mapper.xml"/>
     <mapper resource="todo-mapper.xml"/>
     <mapper resource="code-mapper.xml"/>
+    <mapper resource="Memo-mapper.xml"/>
   </mappers>
 </configuration>
