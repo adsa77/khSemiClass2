@@ -19,7 +19,7 @@ public class ScheduleEditController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.getRequestDispatcher("/WEB-INF/views/calender/calender.jsp").forward(req, resp);
-		
+
 	}
 
 	@Override
@@ -28,35 +28,33 @@ public class ScheduleEditController extends HttpServlet {
 		try {
 			HttpSession session = req.getSession();
 			MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
-			
-			 if (loginMemberVo == null) {
-	                resp.getWriter().write("로그인 상태가 아닙니다.");
-	                resp.sendRedirect("/LoveDiary/home");
-	                return;
-	            }
-			
+
+			if (loginMemberVo == null) {
+				resp.getWriter().write("로그인 상태가 아닙니다.");
+				resp.sendRedirect("/LoveDiary/home");
+				return;
+			}
+
 			String writerNo = loginMemberVo.getNo();
 			String title = req.getParameter("scheTitle");
 			String content = req.getParameter("scheContent");
 			String checkDate = req.getParameter("scheDate");
-			
 
 			ScheduleVo svo = new ScheduleVo();
 			svo.setTitle(title);
 			svo.setContent(content);
 			svo.setCheckDate(checkDate);
 			svo.setWriterNo(writerNo);
-	
 
 			ScheduleService scs = new ScheduleService();
 			int result = scs.insertSchedule(svo);
-			
-			System.out.println("result : " +result);
-			
+
+			System.out.println("result : " + result);
+
 			PrintWriter out = resp.getWriter();
-			out.write("result: " +result);
-			
-			if(result < 1) {
+			out.write("result: " + result);
+
+			if (result < 1) {
 				throw new Exception("게시글 작성 실패");
 			}
 			req.getRequestDispatcher("/WEB-INF/views/calender/calender.jsp").forward(req, resp);

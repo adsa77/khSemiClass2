@@ -29,10 +29,10 @@ public class ScheduleInsertController extends HttpServlet {
 			HttpSession session = req.getSession();
 			MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
 			
-			if(loginMemberVo != null) {
-				System.out.println("로그인 성공 -" +loginMemberVo );
-			}else{
-				System.out.println("로그인 실패 -"+ loginMemberVo);
+			if (loginMemberVo == null) {
+				resp.getWriter().write("로그인 상태가 아닙니다.");
+				resp.sendRedirect("/LoveDiary/home");
+				return;
 			}
 			
 			String writerNo = loginMemberVo.getNo();
