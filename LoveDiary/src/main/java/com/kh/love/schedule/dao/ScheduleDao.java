@@ -18,11 +18,11 @@ public class ScheduleDao {
 	}
 	
 	public int scheduleDelete(SqlSession ss, ScheduleVo svo) {
-		return ss.insert("ScheduleMapper.scheDelete");
+		return ss.update("ScheduleMapper.scheDelete",svo);
 	}
 	
 	public int scheduleEdit(SqlSession ss, ScheduleVo svo) {
-		return ss.insert("ScheduleMapper.scheEdit");
+		return ss.update("ScheduleMapper.scheEdit",svo);
 	}
 	
 }

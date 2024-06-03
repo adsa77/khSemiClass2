@@ -34,18 +34,22 @@ public class ScheduleEditController extends HttpServlet {
 				resp.sendRedirect("/LoveDiary/home");
 				return;
 			}
-
-			String writerNo = loginMemberVo.getNo();
-			String title = req.getParameter("scheTitle");
-			String content = req.getParameter("scheContent");
-			String checkDate = req.getParameter("scheDate");
+			
+			String no = req.getParameter("no");
+			String code = loginMemberVo.getCode();
+			String title = req.getParameter("title");
+			String content = req.getParameter("content");
+			String checkDate = req.getParameter("date");
+			
 
 			ScheduleVo svo = new ScheduleVo();
 			svo.setTitle(title);
 			svo.setContent(content);
 			svo.setCheckDate(checkDate);
-			svo.setWriterNo(writerNo);
+			svo.setNo(no);
+			svo.setCode(code);
 
+			System.out.println("여기는 컨트롤러"+svo);
 			ScheduleService scs = new ScheduleService();
 			int result = scs.insertSchedule(svo);
 
@@ -57,7 +61,7 @@ public class ScheduleEditController extends HttpServlet {
 			if (result < 1) {
 				throw new Exception("게시글 작성 실패");
 			}
-			req.getRequestDispatcher("/WEB-INF/views/calender/calender.jsp").forward(req, resp);
+			resp.sendRedirect("/LoveDiary/calender/main");
 
 		} catch (Exception e) {
 			e.printStackTrace();

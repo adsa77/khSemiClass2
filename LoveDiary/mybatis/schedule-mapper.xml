@@ -53,22 +53,23 @@
 	
   </select>
   
-  <insert id="scheDelete">
+  <update id="scheDelete">
   	UPDATE SCHEDULE
 	SET DEL_YN = 'Y'
 	WHERE DEL_YN = 'N'
-	AND NO = #{writerNo}
-  </insert>
+	AND NO = #{no}
+  </update>
   
-  <insert id="scheEdit">
+  <update id="scheEdit">
   	UPDATE SCHEDULE
 	SET 
 		TITLE = #{title} 
 		,CONTENT = #{content}
 		,CHECK_DATE = #{checkDate}
 	WHERE DEL_YN = 'N'
-	AND WRITER_NO = #{writerNo}
-  </insert>
+	AND CODE = #{code}
+	AND NO = #{no}
+	</update>
   
   
   

@@ -25,10 +25,10 @@ public class AnniversaryDao {
 //	}
 	
 	public int anniversaryDelete(SqlSession ss , AnniversaryVo avo) {
-		return ss.insert("CoupleMapper.anniDelete");
+		return ss.update("CoupleMapper.anniDelete");
 	}
 	
 	public int anniversaryEdit(SqlSession ss , AnniversaryVo avo) {
-		return ss.insert("CoupleMapper.anniEdit");
+		return ss.update("CoupleMapper.anniEdit");
 	}
 }
