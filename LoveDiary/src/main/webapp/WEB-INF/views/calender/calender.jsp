@@ -260,13 +260,10 @@
 				onclick="loadPage('./html/chat.html'); return false;">채팅</a></li>
 		</ul>
 		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<button id="editbut" onclick="location.href='/LoveDiary/member/edit'">회원정보수정</button>
-		<br>
-		<button id="logoutbut" onclick="location.href='/LoveDiary/member/logout'">로그아웃</button>
+			<button id="editbut" onclick="location.href='/LoveDiary/member/edit'">회원정보수정</button>
+			<br>
+			<button id="logoutbut" onclick="location.href='/LoveDiary/member/logout'">로그아웃</button>
+		
 	</aside>
 </body>
 </html>
