@@ -51,7 +51,7 @@ public class ScheduleEditController extends HttpServlet {
 
 			System.out.println("여기는 컨트롤러"+svo);
 			ScheduleService scs = new ScheduleService();
-			int result = scs.insertSchedule(svo);
+			int result = scs.scheduleEdit(svo);
 
 			System.out.println("result : " + result);
 
