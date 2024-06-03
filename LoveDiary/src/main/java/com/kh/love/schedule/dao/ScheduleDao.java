@@ -17,4 +17,12 @@ public class ScheduleDao {
 		return ss.selectList("ScheduleMapper.getScheduleList",vo);
 	}
 	
+	public int scheduleDelete(SqlSession ss, ScheduleVo svo) {
+		return ss.insert("ScheduleMapper.scheDelete");
+	}
+	
+	public int scheduleEdit(SqlSession ss, ScheduleVo svo) {
+		return ss.insert("ScheduleMapper.scheEdit");
+	}
+	
 }

@@ -10,6 +10,7 @@ public class AnniversaryVo {
 	private String delYn;
 	private String code;
 	private String checkDate;
+	private String category;
 	public String getNo() {
 		return no;
 	}
@@ -58,29 +59,26 @@ public class AnniversaryVo {
 	public void setCode(String code) {
 		this.code = code;
 	}
-
 	public String getCheckDate() {
 		return checkDate;
 	}
 	public void setCheckDate(String checkDate) {
 		this.checkDate = checkDate;
 	}
-
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
+	}
 	@Override
 	public String toString() {
 		return "AnniversaryVo [no=" + no + ", writerNo=" + writerNo + ", title=" + title + ", content=" + content
 				+ ", enrollDate=" + enrollDate + ", modifyDate=" + modifyDate + ", delYn=" + delYn + ", code=" + code
-
-				+ ", checkDate=" + checkDate + "]";
+				+ ", checkDate=" + checkDate + ", category=" + category + "]";
 	}
 	public AnniversaryVo(String no, String writerNo, String title, String content, String enrollDate, String modifyDate,
-			String delYn, String code, String checkDate) {
-
-				
-	}
-	public AnniversaryVo(String no, String writerNo, String title, String content, String enrollDate, String modifyDate,
-			String delYn, String code) {
-
+			String delYn, String code, String checkDate, String category) {
 		super();
 		this.no = no;
 		this.writerNo = writerNo;
@@ -90,14 +88,15 @@ public class AnniversaryVo {
 		this.modifyDate = modifyDate;
 		this.delYn = delYn;
 		this.code = code;
-
 		this.checkDate = checkDate;
-
+		this.category = category;
 	}
 	public AnniversaryVo() {
 		super();
 		// TODO Auto-generated constructor stub
-	}
+	} 
+	
+	
 	
 	
 	

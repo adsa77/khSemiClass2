@@ -50,5 +50,21 @@
 		ORDER BY A.NO
 	
   </select>
+  
+  <insert id="anniDelete">
+  	UPDATE ANNIVERSARY
+	SET DEL_YN = 'Y'
+	WHERE DEL_YN = 'N'
+	AND NO LIKE '%${no}%'
+	AND WRITER_NO LIKE '%${writerNo}%'
+  </insert>
+  
+  <insert id="anniEdit">
+  	UPDATE ANNIVERSARY
+	SET TITLE = '%${title}%',CONTENT = '%${content}%', CHECK_DATE = '%${checkDate}%'
+	WHERE DEL_YN = 'N'
+	AND NO LIKE '%${no}%'
+	AND WRITER_NO LIKE '%${writerNo}%'
+  </insert>
 
 </mapper>
