@@ -50,9 +50,7 @@
         <input type="submit" id="codecnt" value="커플 다이어리 접속">
       </form>
     </section>
-    <footer>
-      <h1>footer</h1>
-    </footer>
+    
   </div>
 </body>
 </html>

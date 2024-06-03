@@ -1,12 +1,14 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="com.kh.love.todo.vo.TodoVo" %>
+	
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Insert title here</title>
+<title>우리두리TODO 캘린더</title>
 <script defer
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
@@ -19,17 +21,19 @@
 <script defer src="/LoveDiary/resources/js/popUpBoard.js"></script>
 <script defer src="/LoveDiary/resources/js/logout.js"></script>
 <script defer>
-    var voList = [
-        <c:forEach items="${voList}" var="vo" varStatus="status">
-            {
-                code: "${vo.code}",
-                title: "${vo.title}",
-                content: "${vo.content}",
-                date: "${vo.date}",
-                category: "${vo.category}"
-            }<c:if test="${!status.last}">,</c:if>
-        </c:forEach>
-    ];
+var voList = [
+    <c:forEach items="${voList}" var="vo" varStatus="status">
+        {
+            no: "${vo.no}",
+            code: "${vo.code}",
+            title: "${vo.title}",
+            content: "${vo.content}",
+            date: "${vo.date}",
+            category: "${vo.category}",
+            delYn : "${vo.delYn}"
+        }<c:if test="${!status.last}">,</c:if>
+    </c:forEach>
+];
     
     var voHoliList = [
         <c:forEach items="${voHoliList}" var="hvo" varStatus="status">
@@ -209,6 +213,9 @@
 		</div>
 		<div id="editBoard">
 			<form id="editBoardForm" action="" method="post">
+				<input type="hidden" name="no" value="${vo.no}">
+				<input type="hidden" name="code" value="${vo.code}">
+				
 				<div id="categoryName">
 					<span>수정</span>
 				</div>
@@ -229,6 +236,8 @@
 		</div>
 
 		<div id="tableView" class="tableView" style="display: none;">
+			<input type="hidden" name="no" value="${vo.no}">
+			<input type="hidden" name="code" value="${vo.code}">
 			<div>
 				<div id="categoryName">
 					<span id="tableViewSpan"></span>

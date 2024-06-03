@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="/LoveDiary/resources/css/diarylist.css">
 <head>
     <meta charset="UTF-8">
-    <title>나의 일기장</title>
+    <title>우리두리TODO 나의 일기장</title>
 </head>
 <body>
      <div class="container">

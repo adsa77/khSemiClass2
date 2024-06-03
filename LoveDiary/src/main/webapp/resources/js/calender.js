@@ -98,6 +98,7 @@ function generateCalendar(year, month) {
 			voList.forEach(event => {
 				if (event.date === dateId) {
 					let scheduleLabel = document.createElement('div');
+					scheduleLabel.setAttribute("no" , event.no);
 					scheduleLabel.textContent = event.title;
 					scheduleLabel.classList.add(event.category.toLowerCase()); // 카테고리 이름을 클래스로 추가
 					dayElement.appendChild(scheduleLabel);
@@ -206,6 +207,7 @@ function generateCalendar(year, month) {
 				function editEvent(event) {
 					// 수정 폼 가져오기 및 이벤트 세부 정보로 채우기
 					let editForm = document.getElementById('editBoardForm');
+					
 					editForm.querySelector('#title').value = event.title;
 					editForm.querySelector('#content').value = event.content;
 					editForm.querySelector('#date').value = event.date;
@@ -217,7 +219,7 @@ function generateCalendar(year, month) {
 							updateUrl = `/LoveDiary/schedule/update/${event.code}`;
 							break;
 						case 'TODO':
-							updateUrl = `/LoveDiary/holiday/update/${event.code}`;
+							updateUrl = `/LoveDiary/todo/edit`;
 							break;
 						case 'ANNI':
 							updateUrl = `/LoveDiary/anniversary/update/${event.code}`;
@@ -248,7 +250,7 @@ function generateCalendar(year, month) {
 								url = `/LoveDiary/schedule/delete/${code}`;
 								break;
 							case 'TODO':
-								url = `/LoveDiary/todo/delete/${code}`;
+								url = `/LoveDiary/todo/delete/`;
 								break;
 							case 'ANNI':
 								url = `/LoveDiary/anniversary/delete/${code}`;

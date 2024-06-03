@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="/LoveDiary/resources/css/memoboard.css">
 <head>
     <meta charset="UTF-8">
-    <title>게시글 목록</title>
+    <title>우리두리TODO 메모장</title>
 </head>
 <body>
      <div class="container">

@@ -32,7 +32,7 @@ public class TodoEditController extends HttpServlet{
 	            resp.sendRedirect("/LoveDiary/home");
 	            return;
 	        }
-
+	      
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -45,20 +45,22 @@ public class TodoEditController extends HttpServlet{
                 resp.sendRedirect("/LoveDiary/home");
                 return;
             }
-    			String writerNo = loginMemberVo.getNo();
+            	String no = req.getParameter("no");
     			String code = loginMemberVo.getCode();
     			
-    			String title = req.getParameter("todoTitle");
-    			String content = req.getParameter("todoContent");
-    			String checkDate =req.getParameter("todoCheckDate");
+    			String title = req.getParameter("title");
+    			String content = req.getParameter("content");
+    			String checkDate =req.getParameter("date");
     			
     			TodoVo tvo = new TodoVo();
     			
+    			tvo.setNo(no);
     			tvo.setTitle(title);
     			tvo.setContent(content);
-    			tvo.setWriterNo(writerNo);
     			tvo.setCode(code);
     			tvo.setCheckDate(checkDate);
+    			
+    			System.out.println("controller > tvo : " + tvo);
 
             int result = tsc.updateTodo(tvo);
 

@@ -29,6 +29,7 @@ public class TodoDeleteController extends HttpServlet{
 			tvo.setNo(writerNo);
 			tvo.setCode(code);
 			
+			System.out.println("여기는 딜린트"+tvo);
 			TodoService tsc = new TodoService();
 			int result = tsc.delete(tvo);
 			

@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>회원정보 수정</title>
+<title>우리두리TODO 회원정보 수정</title>
 <link rel="stylesheet" href="/LoveDiary/resources/css/pwdedit.css">
 
 </head>
@@ -39,9 +39,7 @@
       </form>
    
     </section>
-    <footer>
-      <h1>footer</h1>
-    </footer>
+  
   </div>
 </body>
 </html>

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>나의 일기</title>
+<title>우리두리TODO 일기 작성</title>
 <link rel="stylesheet" href="/LoveDiary/resources/css/diaryinsert.css">
 </head>
 <body>
