@@ -1,15 +1,15 @@
 package com.kh.love.admin.faq.vo;
 
-public class FAQSearchVo extends FAQPageVo {
+public class FaqSearchVo extends FaqPageVo {
     private String searchCol;
     private String value;
     private int boardLimit;
 
-    public FAQSearchVo() {
+    public FaqSearchVo() {
         super();
     }
 
-    public FAQSearchVo(int listCount, int currentPage, int pageLimit, int boardLimit) {
+    public FaqSearchVo(int listCount, int currentPage, int pageLimit, int boardLimit) {
         super(listCount, currentPage, pageLimit, boardLimit);
         this.boardLimit = boardLimit;
     }

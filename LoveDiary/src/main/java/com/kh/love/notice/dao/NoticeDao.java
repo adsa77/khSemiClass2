@@ -14,7 +14,7 @@ public class NoticeDao {
 
 	//게시글 갯수 조회
 	public int getNoticeCnt(SqlSession ss) throws Exception {
-		return ss.selectOne("getNoticeCnt");
+		return ss.selectOne("NoticeMapper.getNoticeCnt");
 	}
 
 	//게시글 목록 조회

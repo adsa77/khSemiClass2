@@ -10,19 +10,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.kh.love.admin.faq.service.FAQService;
+import com.kh.love.admin.faq.service.FaqService;
+import com.kh.love.admin.faq.vo.FaqPageVo;
+import com.kh.love.admin.faq.vo.FaqSearchVo;
+import com.kh.love.admin.faq.vo.FaqVo;
 import com.kh.love.admin.vo.AdminVo;
-import com.kh.love.notice.vo.NoticePageVo;
-import com.kh.love.notice.vo.NoticeSearchVo;
-import com.kh.love.notice.vo.NoticeVo;
 
-@WebServlet("/faq/adminFAQ")
-public class FAQController extends HttpServlet {
+@WebServlet("/faq/adminFaq")
+public class FaqController extends HttpServlet {
 	
-	private final FAQService fs;
+	private final FaqService fs;
 
-	public FAQController() {
-		this.fs = new FAQService();
+	public FaqController() {
+		this.fs = new FaqService();
 	}
 
 	@Override
@@ -36,32 +36,32 @@ public class FAQController extends HttpServlet {
         }
 
         try {
-            int listCount = ns.getNoticeCnt();
+            int listCount = fs.getFAQCnt();
             String x = req.getParameter("pno") == null ? "1" : req.getParameter("pno");
             int currentPage = Integer.parseInt(x);
             int pageLimit = 5;
             int boardLimit = 20;
 
-            NoticePageVo pvo = new NoticePageVo(listCount, currentPage, pageLimit, boardLimit);
+            FaqPageVo pvo = new FaqPageVo(listCount, currentPage, pageLimit, boardLimit);
 
             String searchCol = req.getParameter("noticeCol");
             String searchVal = req.getParameter("searchBox");
 
-            List<NoticeVo> voList;
+            List<FaqVo> voList;
             if (searchCol != null && searchVal != null && !searchCol.isEmpty() && !searchVal.isEmpty()) {
-                NoticeSearchVo nsVo = new NoticeSearchVo(listCount, currentPage, pageLimit, boardLimit);
-                nsVo.setSearchCol(searchCol);
-                nsVo.setValue(searchVal);
-                voList = ns.searchNotice(nsVo);
+                FaqSearchVo fsVo = new FaqSearchVo(listCount, currentPage, pageLimit, boardLimit);
+                fsVo.setSearchCol(searchCol);
+                fsVo.setValue(searchVal);
+                voList = fs.searchFAQ(fsVo);
             } else {
-                voList = ns.selectNoticeList(pvo);
+                voList = fs.selectFAQList(pvo);
             }
 
             req.setAttribute("voList", voList);
             req.setAttribute("pvo", pvo);
 
             if (!resp.isCommitted()) {
-            	req.getRequestDispatcher("/WEB-INF/views/notice/noticeList.jsp").forward(req, resp);
+            	req.getRequestDispatcher("/WEB-INF/views/faq/adminFaq.jsp").forward(req, resp);
             }
 
         } catch (Exception e) {

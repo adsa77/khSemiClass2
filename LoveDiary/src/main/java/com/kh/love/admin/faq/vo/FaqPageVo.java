@@ -1,6 +1,6 @@
 package com.kh.love.admin.faq.vo;
 
-public class FAQPageVo {
+public class FaqPageVo {
 	@Override
 	public String toString() {
 		return "PageVo [listCount=" + listCount + ", currentPage=" + currentPage + ", pageLimit=" + pageLimit
@@ -20,7 +20,7 @@ public class FAQPageVo {
 	private int startNum;		// 조회할 ROWNUM 시작
 	private int endNum;			// 조회할 ROWNUM 마지막
 	
-	public FAQPageVo(int listCount, int currentPage, int pageLimit, int boardLimit) {
+	public FaqPageVo(int listCount, int currentPage, int pageLimit, int boardLimit) {
 		
 		this.listCount = listCount;
 		this.currentPage = currentPage;
@@ -38,7 +38,7 @@ public class FAQPageVo {
 		
 	}//constructor
 	
-	public FAQPageVo() {
+	public FaqPageVo() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
