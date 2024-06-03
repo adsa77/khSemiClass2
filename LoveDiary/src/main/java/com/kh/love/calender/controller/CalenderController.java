@@ -15,6 +15,7 @@ import com.kh.love.admin.calender.vo.CalenderAdminVo;
 import com.kh.love.calender.service.CalenderService;
 import com.kh.love.calender.vo.CalenderVo;
 import com.kh.love.member.vo.MemberVo;
+import com.kh.love.todo.vo.TodoVo;
 
 @WebServlet("/calender/main")
 public class CalenderController extends HttpServlet {
@@ -38,8 +39,14 @@ public class CalenderController extends HttpServlet {
 				CalenderAdminService cas = new CalenderAdminService();
 				List<CalenderAdminVo> voHoliList = cas.CalenderHoliday();
 				
+				TodoVo todoVo = new TodoVo();
+				todoVo.setNo("5");
+				todoVo.setCode("9999");
+				
+				
 				req.setAttribute("voList", voList);
 				req.setAttribute("voHoliList", voHoliList);
+				req.setAttribute("vo", todoVo);
 				System.out.println(voHoliList);
 				
 				

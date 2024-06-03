@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <%@ include file="/WEB-INF/views/layout/util.jsp" %>
 
-<title>러브 다이어리 회원가입</title>
+<title>우리두리TODO 회원가입</title>
 <link rel="stylesheet" href="/LoveDiary/resources/css/join.css">
  <script defer src="/LoveDiary/resources/js/join.js"></script>
   
@@ -65,9 +65,7 @@
         <input type="submit" id="indexinsert" value="회원가입">
       </form>
     </section>
-    <footer>
-      <h1>footer</h1>
-    </footer>
+   
   </div>
 </body>
 </html>

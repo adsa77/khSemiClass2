@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>러브 다이어리 회원가입</title>
+<title>우리두리TODO 회원가입</title>
   <link rel="stylesheet" href="/LoveDiary/resources/css/login.css">
 
 </head>

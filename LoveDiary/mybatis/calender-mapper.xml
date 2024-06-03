@@ -9,29 +9,25 @@
         <result property="date" column="CHECK_DATE"/>
         <result property="code" column="CODE"/>
         <result property="category" column="CATEGORY"/>
+        <result property="no" column="NO"/>
+        <result property="delYn" column="DEL_YN"/>
     </resultMap>
 
 	    <select id="getCalenderList" resultMap="combinedResultMap">
 			<![CDATA[
-		    SELECT S.TITLE, S.CONTENT, TO_CHAR(S.CHECK_DATE, 'YYYY-MM-DD') AS CHECK_DATE, S.CODE, S.CATEGORY
+		    SELECT S.NO, S.TITLE, S.CONTENT, TO_CHAR(S.CHECK_DATE, 'YYYY-MM-DD') AS CHECK_DATE, S.CODE, S.CATEGORY,S.DEL_YN
 		    FROM SCHEDULE S
 		    WHERE S.CODE = #{code}
 		    
 		    UNION ALL
 		    
-		    SELECT A.TITLE, A.CONTENT, TO_CHAR(A.CHECK_DATE, 'YYYY-MM-DD') AS CHECK_DATE, A.CODE, A.CATEGORY
+		    SELECT A.NO, A.TITLE, A.CONTENT, TO_CHAR(A.CHECK_DATE, 'YYYY-MM-DD') AS CHECK_DATE, A.CODE, A.CATEGORY,A.DEL_YN
 		    FROM ANNIVERSARY A
 		    WHERE A.CODE = #{code}
 		    
 		    UNION ALL
 		    
-		    SELECT D.TITLE, D.CONTENT, TO_CHAR(D.CHECK_DATE, 'YYYY-MM-DD') AS CHECK_DATE, D.CODE, D.CATEGORY
-		    FROM DIARY D
-		    WHERE D.CODE = #{code}
-		    
-		    UNION ALL
-		    
-		    SELECT T.TITLE, T.CONTENT, TO_CHAR(T.CHECK_DATE, 'YYYY-MM-DD') AS CHECK_DATE, T.CODE, T.CATEGORY
+		    SELECT T.NO, T.TITLE, T.CONTENT, TO_CHAR(T.CHECK_DATE, 'YYYY-MM-DD') AS CHECK_DATE, T.CODE, T.CATEGORY,T.DEL_YN
 		    FROM TODO T
 		    WHERE T.CODE = #{code}
 		    ]]>

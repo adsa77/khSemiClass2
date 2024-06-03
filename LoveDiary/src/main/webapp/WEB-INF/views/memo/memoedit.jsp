@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>메모 수정</title>
+    <title>우리두리TODO 메모 수정</title>
     <link rel="stylesheet" href="/LoveDiary/resources/css/memoedit.css">
 </head>
 <body>

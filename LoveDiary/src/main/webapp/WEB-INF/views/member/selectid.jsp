@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <%@ include file="/WEB-INF/views/layout/util.jsp" %>
 
-<title>러브 다이어리 회원가입</title>
+<title>우리두리TODO 아이디찾기</title>
 <link rel="stylesheet" href="/LoveDiary/resources/css/selectid.css">
  <script defer src="/LoveDiary/resources/js/selectid.js"></script>
   
@@ -58,9 +58,7 @@
         <input type="submit" id="selectIdBut" value="아이디 찾기">
       </form>
     </section>
-    <footer>
-      <h1>footer</h1>
-    </footer>
+    
   </div>
 </body>
 </html>

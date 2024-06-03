@@ -30,17 +30,17 @@
 		SET DEL_YN = 'Y'
 		WHERE NO = #{no} 
 		AND CODE = #{code}
-		AND DEL_YN = 'N'
 	</update>
 
 <update id="todoupdate">
 		UPDATE TODO
         SET
-            TITLE = #{title},
-            CONTENT = #{content},
-            CHECK_DATE = #{checkDate}
+        TITLE = #{title},
+        CONTENT = #{content},
+        CHECK_DATE = #{checkDate}
         WHERE
-            NO = #{no}
+        CODE = #{code}
+        AND NO = #{no}
 </update>
 
 </mapper>

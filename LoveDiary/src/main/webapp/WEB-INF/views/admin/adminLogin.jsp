@@ -36,7 +36,7 @@
 				</form>
 			</div>
 		</section>
-		<footer id="footer"> footer </footer>
+		
 	</div>
 </body>
 
