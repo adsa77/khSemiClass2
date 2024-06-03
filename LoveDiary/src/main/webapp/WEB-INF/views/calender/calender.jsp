@@ -263,6 +263,11 @@ console.log("vvvvvvvvvvvv ::: " , voList);
 						<span id="tableViewSpanDate"></span>
 					</div>
 				</div>
+				<div id="tableViewInput">
+					<div id="no">
+						<input id="tableViewSpanId" type="hidden">
+					</div>
+				</div>
 			</div>
 			<button id="tableViewEdit" class="closeDivBtn">수정</button>
 			<button id="tableViewDelete" class="closeDivBtn">삭제</button>
