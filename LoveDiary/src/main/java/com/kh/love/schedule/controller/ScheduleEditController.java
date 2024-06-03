@@ -29,10 +29,13 @@ public class ScheduleEditController extends HttpServlet {
 			HttpSession session = req.getSession();
 			MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
 			
-			String writerNo = loginMemberVo.getNo();
-			String code = loginMemberVo.getCode();
+			 if (loginMemberVo == null) {
+	                resp.getWriter().write("로그인 상태가 아닙니다.");
+	                resp.sendRedirect("/LoveDiary/home");
+	                return;
+	            }
 			
-			String no = req.getParameter("no");
+			String writerNo = loginMemberVo.getNo();
 			String title = req.getParameter("scheTitle");
 			String content = req.getParameter("scheContent");
 			String checkDate = req.getParameter("scheDate");
@@ -43,8 +46,7 @@ public class ScheduleEditController extends HttpServlet {
 			svo.setContent(content);
 			svo.setCheckDate(checkDate);
 			svo.setWriterNo(writerNo);
-			svo.setNo(no);
-			svo.setCode(code);
+	
 
 			ScheduleService scs = new ScheduleService();
 			int result = scs.insertSchedule(svo);

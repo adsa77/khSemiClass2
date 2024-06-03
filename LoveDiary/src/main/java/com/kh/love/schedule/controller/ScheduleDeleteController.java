@@ -29,21 +29,16 @@ public class ScheduleDeleteController extends HttpServlet {
 			HttpSession session = req.getSession();
 			MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
 			
-			String writerNo = loginMemberVo.getNo();
-			String code = loginMemberVo.getCode();
-			String title = req.getParameter("title");
-			String content = req.getParameter("content");
-			String checkDate = req.getParameter("date");
-			String no = req.getParameter("no");
+			if (loginMemberVo == null) {
+                resp.getWriter().write("로그인 상태가 아닙니다.");
+                resp.sendRedirect("/LoveDiary/memo/list");
+                return;
+            }
 			
-
+			String writerNo = loginMemberVo.getNo();
+			
 			ScheduleVo svo = new ScheduleVo();
-			svo.setTitle(title);
-			svo.setContent(content);
-			svo.setCheckDate(checkDate);
 			svo.setWriterNo(writerNo);
-			svo.setNo(no);
-			svo.setCode(code);
 
 			ScheduleService scs = new ScheduleService();
 			int result = scs.insertSchedule(svo);
