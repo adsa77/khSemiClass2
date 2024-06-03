@@ -29,7 +29,6 @@ public class NoticeDeleteController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String strNo = req.getParameter("no");
-        System.out.println("strNo"+strNo);
         
         if (strNo == null || strNo.isEmpty()) {
             req.getSession().setAttribute("alertMsg", "잘못된 접근입니다.");
@@ -51,13 +50,13 @@ public class NoticeDeleteController extends HttpServlet {
         try {
             int result = ns.deleteNotice(no);
             if (result == 1) {
-                req.getSession().setAttribute("alertMsg", "공지사항 삭제 성공!");
+                req.getSession().setAttribute("alertMsg", "공지 삭제 성공!");
             } else {
-                req.getSession().setAttribute("alertMsg", "공지사항 삭제 실패!");
+                req.getSession().setAttribute("alertMsg", "공지 삭제 실패!");
             }
         } catch (Exception e) {
             e.printStackTrace();
-            req.getSession().setAttribute("alertMsg", "공지사항 삭제 중 오류가 발생했습니다.");
+            req.getSession().setAttribute("alertMsg", "공지 삭제 중 오류가 발생했습니다.");
         }
 
         resp.sendRedirect(req.getContextPath() + "/notice/noticeList");

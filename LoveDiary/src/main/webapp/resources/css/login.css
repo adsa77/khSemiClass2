@@ -7,7 +7,8 @@
 
 #wrap{
   display: grid;
-  width: 450px;
+  width: 100%;
+  max-width: 600px;
   height: 800px;
   justify-items: center;
   align-items: center;

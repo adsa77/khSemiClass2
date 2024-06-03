@@ -84,9 +84,7 @@ function generateCalendar(year, month) {
 			voHoliList.forEach(event => {
 				if (event.date === dateId) {
 					let holidayLabel = document.createElement('div');
-					let popUpDateHoli = document.getElementById('popUpDateHoli');
 					holidayLabel.textContent = event.title;
-					popUpDateHoli.textContent = event.title;
 					holidayLabel.classList.add(event.category.toLowerCase());
 					dayElement.appendChild(holidayLabel);
 					dayElement.classList.add('holiday-day');
@@ -98,7 +96,7 @@ function generateCalendar(year, month) {
 			voList.forEach(event => {
 				if (event.date === dateId) {
 					let scheduleLabel = document.createElement('div');
-					scheduleLabel.setAttribute("no" , event.no);
+					scheduleLabel.setAttribute("no", event.no);
 					scheduleLabel.textContent = event.title;
 					scheduleLabel.classList.add(event.category.toLowerCase()); // 카테고리 이름을 클래스로 추가
 					dayElement.appendChild(scheduleLabel);
@@ -134,6 +132,20 @@ function generateCalendar(year, month) {
 				// 팝업의 날짜와 요일에 클릭된 날짜를 적용
 				let popUpDate = document.getElementById('popUpDate');
 				popUpDate.textContent = `${clickedYear}년 ${clickedMonth}월 ${clickedDay}일 (${dayOfWeek})`;
+				// 팝업의 날짜와 같은 날짜의 공휴일 적용
+				let popUpDateHoli = document.getElementById('popUpDateHoli');
+				voHoliList.forEach(event => {
+					if (event.date === dateId) {
+						popUpDateHoli.textContent = event.title;
+					}
+				});
+				// 팝업 닫기 버튼 클릭 시 이벤트 처리
+				let insertToggleBtn = document.getElementById('insertToggleBtn');
+				insertToggleBtn.addEventListener('click', function() {
+					let popUpDateHoli = document.getElementById('popUpDateHoli');
+					popUpDateHoli.textContent = ''; // popUpDateHoli 초기화
+
+				});
 
 				// 팝업 내용을 초기화합니다.
 				let eventList = document.getElementById('eventList');
@@ -145,7 +157,7 @@ function generateCalendar(year, month) {
 						let li = document.createElement('li');
 						let link = document.createElement('a');
 						link.textContent = event.title;
-						link.setAttribute("no" , event.no);
+						link.setAttribute("no", event.no);
 						link.href = '#';
 						link.addEventListener('click', function() {
 							fillTableView(event);
@@ -208,7 +220,7 @@ function generateCalendar(year, month) {
 				function editEvent(event) {
 					// 수정 폼 가져오기 및 이벤트 세부 정보로 채우기
 					let editForm = document.getElementById('editBoardForm');
-					
+
 					editForm.querySelector('#title').value = event.title;
 					editForm.querySelector('#content').value = event.content;
 					editForm.querySelector('#date').value = event.date;

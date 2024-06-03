@@ -64,12 +64,12 @@
     </select>
     
     <!-- faq 목록 -->
-    <select id="getNoticeByNo" parameterType="string"
+    <select id="getFaqByNo" parameterType="string"
 		resultType="com.kh.love.admin.faq.vo.FaqVo"
 		resultMap="FaqResultMap">
 		SELECT NO, WRITER_NO, TITLE, CONTENT, ENROLL_DATE,
 		MODIFY_DATE, DEL_YN
-		FROM NOTICE
+		FROM FAQ
 		WHERE NO = #{no}
 	</select>
 	
@@ -87,6 +87,15 @@
 		UPDATE FAQ
 		SET TITLE = #{title}, CONTENT = #{content},
 		MODIFY_DATE = SYSDATE
+		WHERE NO = #{no}
+	</update>
+	
+	<!-- faq 삭제 -->
+	<update id="deleteFaq" parameterType="java.lang.Integer">
+		UPDATE FAQ
+		SET DEL_YN
+		= 'Y',
+		MODIFY_DATE = SYSTIMESTAMP
 		WHERE NO = #{no}
 	</update>
 

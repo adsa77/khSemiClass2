@@ -21,31 +21,31 @@ public class FaqService {
 		this.dao = new FaqDao();
 	}
 
-	public int getFAQCnt() throws Exception {
+	public int getFaqCnt() throws Exception {
 		// biz
 
 		// SQL
 		SqlSession ss = getSqlSession();
-		int cnt = dao.getFAQCnt(ss);
+		int cnt = dao.getFaqCnt(ss);
 
 		ss.close();
 		return cnt;
 	}
 
-	public List<FaqVo> searchFAQ(FaqSearchVo fsVo) throws Exception {
+	public List<FaqVo> searchFaq(FaqSearchVo fsVo) throws Exception {
 		SqlSession ss = getSqlSession();
-		List<FaqVo> faqList = dao.searchFAQ(ss, fsVo);
+		List<FaqVo> faqList = dao.searchFaq(ss, fsVo);
         ss.commit();
         ss.close();
         return faqList;
 	}
 
-	public List<FaqVo> selectFAQList(FaqPageVo pvo) throws Exception {
+	public List<FaqVo> selectFaqList(FaqPageVo pvo) throws Exception {
 		// 비즈니스 로직
 
 		// DAO 호출
 		SqlSession ss = getSqlSession();
-		List<FaqVo> voList = dao.selectNoticeList(ss, pvo);
+		List<FaqVo> voList = dao.selectFaqList(ss, pvo);
 		ss.close();
 
 		return voList;
@@ -56,7 +56,7 @@ public class FaqService {
 
 		// DAO 호출
 		SqlSession ss = getSqlSession();
-		FaqVo fvo = dao.getNoticeByNo(ss, no);
+		FaqVo fvo = dao.getFaqByNo(ss, no);
 		ss.close();
 		return fvo;
 	}
@@ -88,6 +88,20 @@ public class FaqService {
 
 		return result;
 		
+	}
+
+	public int deleteFaq(int no) throws Exception {
+		SqlSession ss = getSqlSession();
+		int result = dao.deleteFaq(ss, no);
+
+		if (result == 1) {
+			ss.commit();
+		} else {
+			ss.rollback();
+		}
+		ss.close();
+
+		return result;
 	}
 
 	

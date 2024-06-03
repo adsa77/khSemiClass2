@@ -34,7 +34,7 @@ public class NoticeEditController extends HttpServlet{
             vo = ns.getNoticeByNo(no);
         } catch (Exception e) {
             e.printStackTrace();
-            req.setAttribute("errMsg", "공지사항 정보를 불러오는 중 오류가 발생했습니다.");
+            req.setAttribute("errMsg", "공지 정보를 불러오는 중 오류가 발생했습니다.");
             req.getRequestDispatcher("/WEB-INF/views/adminCommon/error.jsp").forward(req, resp);
             return;
         }
@@ -43,7 +43,7 @@ public class NoticeEditController extends HttpServlet{
             req.setAttribute("noticeVo", vo);
             req.getRequestDispatcher("/WEB-INF/views/notice/noticeEdit.jsp").forward(req, resp);
         } else {
-            req.setAttribute("errMsg", "존재하지 않는 공지사항입니다.");
+            req.setAttribute("errMsg", "존재하지 않는 공지입니다.");
             req.getRequestDispatcher("/WEB-INF/views/adminCommon/error.jsp").forward(req, resp);
         }
 	}// get
@@ -72,14 +72,14 @@ public class NoticeEditController extends HttpServlet{
         try {
             int result = ns.editNotice(vo);
             if (result == 1) {
-                req.getSession().setAttribute("alertMsg", "공지사항 수정 성공!");
+                req.getSession().setAttribute("alertMsg", "공지 수정 성공!");
                 resp.sendRedirect("/LoveDiary/notice/noticeList");
             } else {
                 throw new Exception("공지 수정에 실패했습니다.");
             }
         } catch (Exception e) {
             e.printStackTrace();
-            req.setAttribute("errMsg", "공지사항 수정 중 오류가 발생했습니다. 다시 시도해 주세요.");
+            req.setAttribute("errMsg", "공지 수정 중 오류가 발생했습니다. 다시 시도해 주세요.");
             req.getRequestDispatcher("/WEB-INF/views/adminCommon/error.jsp").forward(req, resp);
         }
 
