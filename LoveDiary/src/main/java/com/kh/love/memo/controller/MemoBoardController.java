@@ -30,9 +30,10 @@ public class MemoBoardController extends HttpServlet {
         MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
 
         if (loginMemberVo == null) {
-            resp.getWriter().write("로그인 상태가 아닙니다.");
-            return;
-        }
+	           resp.getWriter().write("로그인 상태가 아닙니다.");
+	           resp.sendRedirect("/LoveDiary/home");
+	           return;
+	            }
 
         try {
             String writerNo = loginMemberVo.getNo(); // 로그인한 사용자의 회원 번호 가져오기
