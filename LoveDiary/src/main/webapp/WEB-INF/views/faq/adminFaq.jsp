@@ -27,13 +27,13 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${voList}" var="nvo">
+						<c:forEach items="${voList}" var="fvo">
 							<tr>
-								<td>${nvo.no}</td>
+								<td>${fvo.no}</td>
 								<td><a
-									href="/LoveDiary/faq/adminFaqDetail?no=${nvo.no}&writerNo=${nvo.writerNo}">${nvo.title}</a>
+									href="/LoveDiary/faq/adminFaqDetail?no=${fvo.no}&writerNo=${fvo.writerNo}">${fvo.title}</a>
 								</td>
-								<td><c:if test="${nvo.writerNo == 1}">관리자</c:if></td>
+								<td><c:if test="${fvo.writerNo == 1}">관리자</c:if></td>
 							</tr>
 						</c:forEach>
 					</tbody>

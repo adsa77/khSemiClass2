@@ -78,7 +78,8 @@ console.log("vvvvvvvvvvvv ::: " , voList);
 			</div>
 		</header>
 		<div id="popUp">
-			<span id="popUpDate">팝업</span> <br> <span id="popUpDateHoli"></span>
+			<span id="popUpDate">팝업</span>
+			<br> <span id="popUpDateHoli" style="font-size: 17pt;"></span>
 			<ul id="eventList">
 				<li>일정1</li>
 			</ul>

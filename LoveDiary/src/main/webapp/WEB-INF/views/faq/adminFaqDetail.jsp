@@ -7,16 +7,16 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-    <title>공지 목록</title>
+    <title>FAQ 상세</title>
 
     <%@ include file="/WEB-INF/views/adminLayout/adminUtil.jsp"%>
 
     <script>
-        function deleteNotice(no) {
+        function deleteFaq(no) {
             if (confirm("정말 삭제하시겠습니까?")) {
                 var form = document.createElement('form');
                 form.method = 'POST';
-                form.action = '/LoveDiary/faq/adminFAQDelete';
+                form.action = '/LoveDiary/faq/adminFaqDelete';
 
                 var input = document.createElement('input');
                 input.type = 'hidden';
@@ -37,27 +37,28 @@
         <%@ include file="/WEB-INF/views/adminLayout/adminNav.jsp"%>
         <section id="adminPageMain">
             <div id="faqDetail" class="tableDetailDiv">
-                <span class="formTitleSpan">FAQ ${vo.no}</span>
+                <span class="formTitleSpan">FAQ ${fvo.no}</span>
                 <table class="detailTable" border="1">
                     <tr>
                         <th>작성자</th>
-                        <td><c:if test="${vo.writerNo}"></c:if>관리자</td>
+                        <td><c:if test="${fvo.writerNo == 1}">관리자</c:if></td>
                     </tr>
                     <tr>
                         <th>제목</th>
-                        <td>${vo.title}</td>
+                        <td>${fvo.title}</td>
                     </tr>
                     <tr>
                         <th>내용</th>
-                        <td>${vo.content}</td>
+                        <td>${fvo.content}</td>
                     </tr>
                 </table>
-                <button id="faqEditButton" class="tableButton" onclick="location.href='/LoveDiary/faq/adminFaqEdit?no=${vo.no}'">FAQ수정</button>
+                <button id="faqEditButton" class="tableButton" onclick="location.href='/LoveDiary/faq/adminFaqEdit?no=${fvo.no}'">FAQ 수정</button>
                 
-                <button id="faqDeleteButton" class="tableButton" onclick="deletefaq(${vo.no})">FAQ삭제</button>
+                 <button id="faqDeleteButton" class="tableButton" onclick="deleteFaq(${fvo.no})">FAQ 삭제</button>
             </div>
         </section>
     </div>
+    <%@ include file="/WEB-INF/views/adminLayout/adminFooter.jsp"%>
 </body>
 
 </html>

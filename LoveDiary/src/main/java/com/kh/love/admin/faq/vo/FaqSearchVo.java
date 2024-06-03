@@ -40,7 +40,7 @@ public class FaqSearchVo extends FaqPageVo {
 
     @Override
     public String toString() {
-        return "NoticeSearchVo [searchCol=" + searchCol + ", value=" + value + ", boardLimit=" + boardLimit
+        return "FaqSearchVo [searchCol=" + searchCol + ", value=" + value + ", boardLimit=" + boardLimit
                 + ", listCount=" + getListCount() + ", currentPage=" + getCurrentPage() + ", pageLimit=" + getPageLimit()
                 + ", maxPage=" + getMaxPage() + ", startPage=" + getStartPage() + ", endPage=" + getEndPage()
                 + ", startNum=" + getStartNum() + ", endNum=" + getEndNum() + "]";

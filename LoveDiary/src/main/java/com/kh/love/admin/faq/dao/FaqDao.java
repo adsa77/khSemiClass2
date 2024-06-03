@@ -12,20 +12,20 @@ import com.kh.love.notice.vo.NoticeVo;
 
 public class FaqDao {
 
-	public int getFAQCnt(SqlSession ss) {
+	public int getFaqCnt(SqlSession ss) {
 		return ss.selectOne("FaqMapper.getFaqCnt");
 	}
 
-	public List<FaqVo> searchFAQ(SqlSession ss, FaqSearchVo fsVo) {
+	public List<FaqVo> searchFaq(SqlSession ss, FaqSearchVo fsVo) {
 		return ss.selectList("FaqMapper.searchFaq", fsVo);
 	}
 
-	public List<FaqVo> selectNoticeList(SqlSession ss, FaqPageVo pvo) {
+	public List<FaqVo> selectFaqList(SqlSession ss, FaqPageVo pvo) {
 		return  ss.selectList("FaqMapper.selectFaqList", pvo);
 	}
 
-	public FaqVo getNoticeByNo(SqlSession ss, String no) {
-		return  ss.selectOne("FaqMapper.getNoticeByNo", no);
+	public FaqVo getFaqByNo(SqlSession ss, String no) {
+		return  ss.selectOne("FaqMapper.getFaqByNo", no);
 	}
 
 	public int writeFaq(SqlSession ss, FaqVo vo) {
@@ -34,6 +34,10 @@ public class FaqDao {
 
 	public int editFaq(SqlSession ss, FaqVo vo) {
 		return ss.update("FaqMapper.editFaq", vo);
+	}
+
+	public int deleteFaq(SqlSession ss, int no) {
+		return ss.update("FaqMapper.deleteFaq", no);
 	}
 
 

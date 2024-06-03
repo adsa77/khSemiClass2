@@ -84,7 +84,7 @@ public class FaqVo {
 
 	@Override
 	public String toString() {
-		return "FAQVo [no=" + no + ", writerNo=" + writerNo + ", title=" + title + ", content=" + content
+		return "FaqVo [no=" + no + ", writerNo=" + writerNo + ", title=" + title + ", content=" + content
 				+ ", enrollDate=" + enrollDate + ", modifyDate=" + modifyDate + ", delYn=" + delYn + "]";
 	}
 	

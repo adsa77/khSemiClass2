@@ -36,7 +36,7 @@ public class FaqController extends HttpServlet {
         }
 
         try {
-            int listCount = fs.getFAQCnt();
+            int listCount = fs.getFaqCnt();
             String x = req.getParameter("pno") == null ? "1" : req.getParameter("pno");
             int currentPage = Integer.parseInt(x);
             int pageLimit = 5;
@@ -44,7 +44,7 @@ public class FaqController extends HttpServlet {
 
             FaqPageVo pvo = new FaqPageVo(listCount, currentPage, pageLimit, boardLimit);
 
-            String searchCol = req.getParameter("noticeCol");
+            String searchCol = req.getParameter("faqCol");
             String searchVal = req.getParameter("searchBox");
 
             List<FaqVo> voList;
@@ -52,9 +52,9 @@ public class FaqController extends HttpServlet {
                 FaqSearchVo fsVo = new FaqSearchVo(listCount, currentPage, pageLimit, boardLimit);
                 fsVo.setSearchCol(searchCol);
                 fsVo.setValue(searchVal);
-                voList = fs.searchFAQ(fsVo);
+                voList = fs.searchFaq(fsVo);
             } else {
-                voList = fs.selectFAQList(pvo);
+                voList = fs.selectFaqList(pvo);
             }
 
             req.setAttribute("voList", voList);

@@ -58,6 +58,7 @@
             </div>
         </section>
     </div>
+    <%@ include file="/WEB-INF/views/adminLayout/adminFooter.jsp"%>
 </body>
 
 </html>

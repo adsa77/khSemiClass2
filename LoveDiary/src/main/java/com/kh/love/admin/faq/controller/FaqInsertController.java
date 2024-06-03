@@ -46,7 +46,7 @@ public class FaqInsertController extends HttpServlet{
 			FaqService fs = new FaqService();
 			int result = fs.writeFaq(vo);
 			if (result == 1) {
-				req.getSession().setAttribute("alertMsg", "공지사항 추가 성공!");
+				req.getSession().setAttribute("alertMsg", "FAQ 추가 성공!");
 				resp.sendRedirect("/LoveDiary/faq/adminFaq");
 			} else {
 	            throw new Exception("게시글 작성에 실패했습니다.");

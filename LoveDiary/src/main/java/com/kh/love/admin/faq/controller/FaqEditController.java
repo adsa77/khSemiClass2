@@ -36,7 +36,7 @@ public class FaqEditController extends HttpServlet{
             vo = fs.getFaqByNo(no);
         } catch (Exception e) {
             e.printStackTrace();
-            req.setAttribute("errMsg", "공지사항 정보를 불러오는 중 오류가 발생했습니다.");
+            req.setAttribute("errMsg", "FAQ 정보를 불러오는 중 오류가 발생했습니다.");
             req.getRequestDispatcher("/WEB-INF/views/adminCommon/error.jsp").forward(req, resp);
             return;
         }
@@ -45,7 +45,7 @@ public class FaqEditController extends HttpServlet{
             req.setAttribute("FaqVo", vo);
             req.getRequestDispatcher("/WEB-INF/views/faq/adminFaqEdit.jsp").forward(req, resp);
         } else {
-            req.setAttribute("errMsg", "존재하지 않는 공지사항입니다.");
+            req.setAttribute("errMsg", "존재하지 않는 FAQ입니다.");
             req.getRequestDispatcher("/WEB-INF/views/adminCommon/error.jsp").forward(req, resp);
         }
 	}
@@ -74,14 +74,14 @@ public class FaqEditController extends HttpServlet{
         try {
             int result = fs.editFaq(vo);
             if (result == 1) {
-                req.getSession().setAttribute("alertMsg", "공지사항 수정 성공!");
-                resp.sendRedirect("/LoveDiary/faq/adminFaqEdit");
+                req.getSession().setAttribute("alertMsg", "FAQ 수정 성공!");
+                resp.sendRedirect("/LoveDiary/faq/adminFaq");
             } else {
-                throw new Exception("공지 수정에 실패했습니다.");
+                throw new Exception("FAQ 수정에 실패했습니다.");
             }
         } catch (Exception e) {
             e.printStackTrace();
-            req.setAttribute("errMsg", "공지사항 수정 중 오류가 발생했습니다. 다시 시도해 주세요.");
+            req.setAttribute("errMsg", "FAQ 수정 중 오류가 발생했습니다. 다시 시도해 주세요.");
             req.getRequestDispatcher("/WEB-INF/views/adminCommon/error.jsp").forward(req, resp);
         }
 	}
