@@ -29,22 +29,17 @@ public class AnniversaryDeleteController extends HttpServlet {
 			HttpSession session = req.getSession();
 			MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
 			
+			if (loginMemberVo == null) {
+                resp.getWriter().write("로그인 상태가 아닙니다.");
+                resp.sendRedirect("/LoveDiary/memo/list");
+                return;
+            }
+			
 			String writerNo = loginMemberVo.getNo();
-			String code = loginMemberVo.getCode();
-			String no = getParameter("no");
-			String title = getParameter("title");
-			String content = getParameter("content");
-			String checkDate = getParameter("date"); 
 			
 			AnniversaryVo avo = new AnniversaryVo();
-			avo.setNo(no);
 			avo.setWriterNo(writerNo);
-			avo.setTitle(title);
-			avo.setContent(content);
-			avo.setCheckDate(checkDate);
-			avo.setCode(code);
 			
-
 			AnniversaryService cs = new AnniversaryService();
 			int result = cs.anniversaryInsert(avo);
 			
@@ -64,11 +59,6 @@ public class AnniversaryDeleteController extends HttpServlet {
 			req.setAttribute("errMsg", e.getMessage());
 			req.getRequestDispatcher("/WEB-INF/views/common/error.jsp").forward(req, resp);
 		}
-	}
-
-	private String getParameter(String string) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

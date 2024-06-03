@@ -29,15 +29,22 @@ public class AnniversaryEditController extends HttpServlet {
 			HttpSession session = req.getSession();
 			MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
 			
+			 if (loginMemberVo == null) {
+	                resp.getWriter().write("로그인 상태가 아닙니다.");
+	                resp.sendRedirect("/LoveDiary/home");
+	                return;
+	            }
 			
 			String writerNo = loginMemberVo.getNo();
-			String code = loginMemberVo.getCode();
-			String no = getParameter("no");
+			String title = req.getParameter("anniTitle");
+			String content = req.getParameter("anniContent");
+			String checkDate = req.getParameter("anniDate");
 			
 			AnniversaryVo avo = new AnniversaryVo();
-			avo.setNo(no);
 			avo.setWriterNo(writerNo);
-			avo.setCode(code);
+			avo.setTitle(title);
+			avo.setContent(content);
+			avo.setCheckDate(checkDate);
 
 			AnniversaryService cs = new AnniversaryService();
 			int result = cs.anniversaryInsert(avo);

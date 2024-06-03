@@ -57,16 +57,17 @@
   	UPDATE SCHEDULE
 	SET DEL_YN = 'Y'
 	WHERE DEL_YN = 'N'
-	AND NO LIKE '%${no}%'
-	AND WRITER_NO LIKE '%${writerNo}%'
+	AND NO = #{writerNo}
   </insert>
   
   <insert id="scheEdit">
   	UPDATE SCHEDULE
-	SET TITLE = '%${title}%',CONTENT = '%${content}%', CHECK_DATE = '%${checkDate}%'
+	SET 
+		TITLE = #{title} 
+		,CONTENT = #{content}
+		,CHECK_DATE = #{checkDate}
 	WHERE DEL_YN = 'N'
-	AND NO LIKE '%${no}%'
-	AND WRITER_NO LIKE '%${writerNo}%'
+	AND WRITER_NO = #{writerNo}
   </insert>
   
   
