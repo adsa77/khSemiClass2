@@ -4,47 +4,68 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="MemoMapper">
 
-	<insert id="MemoInsert" >
-		INSERT INTO MEMO
-			(
-			NO
-			,WRITER_NO
-			,TITLE
-			,CONTENT
-			,CODE
-			,CHECK_DATE
-			)
-		VALUES
-			(
-			SEQ_MEMO_NO.NEXTVAL
-			,#{writerNo}
-			,#{title} 
-			,#{content}
-			,#{code}
-			,#{checkDate}
-			)
-	</insert>
-	
-	<select id="MemoListByWriter" resultType="com.kh.love.memo.vo.MemoVo">
-	        SELECT 
-            M.NO, 
-            M.WRITER_NO, 
-            M.TITLE, 
-            M.CONTENT, 
-            M.ENROLL_DATE, 
-            M.MODIFY_DATE, 
-            M.DEL_YN, 
-            M.CHECK_DATE, 
+    <insert id="MemoInsert">
+        INSERT INTO MEMO
+        (NO, WRITER_NO, TITLE, CONTENT, CHECK_DATE)
+        VALUES
+        (SEQ_MEMO_NO.NEXTVAL, #{writerNo}, #{title}, #{content}, #{checkDate})
+    </insert>
+
+    <select id="MemoListByWriter" resultType="com.kh.love.memo.vo.MemoVo">
+        SELECT
+            M.NO,
+            M.WRITER_NO,
+            M.TITLE,
+            M.CONTENT,
+            M.ENROLL_DATE,
+            M.MODIFY_DATE,
+            M.DEL_YN,
+            TO_CHAR(M.CHECK_DATE, 'YYYY-MM-DD') AS checkDate,
             M.CODE,
             MEM.NAME AS WRITER_NAME
-        FROM 
+        FROM
             MEMO M
-        JOIN 
-            MEMBER MEM ON m.WRITER_NO = mem.NO
-        WHERE 
+        JOIN
+            MEMBER MEM ON M.WRITER_NO = MEM.NO
+        WHERE
             M.WRITER_NO = #{writerNo}
-        ORDER BY 
+            AND M.DEL_YN = 'N'
+        ORDER BY
             M.ENROLL_DATE DESC
-	</select>
-	
+    </select>
+
+    <select id="selectMemoByNo" resultType="com.kh.love.memo.vo.MemoVo">
+        SELECT
+            NO,
+            WRITER_NO,
+            TITLE,
+            CONTENT,
+            TO_CHAR(CHECK_DATE, 'YYYY-MM-DD') AS checkDate
+        FROM
+            MEMO
+        WHERE
+            NO = #{memoNo}
+    </select>
+
+    <update id="updateMemo">
+        UPDATE MEMO
+        SET
+            TITLE = #{title},
+            CONTENT = #{content},
+            CHECK_DATE = #{checkDate}
+        WHERE
+            NO = #{no}
+    </update>
+
+    <update id="MemoDelete">
+        UPDATE MEMO
+        SET DEL_YN = 'Y'
+        WHERE NO = #{no}
+    </update>
+    
+    <select id="getBoardCnt" resultType="int">
+        SELECT COUNT(NO) 
+        FROM MEMO 
+        WHERE DEL_YN = 'N'
+    </select>
 </mapper>

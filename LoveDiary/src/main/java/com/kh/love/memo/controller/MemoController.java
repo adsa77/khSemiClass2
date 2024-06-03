@@ -13,7 +13,7 @@ import com.kh.love.member.vo.MemberVo;
 import com.kh.love.memo.service.MemoService;
 import com.kh.love.memo.vo.MemoVo;
 
-@WebServlet("/memo/insert")
+@WebServlet("/memo/memoinsert")
 public class MemoController extends HttpServlet{
 
 	
@@ -30,7 +30,7 @@ public class MemoController extends HttpServlet{
 			MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
 			if (loginMemberVo == null) {
 	           resp.getWriter().write("로그인 상태가 아닙니다.");
-	           resp.sendRedirect("/LoveDiary/calender/main");
+	           resp.sendRedirect("/LoveDiary/home");
 	           return;
 	            }
 			String writerNo = loginMemberVo.getNo();
@@ -54,7 +54,7 @@ public class MemoController extends HttpServlet{
 			if(result < 1) {
 	            throw new Exception("게시글 작성 실패 ...");
 	         }
-	         resp.sendRedirect("/LoveDiary/calender/main");
+	         resp.sendRedirect("/LoveDiary/memo/list");
 			
 			
 		} catch (Exception e) {
