@@ -61,6 +61,35 @@ public class FaqService {
 		return fvo;
 	}
 
+	public int writeFaq(FaqVo vo) throws Exception {
+		SqlSession ss = getSqlSession();
+		int result = dao.writeFaq(ss, vo);
+
+		if (result == 1) {
+			ss.commit();
+		} else {
+			ss.rollback();
+		}
+		ss.close();
+
+		return result;
+	}
+
+	public int editFaq(FaqVo vo) {
+		SqlSession ss = getSqlSession();
+		int result = dao.editFaq(ss, vo);
+
+		if (result == 1) {
+			ss.commit();
+		} else {
+			ss.rollback();
+		}
+		ss.close();
+
+		return result;
+		
+	}
+
 	
 
 }
