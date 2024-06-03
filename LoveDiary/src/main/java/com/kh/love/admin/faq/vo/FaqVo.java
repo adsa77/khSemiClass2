@@ -1,13 +1,13 @@
 package com.kh.love.admin.faq.vo;
 
-public class FAQVo {
+public class FaqVo {
 	
-	public FAQVo() {
+	public FaqVo() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
-	public FAQVo(String no, String writerNo, String title, String content, String enrollDate, String modifyDate,
+	public FaqVo(String no, String writerNo, String title, String content, String enrollDate, String modifyDate,
 			String delYn) {
 		super();
 		this.no = no;

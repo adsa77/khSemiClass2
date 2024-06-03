@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import com.kh.love.admin.vo.AdminVo;
 
-@WebServlet("/qna/adminQNA")
+@WebServlet("/qna/adminQna")
 public class QNAController extends HttpServlet {
 
 	@Override

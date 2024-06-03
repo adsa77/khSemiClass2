@@ -6,6 +6,7 @@
     <typeAliases>
         <typeAlias alias="Holiday" type="com.kh.love.admin.calender.vo.CalenderAdminVo"/>
         <typeAlias alias="CalenderAdminPageVo" type="com.kh.love.admin.calender.vo.CalenderAdminPageVo"/>
+        <typeAlias alias="FaqVo" type="com.kh.love.admin.faq.vo.FaqVo"/>
     </typeAliases>
   <environments default="development">
     <environment id="development">
