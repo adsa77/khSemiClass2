@@ -1,280 +1,286 @@
 #popUp {
-  max-width: 400px;
-  height: 80vh;
-  background-color: rgba(0, 0, 0, 0.5);
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: none;
-  z-index: 999;
-  padding: 20px;
-  color: white;
-  border-radius: 10px;
+	max-width: 400px;
+	height: 80vh;
+	background-color: rgba(0, 0, 0, 0.5);
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: none;
+	z-index: 999;
+	padding: 20px;
+	color: white;
+	border-radius: 10px;
 }
 
-#popUpDate{
-  font-size: 20pt;
+#popUpDate {
+	font-size: 20pt;
 }
 
 #closePopUp {
-  position: absolute;
-  border-radius: 10px;
-  height: 50px;
-  width: 50px;
-  bottom: 20px;
-  right: 20px;
+	position: absolute;
+	border-radius: 10px;
+	height: 50px;
+	width: 50px;
+	bottom: 20px;
+	right: 20px;
 }
 
-#popUp button{
-  border-radius: 10px;
-  height: 50px;
-  width: 50px;
+#popUp button {
+	border-radius: 10px;
+	height: 50px;
+	width: 50px;
 }
 
-.closeDivBtn{
-  border-radius: 10px;
-  height: 50px;
-  width: 50px;
+.closeDivBtn {
+	border-radius: 10px;
+	height: 50px;
+	width: 50px;
 }
 
 #closeInsertCalendarBtn {
-  position: absolute;
-  border-radius: 10px;
-  height: 50px;
-  width: 50px;
-  bottom: 20px;
-  right: 20px;
+	position: absolute;
+	border-radius: 10px;
+	height: 50px;
+	width: 50px;
+	bottom: 20px;
+	right: 20px;
 }
 
 #insertCalendar {
-  display: grid;
-  justify-items: center;
-  justify-content: center
+	display: grid;
+	justify-items: center;
+	justify-content: center
 }
 
 #categoryName {
-  margin-top: 50px;
-  padding: 5px;
-  box-sizing: border-box;
-  width: auto;
-  height: 50px;
-  border-radius: 10px;
-  left: 464px;
-  top: 225px;
-  background: hsl(0, 100%, 94%);
-  border: 1px solid #e9b7b7;
-  font-size: 20pt;
-  appearance:none;
-  text-align-last: center;
+	margin-top: 50px;
+	padding: 5px;
+	box-sizing: border-box;
+	width: auto;
+	height: 50px;
+	border-radius: 10px;
+	left: 464px;
+	top: 225px;
+	background: hsl(0, 100%, 94%);
+	border: 1px solid #e9b7b7;
+	font-size: 20pt;
+	appearance: none;
+	text-align-last: center;
 }
 
 #inputBox {
-  margin: 10px;
-  width: 80vw;
-  max-width: 450px;
-  height: 60vh;
-  display: grid;
-  justify-items: center;
-  box-sizing: border-box;
-  border-radius: 10px;
-  left: 115px;
-  top: 470px;
-
-  background: hsl(0, 100%, 94%);
-  border: solid 2px rgb(172, 139, 129);
+	margin: 10px;
+	width: 80vw;
+	max-width: 450px;
+	height: 60vh;
+	display: grid;
+	justify-items: center;
+	box-sizing: border-box;
+	border-radius: 10px;
+	left: 115px;
+	top: 470px;
+	background: hsl(0, 100%, 94%);
+	border: solid 2px rgb(172, 139, 129);
 }
 
-#inputBox div{
-  margin: auto;
-  margin-top: 30px;
-  width: 80%;
-  justify-self: center;
+#inputBox div {
+	margin: auto;
+	margin-top: 30px;
+	width: 80%;
+	justify-self: center;
 }
 
-#inputBox input, textarea{
-  width: 100%;
-  height: 3vh;
-  justify-items: center;
-  border-radius: 10px;
-  border-color: white;
-  border: solid 2px rgb(199, 158, 158);
+#inputBox input, textarea {
+	width: 100%;
+	height: 3vh;
+	justify-items: center;
+	border-radius: 10px;
+	border-color: white;
+	border: solid 2px rgb(199, 158, 158);
 }
 
-
-input[type=text]{
-  border: 0;
+input[type=text] {
+	border: 0;
 }
 
-#content{
-  
-  height: 30vh;
+#content {
+	height: 30vh;
 }
 
 #date {
-  color: rgb(114, 106, 106);
-  content: attr(placeholder);
-  border:0;
+	color: rgb(114, 106, 106);
+	content: attr(placeholder);
+	border: 0;
 }
 
-
-#inputBox > #submitBtn {
-  margin: 20px;
-  width: 100px;
-  background-color: rgb(236, 178, 178);
+#inputBox>#submitBtn {
+	margin: 20px;
+	width: 100px;
+	background-color: rgb(236, 178, 178);
 }
 
-#insertToggleBtn{
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
+#insertToggleBtn {
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
 }
 
-#insertBtnDiv{
-  display: grid;
-  align-items: center;
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
+#insertBtnDiv {
+	display: grid;
+	align-items: center;
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
 }
 
 #insertDetailDiv {
-  position: absolute;
-  height: 50px;
-  width: 50px;
-  bottom: 10px;
-  right: 10px;
+	position: absolute;
+	height: 50px;
+	width: 50px;
+	bottom: 10px;
+	right: 10px;
 }
 
-#anniversaryBoardBtn{
-  position: absolute;
-  right: 5px;
-  bottom: 130px;
+#anniversaryBoardBtn {
+	position: absolute;
+	right: 5px;
+	bottom: 130px;
 }
 
-#scheduleBoardBtn{
-  position: absolute;
-  right: 5px;
-  bottom: 105px;
+#scheduleBoardBtn {
+	position: absolute;
+	right: 5px;
+	bottom: 105px;
 }
 
-#todoBoardBtn{
-  position: absolute;
-  right: 5px;
-  bottom: 80px;
+#todoBoardBtn {
+	position: absolute;
+	right: 5px;
+	bottom: 80px;
 }
 
-#diaryBoardBtn{
-  position: absolute;
-  right: 5px;
-  bottom: 55px;
+#diaryBoardBtn {
+	position: absolute;
+	right: 5px;
+	bottom: 55px;
 }
 
-#accountBoardBtn{
-  position: absolute;
-  right: 5px;
-  bottom: 30px;
+#accountBoardBtn {
+	position: absolute;
+	right: 5px;
+	bottom: 30px;
 }
 
 .holiday {
-  color: red;
-  font-weight: 900;
+	color: red;
+	font-weight: 900;
 }
 
 .holiday-day {
-  background-color: #fdd;
+	background-color: #fdd;
 }
 
 /* 기념일 */
-.anni{
-background-color: rgb(230, 230, 25);
+.anni {
+	background-color: rgb(230, 230, 25);
 }
 /* todo */
-.todo{
-background-color: lightgreen;
+.todo {
+	background-color: lightgreen;
 }
 /* 스케쥴 */
-.sche{
-background-color: skyblue;
-}
-.anni, .holiday, .sche, .todo{
-font-size: 8pt;
+.sche {
+	background-color: skyblue;
 }
 
+.anni, .holiday, .sche, .todo {
+	font-size: 8pt;
+}
 
 /* 테이블 */
-#tableView{
-	max-width: 470px; 
+#tableView {
+	max-width: 470px;
 }
 
-#tableViewTitle > #title{
-margin: 0;
-width: auto;
-}
-#tableViewTitle{
-display: grid;
-justify-content: center
-}
-#tableViewDate > #date{
-margin: 0;
-width: auto;
-}
-#tableViewDate{
-display: grid;
-justify-content: center
+#tableViewTitle>#title {
+	margin: 0;
+	width: auto;
 }
 
-#title > #tableViewSpanId{
-color: blue;
-font-size: 20pt;
-}
-#content > #tableViewSpanContent{
-color: blue;
-font-size: 15pt;
-}
-#date > #tableViewSpanDate{
-color: blue;
-font-size: 15pt;
+#tableViewTitle {
+	display: grid;
+	justify-content: center
 }
 
-#tableViewTitle{
-display: grid;
-border: 1px solid black;
-border-radius: 10px;
+#tableViewDate>#date {
+	margin: 0;
+	width: auto;
 }
 
-#tableViewTitle > span{
-margin: 0;
-height: auto;
+#tableViewDate {
+	display: grid;
+	justify-content: center
 }
 
-#tableViewContent{
-border: 1px solid black;
-border-radius: 10px;
+#title>#tableViewSpanId {
+	color: blue;
+	font-size: 20pt;
 }
 
-#tableViewDate{
-border: 1px solid black;
-border-radius: 10px;
+#content>#tableViewSpanContent {
+	color: blue;
+	font-size: 15pt;
 }
 
-#tableViewBtnBox{
-position: absolute;
-bottom: 5px;
-right: 10px;
+#date>#tableViewSpanDate {
+	color: blue;
+	font-size: 15pt;
 }
-#closeInsertCalendarBtn{
-position: relative;
-bottom: 1px;
-right: 10px;
+
+#tableViewTitle {
+	display: grid;
+	border: 1px solid black;
+	border-radius: 10px;
 }
-#tableViewDelete{
-position: relative;
-bottom: 1px;
-right: 5px;
+
+#tableViewTitle>span {
+	margin: 0;
+	height: auto;
 }
-#tableViewEdit{
-  position: relative;
-  bottom: 1px;
-  right: 1px;
-  }
+
+#tableViewContent {
+	border: 1px solid black;
+	border-radius: 10px;
+}
+
+#tableViewDate {
+	border: 1px solid black;
+	border-radius: 10px;
+}
+
+#tableViewBtnBox {
+	position: absolute;
+	bottom: 5px;
+	right: 10px;
+}
+
+#closeInsertCalendarBtn {
+	position: relative;
+	bottom: 70px;
+	right: -400px;
+}
+
+#tableViewDelete {
+	position: relative;
+	bottom: 20px;
+	right: -350px;
+	display: block !important;
+}
+
+#tableViewEdit {
+	position: relative;
+	bottom: -30px;
+	right: -300px;
+	display: block !important;
+}

@@ -90,7 +90,7 @@ function generateCalendar(year, month) {
 					holidayLabel.classList.add(event.category.toLowerCase());
 					dayElement.appendChild(holidayLabel);
 					dayElement.classList.add('holiday-day');
-					
+
 				}
 			})
 
@@ -160,6 +160,7 @@ function generateCalendar(year, month) {
 					let tableViewSpanTitle = document.getElementById('tableViewSpanId');
 					let tableViewSpanContent = document.getElementById('tableViewSpanContent');
 					let tableViewSpanDate = document.getElementById('tableViewSpanDate');
+					let tableViewBtnBox = document.getElementById('tableViewBtnBox');
 					let closeInsertCalendarBtn = document.getElementById('closeInsertCalendarBtn');
 
 					tableView.style.display = 'block';
@@ -171,12 +172,30 @@ function generateCalendar(year, month) {
 					closeInsertCalendarBtn.addEventListener('click', function() {
 						tableView.style.display = 'none';
 					});
+
+					// 수정 버튼 클릭 이벤트
+					document.getElementById('tableViewEdit').addEventListener('click', function() {
+						editEvent(event); // editEvent 함수 호출하여 수정 폼 열기
+						hideTableViewButtons(); // 수정 버튼 클릭 시 다른 버튼 숨기기
+					});
+
+					// 삭제 버튼 클릭 이벤트
+					document.getElementById('tableViewDelete').addEventListener('click', function() {
+						deleteEvent(event.code, event.category);
+						hideTableViewButtons(); // 삭제 버튼 클릭 시 다른 버튼 숨기기
+					});
+
+					// 수정 및 삭제 버튼 숨기는 함수
+					function hideTableViewButtons() {
+						document.getElementById('tableViewEdit').style.display = 'none';
+						document.getElementById('tableViewDelete').style.display = 'none';
+					}
 				}
 				function getCategoryName(category) {
 					switch (category) {
 						case 'SCHE':
 							return '스케쥴';
-						case 'HOLIDAY':
+						case 'TODO':
 							return '공휴일';
 						case 'ANNI':
 							return '기념일';
@@ -184,6 +203,83 @@ function generateCalendar(year, month) {
 							return category; // 기본값은 category 그대로 출력
 					}
 				}
+				function editEvent(event) {
+					// 수정 폼 가져오기 및 이벤트 세부 정보로 채우기
+					let editForm = document.getElementById('editBoardForm');
+					editForm.querySelector('#title').value = event.title;
+					editForm.querySelector('#content').value = event.content;
+					editForm.querySelector('#date').value = event.date;
+
+					// 이벤트 카테고리에 따라 form action 설정
+					let updateUrl;
+					switch (event.category) {
+						case 'SCHE':
+							updateUrl = `/LoveDiary/schedule/update/${event.code}`;
+							break;
+						case 'HOLIDAY':
+							updateUrl = `/LoveDiary/holiday/update/${event.code}`;
+							break;
+						case 'ANNI':
+							updateUrl = `/LoveDiary/anniversary/update/${event.code}`;
+							break;
+						default:
+							console.error('Unknown category:', event.category);
+							return;
+					}
+					editForm.action = updateUrl;
+
+					// 수정 폼 보이기
+					document.getElementById('editBoard').style.display = 'block';
+
+					// 닫기 버튼에 이벤트 리스너 추가
+					document.getElementById('closeInsertCalendarBtn').addEventListener('click', function() {
+						document.getElementById('editBoard').style.display = 'none';
+					});
+				}
+
+
+				function deleteEvent(code, category) {
+					// 삭제를 확인하는 메시지를 보여줍니다.
+					if (confirm('정말로 삭제하시겠습니까?')) {
+						let url;
+						// 카테고리에 따라 적절한 URL을 선택합니다.
+						switch (category) {
+							case 'SCHE':
+								url = `/LoveDiary/schedule/delete/${code}`;
+								break;
+							case 'TODO':
+								url = `/LoveDiary/todo/delete/${code}`;
+								break;
+							case 'ANNI':
+								url = `/LoveDiary/anniversary/delete/${code}`;
+								break;
+							default:
+								console.error('Unknown category:', category);
+								return;
+						}
+
+						// DELETE 요청을 보냅니다.
+						fetch(url, {
+							method: 'DELETE'
+						}).then(response => {
+							if (response.ok) {
+								alert('삭제되었습니다.');
+								// 삭제 후 화면을 갱신하거나 삭제된 항목을 리스트에서 제거합니다.
+							} else {
+								alert('삭제에 실패했습니다.');
+							}
+						}).catch(error => {
+							console.error('Error:', error);
+							alert('삭제 중 오류가 발생했습니다.');
+						}).finally(() => {
+							// 삭제 완료 후 수정 및 삭제 버튼을 다시 보여줍니다.
+							document.getElementById('tableViewEdit').style.display = 'inline-block';
+							document.getElementById('tableViewDelete').style.display = 'inline-block';
+							document.getElementById('tableViewBtnBox').style.display = 'inline-block';
+						});
+					}
+				}
+
 			}
 
 		});
