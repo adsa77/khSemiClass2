@@ -28,22 +28,22 @@ public class CalenderController extends HttpServlet {
 			
 			if (loginMemberVo != null) {
 				String code = loginMemberVo.getCode();
-				
+				String no = req.getParameter("no");
 				CalenderVo cdvo = new CalenderVo();
 				cdvo.setCode(code);
 				
 				CalenderService cs = new CalenderService();
 				List<CalenderVo> voList = cs.calenderCodeCheck(cdvo);
-				
+				System.out.println("222222222+" + voList);
 				// 공휴일 조회
 				CalenderAdminService cas = new CalenderAdminService();
 				List<CalenderAdminVo> voHoliList = cas.CalenderHoliday();
 				
 				TodoVo todoVo = new TodoVo();
-				todoVo.setNo("5");
-				todoVo.setCode("9999");
+				todoVo.setNo(no);
+				todoVo.setCode(code);
 				
-				
+				System.out.println("캘런더"+todoVo);
 				req.setAttribute("voList", voList);
 				req.setAttribute("voHoliList", voHoliList);
 				req.setAttribute("vo", todoVo);
