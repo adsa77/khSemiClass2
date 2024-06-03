@@ -19,7 +19,16 @@ public class AnniversaryDao {
 		return ss.selectList("CoupleMapper.getAnniversaryList", vo);
 	}
 
+	
 //	public AnniversaryVo getList() {
 //		return ss.
 //	}
+	
+	public int anniversaryDelete(SqlSession ss , AnniversaryVo avo) {
+		return ss.insert("CoupleMapper.anniDelete");
+	}
+	
+	public int anniversaryEdit(SqlSession ss , AnniversaryVo avo) {
+		return ss.insert("CoupleMapper.anniEdit");
+	}
 }

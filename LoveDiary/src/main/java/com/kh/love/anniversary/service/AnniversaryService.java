@@ -44,6 +44,22 @@ private AnniversaryDao dao;
 		
 	}
 	
+	//기념일 등록 삭제
+	public int anniversaryDelete(AnniversaryVo avo) throws Exception{
+		SqlSession ss = SqlSessionTemplate.getSqlSession();
+		
+		int result = dao.anniversaryDelete(ss, avo);
+		
+		if(result == 1) {
+			ss.commit();
+		}else {
+			ss.rollback();
+		}
+		ss.close();
+		
+		return result;
+	}
+	
 	
 }
 

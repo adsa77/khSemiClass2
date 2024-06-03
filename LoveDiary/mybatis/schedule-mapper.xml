@@ -53,5 +53,22 @@
 	
   </select>
   
+  <insert id="scheDelete">
+  	UPDATE SCHEDULE
+	SET DEL_YN = 'Y'
+	WHERE DEL_YN = 'N'
+	AND NO LIKE '%${no}%'
+	AND WRITER_NO LIKE '%${writerNo}%'
+  </insert>
+  
+  <insert id="scheEdit">
+  	UPDATE SCHEDULE
+	SET TITLE = '%${title}%',CONTENT = '%${content}%', CHECK_DATE = '%${checkDate}%'
+	WHERE DEL_YN = 'N'
+	AND NO LIKE '%${no}%'
+	AND WRITER_NO LIKE '%${writerNo}%'
+  </insert>
+  
+  
   
 </mapper>

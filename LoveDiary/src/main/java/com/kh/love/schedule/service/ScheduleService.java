@@ -42,4 +42,34 @@ public class ScheduleService {
 		return voList;
 	}
 	
+	public int scheduleDelete(ScheduleVo svo) throws Exception{
+		SqlSession ss = SqlSessionTemplate.getSqlSession();
+		int result = dao.scheduleDelete(ss, svo);
+		
+		if(result == 1) {
+			ss.commit();
+		}else {
+			ss.rollback();
+		}
+		ss.close();
+		
+		return result;
+	}
+	
+	public int scheduleEdit(ScheduleVo svo) throws Exception{
+		
+		SqlSession ss = SqlSessionTemplate.getSqlSession();
+		int result = dao.scheduleEdit(ss, svo);
+		
+		if(result == 1){
+			ss.commit();
+		}else{
+			ss.rollback();
+		}
+		ss.close();
+		
+		return result;
+		
+	}
+	
 }
