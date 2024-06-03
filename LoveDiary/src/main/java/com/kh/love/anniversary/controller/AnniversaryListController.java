@@ -22,12 +22,12 @@ public class AnniversaryListController extends HttpServlet{
 			String type = req.getParameter("type");
 			String value = req.getParameter("value");
 			
-			SearchVo vo = new SearchVo();
-			vo.setType(type);
-			vo.setValue(value);
+			SearchVo svo = new SearchVo();
+			svo.setType(type);
+			svo.setValue(value);
 			
 			AnniversaryService cs = new AnniversaryService();
-			List<AnniversaryVo> voList = cs.getAnniversaryList(vo);
+			List<AnniversaryVo> voList = cs.getAnniversaryList(svo);
 			
 			req.setAttribute("voList", voList);
 			req.getRequestDispatcher("/WEB-INF/views/anniversary/list.jsp").forward(req, resp);

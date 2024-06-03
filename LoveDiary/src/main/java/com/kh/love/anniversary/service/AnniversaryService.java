@@ -33,10 +33,10 @@ private AnniversaryDao dao;
 		return result;
 	}
 	
-	public List<AnniversaryVo> getAnniversaryList(SearchVo vo)throws Exception{
+	public List<AnniversaryVo> getAnniversaryList(SearchVo svo)throws Exception{
 		
 		SqlSession ss = SqlSessionTemplate.getSqlSession();
-		List<AnniversaryVo> voList = dao.getAnniversaryList(ss,vo);
+		List<AnniversaryVo> voList = dao.getAnniversaryList(ss,svo);
 		
 		ss.close();
 		

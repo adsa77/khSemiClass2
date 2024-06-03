@@ -27,8 +27,8 @@ public class AnniversaryDao {
 		return ss.update("CoupleMapper.anniEdit",avo);
 	}
 
-	public List<AnniversaryVo> getAnniversaryList(SqlSession ss, SearchVo vo) {
-		retu
+	public List<AnniversaryVo> getAnniversaryList(SqlSession ss, SearchVo svo) {
+		return ss.selectList("ScheduleMapper.getAnniversaryList",svo);
 	}
 
 	

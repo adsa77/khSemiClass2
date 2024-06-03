@@ -225,7 +225,7 @@ function generateCalendar(year, month) {
 							updateUrl = `/LoveDiary/todo/edit`;
 							break;
 						case 'ANNI':
-							updateUrl = `/LoveDiary/anni/edit/`;
+							updateUrl = `/LoveDiary/anni/edit`;
 							break;
 						default:
 							console.error('Unknown category:', event.category);
