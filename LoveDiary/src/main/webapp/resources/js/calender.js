@@ -216,13 +216,13 @@ function generateCalendar(year, month) {
 					let updateUrl;
 					switch (event.category) {
 						case 'SCHE':
-							updateUrl = `/LoveDiary/schedule/update/${event.code}`;
+							updateUrl = `/LoveDiary/sche/edit`;
 							break;
 						case 'TODO':
 							updateUrl = `/LoveDiary/todo/edit`;
 							break;
 						case 'ANNI':
-							updateUrl = `/LoveDiary/anniversary/update/${event.code}`;
+							updateUrl = `/LoveDiary/anni/edit/${event.code}`;
 							break;
 						default:
 							console.error('Unknown category:', event.category);

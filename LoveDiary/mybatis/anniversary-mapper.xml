@@ -51,14 +51,14 @@
 	
   </select>
   
-  <insert id="anniDelete">
+  <update id="anniDelete">
   	UPDATE ANNIVERSARY
 	SET DEL_YN = 'Y'
 	WHERE DEL_YN = 'N'
 	AND WRITER_NO = #{writerNo}
-  </insert>
+  </update>
   
-  <insert id="anniEdit">
+  <update id="anniEdit">
   	UPDATE ANNIVERSARY
 	SET 
 		TITLE = #{title}
@@ -66,6 +66,6 @@
 		,CHECK_DATE = #{checkDate}
 	WHERE DEL_YN = 'N'
 	AND WRITER_NO = #{writerNo}
-  </insert>
+  </update>
 
 </mapper>

@@ -33,17 +33,18 @@ public class AnniversaryEditController extends HttpServlet {
 				resp.sendRedirect("/LoveDiary/home");
 				return;
 			}
-
-			String writerNo = loginMemberVo.getNo();
-			String title = req.getParameter("anniTitle");
-			String content = req.getParameter("anniContent");
-			String checkDate = req.getParameter("anniDate");
+			String code = req.getParameter("code");
+			String no = req.getParameter("no");
+			String title = req.getParameter("title");
+			String content = req.getParameter("content");
+			String checkDate = req.getParameter("date");
 
 			AnniversaryVo avo = new AnniversaryVo();
-			avo.setWriterNo(writerNo);
+			avo.setNo(no);
 			avo.setTitle(title);
 			avo.setContent(content);
 			avo.setCheckDate(checkDate);
+			avo.getCode();
 
 			AnniversaryService cs = new AnniversaryService();
 			int result = cs.anniversaryInsert(avo);
@@ -56,7 +57,7 @@ public class AnniversaryEditController extends HttpServlet {
 			if (result < 1) {
 				throw new Exception("게시글 작성 실패");
 			}
-			req.getRequestDispatcher("/WEB-INF/views/calender/calender.jsp").forward(req, resp);
+			resp.sendRedirect("/LoveDiary/calender/main");
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

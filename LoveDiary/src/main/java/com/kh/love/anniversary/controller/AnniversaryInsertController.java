@@ -24,24 +24,22 @@ public class AnniversaryInsertController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
-			
 
 			HttpSession session = req.getSession();
 			MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
-			
+
 			if (loginMemberVo == null) {
 				resp.getWriter().write("로그인 상태가 아닙니다.");
 				resp.sendRedirect("/LoveDiary/home");
 				return;
 			}
 
-			
 			String writerNo = loginMemberVo.getNo();
 			String code = loginMemberVo.getCode();
 			String title = req.getParameter("anniTitle");
 			String content = req.getParameter("anniContent");
 			String checkDate = req.getParameter("anniDate");
-			
+
 			AnniversaryVo avo = new AnniversaryVo();
 			avo.setTitle(title);
 			avo.setContent(content);
@@ -53,17 +51,17 @@ public class AnniversaryInsertController extends HttpServlet {
 
 			AnniversaryService cs = new AnniversaryService();
 			int result = cs.anniversaryInsert(avo);
-			
-			System.out.println("result : " +result);
-			
+
+			System.out.println("result : " + result);
+
 			PrintWriter out = resp.getWriter();
-			out.write("result: " +result);
-			
-			if(result < 1) {
+			out.write("result: " + result);
+
+			if (result < 1) {
 				throw new Exception("게시글 작성 실패");
 			}
-			req.getRequestDispatcher("/WEB-INF/views/calender/calender.jsp").forward(req, resp);
-			
+			resp.sendRedirect("/LoveDiary/calender/main");
+
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();

@@ -122,8 +122,7 @@ var voList = [
 			<button id="closeInsertCalendarBtn" class="closeDivBtn">닫기</button>
 		</div>
 		<div id="scheduleBoard" class="scheduleBoard">
-			<form id="insertCalendar" action="/LoveDiary/sche/insert"
-				method="post">
+			<form id="insertCalendar" action="/LoveDiary/sche/insert" method="post">
 				<div>
 					<div id="categoryName">
 						<span>스케쥴</span>
@@ -212,6 +211,7 @@ var voList = [
 			<button id="closeInsertCalendarBtn" class="closeDivBtn">닫기</button>
 		</div>
 		<div id="editBoard">
+		
 			<form id="editBoardForm" action="" method="post">
 				<input type="hidden" name="no" value="${vo.no}">
 				<input type="hidden" name="code" value="${vo.code}">
@@ -221,6 +221,8 @@ var voList = [
 				</div>
 				<div id="inputBox">
 					<div>
+					<input type="hidden" name="no" value="${vo.no }">
+					<input type="hidden" name="code" value="${vo.code} ">
 						<input type="text" id="title" name="title" placeholder="제목 :">
 					</div>
 					<div>
