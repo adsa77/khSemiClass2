@@ -47,7 +47,7 @@ public class TodoService {
 	public int updateTodo(TodoVo tvo) throws Exception {
 		SqlSession ss = getSqlSession();
         int result = dao.updateTodo(ss, tvo);
-
+        System.out.println("여기는 서비스"+tvo);
         if (result == 1) {
             ss.commit();
         } else {

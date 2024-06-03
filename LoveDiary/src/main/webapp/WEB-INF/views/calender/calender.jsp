@@ -1,8 +1,8 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="com.kh.love.todo.vo.TodoVo" %>
-	
+<%@ page import="com.kh.love.todo.vo.TodoVo"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,6 +34,8 @@ var voList = [
         }<c:if test="${!status.last}">,</c:if>
     </c:forEach>
 ];
+
+console.log("vvvvvvvvvvvv ::: " , voList);
     
     var voHoliList = [
         <c:forEach items="${voHoliList}" var="hvo" varStatus="status">
@@ -122,7 +124,8 @@ var voList = [
 			<button id="closeInsertCalendarBtn" class="closeDivBtn">닫기</button>
 		</div>
 		<div id="scheduleBoard" class="scheduleBoard">
-			<form id="insertCalendar" action="/LoveDiary/sche/insert" method="post">
+			<form id="insertCalendar" action="/LoveDiary/sche/insert"
+				method="post">
 				<div>
 					<div id="categoryName">
 						<span>스케쥴</span>
@@ -211,18 +214,13 @@ var voList = [
 			<button id="closeInsertCalendarBtn" class="closeDivBtn">닫기</button>
 		</div>
 		<div id="editBoard">
-		
+
 			<form id="editBoardForm" action="" method="post">
-				<input type="hidden" name="no" value="${vo.no}">
-				<input type="hidden" name="code" value="${vo.code}">
-				
 				<div id="categoryName">
 					<span>수정</span>
 				</div>
 				<div id="inputBox">
 					<div>
-					<input type="hidden" name="no" value="${vo.no }">
-					<input type="hidden" name="code" value="${vo.code} ">
 						<input type="text" id="title" name="title" placeholder="제목 :">
 					</div>
 					<div>
@@ -230,6 +228,10 @@ var voList = [
 					</div>
 					<div>
 						<input type="date" id="date" name="date" placeholder="날짜">
+					</div>
+					<div>
+						<input type="hidden" id="no" name="no">
+						<input type="hidden" id="code" name="code">
 					</div>
 					<input type="submit" id="submitBtn">
 				</div>
@@ -282,10 +284,13 @@ var voList = [
 			<li><a href="/LoveDiary/memo/list">나의 메모</a></li>
 			<li><a href="/LoveDiary/diary/list">나의 일기</a></li>
 		</ul>
-		<br><br><br>
-			<button id="editbut" onclick="location.href='/LoveDiary/member/edit'">회원정보수정</button>
-			<br>
-			<button id="logoutbut" onclick="location.href='/LoveDiary/member/logout'">로그아웃</button>
+		<br>
+		<br>
+		<br>
+		<button id="editbut" onclick="location.href='/LoveDiary/member/edit'">회원정보수정</button>
+		<br>
+		<button id="logoutbut"
+			onclick="location.href='/LoveDiary/member/logout'">로그아웃</button>
 	</aside>
 </body>
 </html>

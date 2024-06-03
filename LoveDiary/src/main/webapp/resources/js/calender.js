@@ -145,6 +145,7 @@ function generateCalendar(year, month) {
 						let li = document.createElement('li');
 						let link = document.createElement('a');
 						link.textContent = event.title;
+						link.setAttribute("no" , event.no);
 						link.href = '#';
 						link.addEventListener('click', function() {
 							fillTableView(event);
@@ -211,6 +212,8 @@ function generateCalendar(year, month) {
 					editForm.querySelector('#title').value = event.title;
 					editForm.querySelector('#content').value = event.content;
 					editForm.querySelector('#date').value = event.date;
+					editForm.querySelector('#no').value = event.no;
+					editForm.querySelector('#code').value = event.code;
 
 					// 이벤트 카테고리에 따라 form action 설정
 					let updateUrl;
@@ -222,7 +225,7 @@ function generateCalendar(year, month) {
 							updateUrl = `/LoveDiary/todo/edit`;
 							break;
 						case 'ANNI':
-							updateUrl = `/LoveDiary/anni/edit/${event.code}`;
+							updateUrl = `/LoveDiary/anni/edit/`;
 							break;
 						default:
 							console.error('Unknown category:', event.category);

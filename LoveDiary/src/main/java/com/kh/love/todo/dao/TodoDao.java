@@ -17,7 +17,7 @@ public class TodoDao {
 	}
 
 	public int updateTodo(SqlSession ss, TodoVo tvo) {
-
+		System.out.println("TodoDao > tvo : " + tvo);
 			return ss.update("TodoMapper.todoupdate",tvo);
 	}
 

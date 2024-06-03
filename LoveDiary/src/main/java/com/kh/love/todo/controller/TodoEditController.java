@@ -32,6 +32,8 @@ public class TodoEditController extends HttpServlet{
 	            resp.sendRedirect("/LoveDiary/home");
 	            return;
 	        }
+	        String no = req.getParameter("no"); // null 
+	        System.out.println("Received no in doGet: " + no);
 	      
 	}
 	@Override
@@ -47,7 +49,8 @@ public class TodoEditController extends HttpServlet{
             }
             	String no = req.getParameter("no");
     			String code = loginMemberVo.getCode();
-    			
+    			System.out.println("Received no in doPost: " + no);
+
     			String title = req.getParameter("title");
     			String content = req.getParameter("content");
     			String checkDate =req.getParameter("date");
