@@ -216,7 +216,7 @@ function generateCalendar(year, month) {
 						case 'SCHE':
 							updateUrl = `/LoveDiary/schedule/update/${event.code}`;
 							break;
-						case 'HOLIDAY':
+						case 'TODO':
 							updateUrl = `/LoveDiary/holiday/update/${event.code}`;
 							break;
 						case 'ANNI':
