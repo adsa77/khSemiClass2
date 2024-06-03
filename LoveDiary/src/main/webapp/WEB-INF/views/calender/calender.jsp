@@ -72,9 +72,7 @@
 			</div>
 		</header>
 		<div id="popUp">
-			<span id="popUpDate">팝업</span>
-			<br>
-			<span id="popUpDateHoli"></span>
+			<span id="popUpDate">팝업</span> <br> <span id="popUpDateHoli"></span>
 			<ul id="eventList">
 				<li>일정1</li>
 			</ul>
@@ -209,6 +207,27 @@
 			</form>
 			<button id="closeInsertCalendarBtn" class="closeDivBtn">닫기</button>
 		</div>
+		<div id="editBoard">
+			<form id="editBoardForm" action="" method="post">
+				<div id="categoryName">
+					<span>수정</span>
+				</div>
+				<div id="inputBox">
+					<div>
+						<input type="text" id="title" name="title" placeholder="제목 :">
+					</div>
+					<div>
+						<textarea id="content" name="content" placeholder="내용 :"></textarea>
+					</div>
+					<div>
+						<input type="date" id="date" name="date" placeholder="날짜">
+					</div>
+					<input type="submit" id="submitBtn">
+				</div>
+			</form>
+			<button id="closeInsertCalendarBtn" class="closeDivBtn">닫기</button>
+		</div>
+
 		<div id="tableView" class="tableView" style="display: none;">
 			<div>
 				<div id="categoryName">
@@ -232,10 +251,8 @@
 					</div>
 				</div>
 			</div>
-			<div id="tableViewBtnBox">
-				<button id="tableViewEdit" class="closeDivBtn">수정</button>
-				<button id="tableViewDelete" class="closeDivBtn">삭제</button>
-			</div>
+			<button id="tableViewEdit" class="closeDivBtn">수정</button>
+			<button id="tableViewDelete" class="closeDivBtn">삭제</button>
 			<button id="closeInsertCalendarBtn" class="closeDivBtn">닫기</button>
 
 		</div>
@@ -259,14 +276,11 @@
 			<li><a href="./html/chat.html"
 				onclick="loadPage('./html/chat.html'); return false;">채팅</a></li>
 		</ul>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
+		<br> <br> <br> <br> <br>
 		<button id="editbut" onclick="location.href='/LoveDiary/member/edit'">회원정보수정</button>
 		<br>
-		<button id="logoutbut" onclick="location.href='/LoveDiary/member/logout'">로그아웃</button>
+		<button id="logoutbut"
+			onclick="location.href='/LoveDiary/member/logout'">로그아웃</button>
 	</aside>
 </body>
 </html>
