@@ -33,3 +33,23 @@
 #sidebar.active {
   bottom: 100px;
 }
+
+#editbut, #logoutbut {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    display: block;
+    width: 80%;
+    height: 30px;
+    margin:  0px; /* 버튼 사이 간격 추가 */
+    border-radius: 5px;
+    text-align: center;
+    line-height: 40px; /* 버튼 내 텍스트 중앙 정렬 */
+}
+
+#editbut:hover, #logoutbut:hover {
+    background-color: #c0392b;
+}

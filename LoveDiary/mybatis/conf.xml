@@ -32,5 +32,6 @@
     <mapper resource="todo-mapper.xml"/>
     <mapper resource="code-mapper.xml"/>
     <mapper resource="Memo-mapper.xml"/>
+    <mapper resource="diary-mapper.xml"/>
   </mappers>
 </configuration>

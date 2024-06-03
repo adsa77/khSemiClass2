@@ -268,19 +268,13 @@
 	</div>
 	<aside id="sidebar">
 		<ul>
-			<li><a href="../index.html">홈페이지</a></li>
-			<li><a href="./html/mainFrame.html">달력</a></li>
 			<li><a href="/LoveDiary/memo/list">나의 메모</a></li>
-			<li><a href="./html/diaryList.html"
-				onclick="loadPage('./html/diaryList.html'); return false;">diaryList</a></li>
-			<li><a href="./html/chat.html"
-				onclick="loadPage('./html/chat.html'); return false;">채팅</a></li>
+			<li><a href="/LoveDiary/diary/list">나의 일기</a></li>
 		</ul>
-		<br> <br> <br> <br> <br>
-		<button id="editbut" onclick="location.href='/LoveDiary/member/edit'">회원정보수정</button>
-		<br>
-		<button id="logoutbut"
-			onclick="location.href='/LoveDiary/member/logout'">로그아웃</button>
+		<br><br><br>
+			<button id="editbut" onclick="location.href='/LoveDiary/member/edit'">회원정보수정</button>
+			<br>
+			<button id="logoutbut" onclick="location.href='/LoveDiary/member/logout'">로그아웃</button>
 	</aside>
 </body>
 </html>

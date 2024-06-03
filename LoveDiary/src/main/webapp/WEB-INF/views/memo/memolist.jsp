@@ -9,7 +9,7 @@
     <title>게시글 목록</title>
 </head>
 <body>
-    <div class="container">
+     <div class="container">
         <h1>메모장</h1>
         <button class="new-post-button" onclick="location.href='/LoveDiary/memo/memoinsert'">새 메모 작성</button>
 
@@ -18,7 +18,7 @@
             if (voList != null && !voList.isEmpty()) {
                 for (MemoVo memo : voList) {
         %>
-                   <div class="post">
+                    <div class="post">
                         <h2><%= memo.getTitle() %></h2>
                         <p><%= memo.getContent() %></p>
                         <div class="date">
@@ -41,7 +41,6 @@
         <%
             }
         %>
-        
     </div>
 </body>
 </html>
