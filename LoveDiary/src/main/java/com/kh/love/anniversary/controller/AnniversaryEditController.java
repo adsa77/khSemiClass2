@@ -33,8 +33,8 @@ public class AnniversaryEditController extends HttpServlet {
 				resp.sendRedirect("/LoveDiary/home");
 				return;
 			}
-			String code = req.getParameter("code");
 			String no = req.getParameter("no");
+			String code = loginMemberVo.getCode();
 			String title = req.getParameter("title");
 			String content = req.getParameter("content");
 			String checkDate = req.getParameter("date");
@@ -44,10 +44,10 @@ public class AnniversaryEditController extends HttpServlet {
 			avo.setTitle(title);
 			avo.setContent(content);
 			avo.setCheckDate(checkDate);
-			avo.getCode();
+			avo.setCode(code);
 
 			AnniversaryService cs = new AnniversaryService();
-			int result = cs.anniversaryInsert(avo);
+			int result = cs.anniversaryUpdate(avo);
 
 			System.out.println("result : " + result);
 
@@ -67,9 +67,6 @@ public class AnniversaryEditController extends HttpServlet {
 		}
 	}
 
-	private String getParameter(String string) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 }

@@ -61,11 +61,11 @@
   <update id="anniEdit">
   	UPDATE ANNIVERSARY
 	SET 
-		TITLE = #{title}
-		,CONTENT = #{content}
-		,CHECK_DATE = #{checkDate}
-	WHERE DEL_YN = 'N'
-	AND WRITER_NO = #{writerNo}
+    TITLE = #{title} 
+	,CONTENT = #{content}
+	,CHECK_DATE = #{checkDate}
+	WHERE CODE = #{code}
+	AND NO = #{no}
   </update>
 
 </mapper>

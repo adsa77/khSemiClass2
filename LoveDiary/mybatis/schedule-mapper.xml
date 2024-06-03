@@ -63,11 +63,10 @@
   <update id="scheEdit">
   	UPDATE SCHEDULE
 	SET 
-		TITLE = #{title} 
-		,CONTENT = #{content}
-		,CHECK_DATE = #{checkDate}
-	WHERE DEL_YN = 'N'
-	AND CODE = #{code}
+    TITLE = #{title} 
+	,CONTENT = #{content}
+	,CHECK_DATE = #{checkDate}
+	WHERE CODE = #{code}
 	AND NO = #{no}
 	</update>
   

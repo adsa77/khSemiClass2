@@ -59,6 +59,20 @@ private AnniversaryDao dao;
 		
 		return result;
 	}
+
+	public int anniversaryUpdate(AnniversaryVo avo) throws Exception {
+		SqlSession ss = SqlSessionTemplate.getSqlSession();
+		int result = dao.anniversaryEdit(ss, avo);
+		
+		if(result == 1){
+			ss.commit();
+		}else{
+			ss.rollback();
+		}
+		ss.close();
+		
+		return result;
+	}
 	
 	
 }

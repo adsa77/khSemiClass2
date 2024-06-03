@@ -14,21 +14,22 @@ public class AnniversaryDao {
 		return ss.insert("CoupleMapper.AnniversaryInsert", avo);
 
 	}
-
-	public List<AnniversaryVo> getAnniversaryList(SqlSession ss, SearchVo vo) {
-		return ss.selectList("CoupleMapper.getAnniversaryList", vo);
-	}
-
 	
 //	public AnniversaryVo getList() {
 //		return ss.
 //	}
 	
 	public int anniversaryDelete(SqlSession ss , AnniversaryVo avo) {
-		return ss.update("CoupleMapper.anniDelete");
+		return ss.update("CoupleMapper.anniDelete",avo);
 	}
 	
 	public int anniversaryEdit(SqlSession ss , AnniversaryVo avo) {
-		return ss.update("CoupleMapper.anniEdit");
+		return ss.update("CoupleMapper.anniEdit",avo);
 	}
+
+	public List<AnniversaryVo> getAnniversaryList(SqlSession ss, SearchVo vo) {
+		retu
+	}
+
+	
 }
