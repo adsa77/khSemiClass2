@@ -28,5 +28,13 @@ public class FaqDao {
 		return  ss.selectOne("FaqMapper.getNoticeByNo", no);
 	}
 
+	public int writeFaq(SqlSession ss, FaqVo vo) {
+		return ss.insert("FaqMapper.writeFaq", vo);
+	}
+
+	public int editFaq(SqlSession ss, FaqVo vo) {
+		return ss.update("FaqMapper.editFaq", vo);
+	}
+
 
 }

@@ -63,7 +63,8 @@
         WHERE RNUM BETWEEN #{startNum} AND #{endNum}
     </select>
     
-    	<select id="getNoticeByNo" parameterType="string"
+    <!-- faq 목록 -->
+    <select id="getNoticeByNo" parameterType="string"
 		resultType="com.kh.love.admin.faq.vo.FaqVo"
 		resultMap="FaqResultMap">
 		SELECT NO, WRITER_NO, TITLE, CONTENT, ENROLL_DATE,
@@ -71,5 +72,22 @@
 		FROM NOTICE
 		WHERE NO = #{no}
 	</select>
+	
+	<!-- faq 작성 -->
+	<insert id="writeFaq">
+    INSERT INTO FAQ
+    (NO, WRITER_NO, TITLE, CONTENT, ENROLL_DATE)
+    VALUES
+    (SEQ_FAQ_NO.NEXTVAL, #{writerNo}, #{title}, #{content}, SYSDATE)
+	</insert>
+	
+	<!-- faq 수정 -->
+	<update id="editFaq"
+		parameterType="com.kh.love.admin.faq.vo.FaqVo">
+		UPDATE FAQ
+		SET TITLE = #{title}, CONTENT = #{content},
+		MODIFY_DATE = SYSDATE
+		WHERE NO = #{no}
+	</update>
 
 </mapper>

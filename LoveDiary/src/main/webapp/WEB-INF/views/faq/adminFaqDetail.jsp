@@ -37,7 +37,7 @@
         <%@ include file="/WEB-INF/views/adminLayout/adminNav.jsp"%>
         <section id="adminPageMain">
             <div id="faqDetail" class="tableDetailDiv">
-                <span class="formTitleSpan">자주묻는 질문 ${vo.no}</span>
+                <span class="formTitleSpan">FAQ ${vo.no}</span>
                 <table class="detailTable" border="1">
                     <tr>
                         <th>작성자</th>
@@ -52,9 +52,9 @@
                         <td>${vo.content}</td>
                     </tr>
                 </table>
-                <button id="faqEditButton" class="tableButton" onclick="location.href='/LoveDiary/faq/faqEdit?no=${vo.no}'">질문수정</button>
+                <button id="faqEditButton" class="tableButton" onclick="location.href='/LoveDiary/faq/faqEdit?no=${vo.no}'">FAQ수정</button>
                 
-                <button id="faqDeleteButton" class="tableButton" onclick="deletefaq(${vo.no})">질문삭제</button>
+                <button id="faqDeleteButton" class="tableButton" onclick="deletefaq(${vo.no})">FAQ삭제</button>
             </div>
         </section>
     </div>

@@ -70,7 +70,7 @@
 					</form>
 					<c:if test="${not empty sessionScope.loginAdminVo}">
 						<button id="faqInsertButton"
-							onclick="location.href='/LoveDiary/faq/faqInsert'">공지작성</button>
+							onclick="location.href='/LoveDiary/faq/adminFaqInsert'">공지작성</button>
 					</c:if>
 				</div>
 
