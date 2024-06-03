@@ -75,7 +75,7 @@ public class FaqService {
 		return result;
 	}
 
-	public int editFaq(FaqVo vo) {
+	public int editFaq(FaqVo vo) throws Exception {
 		SqlSession ss = getSqlSession();
 		int result = dao.editFaq(ss, vo);
 

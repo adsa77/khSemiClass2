@@ -52,7 +52,7 @@
                         <td>${vo.content}</td>
                     </tr>
                 </table>
-                <button id="faqEditButton" class="tableButton" onclick="location.href='/LoveDiary/faq/faqEdit?no=${vo.no}'">FAQ수정</button>
+                <button id="faqEditButton" class="tableButton" onclick="location.href='/LoveDiary/faq/adminFaqEdit?no=${vo.no}'">FAQ수정</button>
                 
                 <button id="faqDeleteButton" class="tableButton" onclick="deletefaq(${vo.no})">FAQ삭제</button>
             </div>

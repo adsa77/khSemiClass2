@@ -15,7 +15,7 @@ import com.kh.love.admin.vo.AdminVo;
 import com.kh.love.notice.service.NoticeService;
 import com.kh.love.notice.vo.NoticeVo;
 
-@WebServlet("/faq/faqEdit")
+@WebServlet("/faq/adminFaqEdit")
 public class FaqEditController extends HttpServlet{
 	
 	@Override
@@ -43,7 +43,7 @@ public class FaqEditController extends HttpServlet{
 
         if (vo != null) {
             req.setAttribute("FaqVo", vo);
-            req.getRequestDispatcher("/WEB-INF/views/faq/faqEdit.jsp").forward(req, resp);
+            req.getRequestDispatcher("/WEB-INF/views/faq/adminFaqEdit.jsp").forward(req, resp);
         } else {
             req.setAttribute("errMsg", "존재하지 않는 공지사항입니다.");
             req.getRequestDispatcher("/WEB-INF/views/adminCommon/error.jsp").forward(req, resp);
@@ -75,7 +75,7 @@ public class FaqEditController extends HttpServlet{
             int result = fs.editFaq(vo);
             if (result == 1) {
                 req.getSession().setAttribute("alertMsg", "공지사항 수정 성공!");
-                resp.sendRedirect("/LoveDiary/faq/adminFaq");
+                resp.sendRedirect("/LoveDiary/faq/adminFaqEdit");
             } else {
                 throw new Exception("공지 수정에 실패했습니다.");
             }
