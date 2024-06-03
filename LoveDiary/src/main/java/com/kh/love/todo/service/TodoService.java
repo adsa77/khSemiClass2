@@ -44,6 +44,21 @@ public class TodoService {
         
         return result;
 	}
+	public int updateTodo(TodoVo tvo) throws Exception {
+		SqlSession ss = getSqlSession();
+        int result = dao.updateTodo(ss, tvo);
+
+        if (result == 1) {
+            ss.commit();
+        } else {
+            ss.rollback();
+            throw new Exception("투두 수정 실패 발생");
+        }
+        ss.close();
+
+        return result;
+		
+	}
 
 	
 

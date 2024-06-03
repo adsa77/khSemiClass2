@@ -42,9 +42,9 @@
       
 
       	<div>
-     	 	<a href="/LoveDiary/select/id" id="selectId" class="forgetpass">아이디 찾기</a>
+     	 	<button href="/LoveDiary/select/id" id="selectId" class="forgetpass">아이디 찾기</button>
        		
-       		<a href="/LoveDiary/select/pwd" id="selectPwd" class="forgetpass">비밀번호 찾기</a>
+       		<button href="/LoveDiary/select/pwd" id="selectPwd" class="forgetpass">비밀번호 찾기</button>
       	</div>
 
     </section>

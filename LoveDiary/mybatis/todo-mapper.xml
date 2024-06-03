@@ -33,5 +33,14 @@
 		AND DEL_YN = 'N'
 	</update>
 
+<update id="todoupdate">
+		UPDATE TODO
+        SET
+            TITLE = #{title},
+            CONTENT = #{content},
+            CHECK_DATE = #{checkDate}
+        WHERE
+            NO = #{no}
+</update>
 
 </mapper>

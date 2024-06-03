@@ -16,4 +16,9 @@ public class TodoDao {
 		return ss.update("TodoMapper.todoDelete",tvo);
 	}
 
+	public int updateTodo(SqlSession ss, TodoVo tvo) {
+
+			return ss.update("TodoMapper.todoupdate",tvo);
+	}
+
 }
