@@ -28,9 +28,9 @@
      	<span id="idtitle">회원님의 코드는 : ${loginMemberVo.code} 입니다.</span>
      	<span id="idtitle">회원님의 닉네임은 : ${loginMemberVo.nick} 입니다.</span>
      	<br>
-        <input type="password" id="editTitle" name="editpwd" placeholder="변경하실 비밀번호">
+        <input type="password" id="editTitle" name="editpwd" placeholder="비밀번호 입력해주세요">
         <br>
-        <input type="password" id="editTitle" name="editpwd2" placeholder="변경하실 비밀번호 확인">
+        <input type="password" id="editTitle" name="editpwd2" placeholder="비밀번호 확인">
         <br>
         <br>
         <br>
