@@ -64,7 +64,7 @@ public class MemberUserCheckController extends HttpServlet{
 
 	        session.setAttribute("alertMsg", "검증이 완료 되었습니다.");
 	        session.setAttribute("loginMemberVo", result); // 검증 완료된 회원 정보 다시 설정
-	        resp.sendRedirect("/member/pwdedit");
+	        resp.sendRedirect("/LoveDiary/member/pwdedit");
 	    } catch (Exception e) {
 	        System.out.println(e.getMessage());
 	        e.printStackTrace();

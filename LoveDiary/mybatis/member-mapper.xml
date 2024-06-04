@@ -36,7 +36,7 @@
 	<select id="memberEdit" resultType="com.kh.love.member.vo.MemberVo">
 		SELECT *
         FROM MEMBER
-        WHERE ID = #{pwd}
+        WHERE PWD = #{pwd}
         AND CODE = #{code}
         AND ID = #{id}
 	</select>
