@@ -10,18 +10,12 @@ Love Diary는 커플들이 일상을 기록하고 공유할 수 있는 다이어
 2024.6.11 ~ 2024.7.19
 
 ## 💡역할
-김제민 / DB관리자
+손지욱 / 조장 & 일정 관리자
 
 
-손지욱 / 형상관리자
+최혜원 / UI기획 & 형상관리자
 
 
-신은지 / 조장
+한재두 / DB관리자 & 테스트담당자
 
-
-윤혜연 / DB관리자
-
-
-주선기 / 일정관리자, 이슈관리자
-
-## [⭐노션 포토폴리오](https://prairie-dietician-01c.notion.site/Eyes-On-Us-cb1efda2a0e448288d1ce42a76ea6ec1?pvs=41)
+## [⭐노션 포토폴리오]([https://prairie-dietician-01c.notion.site/Eyes-On-Us-cb1efda2a0e448288d1ce42a76ea6ec1?pvs=41](https://mint-passenger-741.notion.site/Love-Diary-b474de9b2729405c94580b422b9dcf6f?pvs=4))
