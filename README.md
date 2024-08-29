@@ -1,4 +1,4 @@
-# KH_SEMI_CLASS1
+# KH_SEMI_CLASS2
 Love Diary 커플 다이어리
 
 ## 🖥️프로젝트 소개
