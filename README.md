@@ -18,4 +18,4 @@ Love Diary는 커플들이 일상을 기록하고 공유할 수 있는 다이어
 
 한재두 / DB관리자 & 테스트담당자
 
-## [⭐노션 포토폴리오](https://mint-passenger-741.notion.site/Love-Diary-b474de9b2729405c94580b422b9dcf6f?pvs=4)
+## [⭐노션 포트폴리오](https://mint-passenger-741.notion.site/Love-Diary-b474de9b2729405c94580b422b9dcf6f?pvs=4)
